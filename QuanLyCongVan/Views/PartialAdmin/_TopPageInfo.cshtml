@@ -1,0 +1,31 @@
+﻿@model QLCV.Common.Paging
+@{
+    Paging paging = Model;
+}
+@using QLCV.Common
+@using QLCV.Common;
+<div class="page-info">
+    <div class="div-page-size">
+        <span>Shows</span>
+        <select class="page-size" id="page-size">
+            <option value="10" @(paging.NumberOfRecord == 10 ? "selected=selected" : "")>10</option>
+            <option value="25" @(paging.NumberOfRecord == 25 ? "selected=selected" : "")>25</option>
+            <option value="50" @(paging.NumberOfRecord == 50 ? "selected=selected" : "")>50</option>
+            <option value="100" @(paging.NumberOfRecord == 100 ? "selected=selected" : "")>100</option>
+        </select>
+        <span>Line</span>
+    </div>
+    <div class="showing-row">
+        @if (paging.TotalRecord == 0)
+        {
+            <span>NoResult</span>
+        }
+        else
+        {
+            int showFrom = (paging.CurrentPage - 1) * paging.NumberOfRecord + 1;
+            int showTo = showFrom + paging.NumberOfRecord - 1;
+            showTo = showTo > paging.TotalRecord ? paging.TotalRecord : showTo;
+            <span>ShowFrom @showFrom To @showTo Of @paging.TotalRecord Line</span>
+        }
+    </div>
+</div>

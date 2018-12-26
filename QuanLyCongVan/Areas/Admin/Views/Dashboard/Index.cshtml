@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section css{
+}
+@section scripts{
+    @Scripts.Render("~/public/assets/skycons/skycons.js");
+    @Scripts.Render("~/public/assets/iCheck/icheck.js");
+    @Scripts.Render("~/public/js/admin/dashboard/index.js");
+}
+<div class="row">
+    <!-- start of weather widget -->
+    <div class="col-md-9 col-sm-9 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>TheWeatherToday</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12 text-center col-time">
+                        <canvas id="canvas" width="230" height="230" class="dashboard_clock" style="background-color:transparent"></canvas>
+                    </div>
+                    <div class="col-sm-8 col-xs-12 col-weather">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="temperature" id="temperature">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="weather-icon text-center">
+                                    <img class="weather-icon" src="" />
+                                </div>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="weather-text">
+                                    <h2>DaNangCity <br><i id="today-description" style="text-transform: capitalize; display: inline-block; margin-top: 5px;"></i></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="weather-text pull-right curent-weather">
+                                <h3 class="degrees"></h3>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row weather-days">
+                            @for (int i = 0; i < 6; i++)
+                            {
+                                <div class="col-sm-2">
+                                    <div class="daily-weather daily-weather-@(i + 1) text-center">
+                                        <h2 class="day"></h2>
+                                        <h3 class="degrees"></h3>
+                                        <img class="weather-icon" src="" />
+                                        <h5 class="speed" style="margin: 0px;"></h5>
+                                    </div>
+                                </div>
+                            }
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of weather widget -->
+    <!-- start of Quick Settings widget -->
+    <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="x_panel tile">
+            <div class="x_title">
+                <h2>QuickSettings</h2>
+                <ul class="nav navbar-right panel_toolbox dashboard_setting">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="dashboard-widget-content dashboard_setting_list">
+                    <ul class="quick-list dashboard_setting_icon">
+                        <li>
+                            <i class="fa fa-image"></i><a href="#">AddSlide</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-user"></i><a href="#">AddUser</a>
+                        </li>
+                        <li><i class="fa fa-file-image-o"></i><a href="#">addPhoto</a></li>
+                        <li>
+                            <i class="fa fa-group"></i><a href="#">AddGroup</a>
+                        </li>
+                        <li><i class="fa fa-newspaper-o"></i><a href="#">AddNew</a>
+                        <li>
+                            <i class="fa fa-graduation-cap"></i><a href="#">addCourse</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-exclamation-triangle"></i><a href="#">AddEror</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-address-book"></i><a href="#">aaa</a>
+                        </li>
+                        <li>
+                            <i class="fa fa fa-user-circle-o"></i><a href="#">bbbb</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of Quick Settings widget -->
+</div>

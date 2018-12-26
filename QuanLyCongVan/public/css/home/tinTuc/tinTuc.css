@@ -1,0 +1,70 @@
+﻿news-details-area{
+    padding-top:90px; 
+    margin-bottom:50px;
+}
+.area-comment-reply{
+    padding-bottom: 20px;
+}
+.are-see-more{
+    margin-bottom: 15px;
+}
+.commnent-reply-content{
+    max-width:100%;
+    max-height:100px;
+    min-width:100%;
+    min-height:50px;
+}
+.area-text-reply{
+    position: relative;
+}
+.reply-comment{
+    cursor:pointer;
+}
+.content-tintuc {
+    height: 60px;
+}
+@media only screen and (max-width: 1116px) {
+    .content-tintuc {
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 1170px) {
+    .content-tintuc {
+        height: 30px;
+    }
+}
+/* Rating Star Widgets Style */
+.rating-stars ul {
+    list-style-type: none;
+    padding: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+    .rating-stars ul > li.star {
+        display: inline-block;
+    }
+
+        /* Idle State of the stars */
+        .rating-stars ul > li.star > i.fa {
+            font-size: 1.5em; /* Change the size of the stars */
+            color: #ccc; /* Color on idle state */
+        }
+
+        /* Hover state of the stars */
+        .rating-stars ul > li.star.hover > i.fa {
+            color: #FFCC36;
+        }
+
+        /* Selected state of the stars */
+        .rating-stars ul > li.star.selected > i.fa {
+            color: #FF912C;
+        }
+
+#see-more-comment{
+    cursor:pointer;
+}
+a{
+    cursor:pointer;
+}

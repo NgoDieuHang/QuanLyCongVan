@@ -1,0 +1,6 @@
+﻿.fist-last-name {
+    word-break: break-all;
+    min-width: 150px !important;
+    max-width: 200px !important;
+    white-space: normal !important;
+}
