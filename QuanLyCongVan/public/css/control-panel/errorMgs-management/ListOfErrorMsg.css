@@ -1,0 +1,18 @@
+﻿.text-type {
+    width: 130px;
+    min-width: 130px;
+}
+
+#btn-update-file {
+    width: 135px;
+    height: 35px;
+    background: #337ab7;
+    border: 0px;
+    color: white;
+    margin-left: 5px;
+    border-radius: 4px;
+}
+
+#btn-update-file:hover {
+    background: #286090;
+}

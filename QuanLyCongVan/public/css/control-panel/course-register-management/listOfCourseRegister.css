@@ -1,0 +1,17 @@
+﻿body {
+}
+
+.form-container {
+}
+
+.student-info-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+}
+.hide-area {
+    display: none;
+}
+[readonly].form-control {
+    background-color: #fff;
+}
