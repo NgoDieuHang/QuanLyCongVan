@@ -3,7 +3,7 @@ namespace QLCV.Database.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AdddDatabase : DbMigration
+    public partial class InitDatabase : DbMigration
     {
         public override void Up()
         {
@@ -22,6 +22,11 @@ namespace QLCV.Database.Migrations
                         IdLinhVuc = c.Int(nullable: false),
                         TrichYeu = c.String(nullable: false, maxLength: 500),
                         NoiDung = c.String(nullable: false, maxLength: 500),
+                        Created_at = c.DateTime(),
+                        Created_by = c.Int(nullable: false),
+                        Updated_at = c.DateTime(),
+                        Updated_by = c.Int(),
+                        DelFlag = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.CoQuanBanHanh", t => t.IdCoQuanBanHanh)
@@ -40,6 +45,11 @@ namespace QLCV.Database.Migrations
                         Id = c.Int(nullable: false),
                         TenCoQuanBanHanh = c.String(nullable: false, maxLength: 100),
                         KiHieu = c.String(nullable: false, maxLength: 10),
+                        Created_at = c.DateTime(),
+                        Created_by = c.Int(nullable: false),
+                        Updated_at = c.DateTime(),
+                        Updated_by = c.Int(),
+                        DelFlag = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -49,6 +59,11 @@ namespace QLCV.Database.Migrations
                     {
                         Id = c.Int(nullable: false),
                         TenLinhVuc = c.String(nullable: false, maxLength: 100),
+                        Created_at = c.DateTime(),
+                        Created_by = c.Int(nullable: false),
+                        Updated_at = c.DateTime(),
+                        Updated_by = c.Int(),
+                        DelFlag = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -58,6 +73,11 @@ namespace QLCV.Database.Migrations
                     {
                         Id = c.Int(nullable: false),
                         TenLoaiCongVan = c.String(nullable: false, maxLength: 100),
+                        Created_at = c.DateTime(),
+                        Created_by = c.Int(nullable: false),
+                        Updated_at = c.DateTime(),
+                        Updated_by = c.Int(),
+                        DelFlag = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -68,6 +88,11 @@ namespace QLCV.Database.Migrations
                         Id = c.Int(nullable: false),
                         TenLoaiVanBan = c.String(nullable: false, maxLength: 100),
                         KiHieu = c.String(nullable: false, maxLength: 10),
+                        Created_at = c.DateTime(),
+                        Created_by = c.Int(nullable: false),
+                        Updated_at = c.DateTime(),
+                        Updated_by = c.Int(),
+                        DelFlag = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -79,6 +104,11 @@ namespace QLCV.Database.Migrations
                         TieuDe = c.String(nullable: false, maxLength: 100),
                         TomTat = c.String(nullable: false),
                         NoiDung = c.String(nullable: false),
+                        Created_at = c.DateTime(),
+                        Created_by = c.Int(nullable: false),
+                        Updated_at = c.DateTime(),
+                        Updated_by = c.Int(),
+                        DelFlag = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
