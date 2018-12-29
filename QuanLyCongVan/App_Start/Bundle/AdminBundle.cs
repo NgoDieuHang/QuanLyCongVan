@@ -46,6 +46,19 @@ namespace QuanLyCongVan.App_Start.Bundle
                 "~/public/assets/switchery/dist/switchery.css",
                "~/public/assets/switchery/dist/switchery.css"
            ));
+
+            bundles.Add(new ScriptBundle("~/public/js/admin/dispatchMaster").Include(
+                "~/public/assets/moment/moment.js",
+                "~/public/assets/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js",
+                "~/public/assets/switchery/dist/switchery.js",
+                "~/public/js/admin/dispatch/DispatchMaster.js"
+            ));
+
+            bundles.Add(new StyleBundle("~/public/css/admin/dispatchMaster").Include(
+                "~/public/assets/switchery/dist/switchery.css",
+                "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
+            ));
+
             return bundles;
         }
     }
