@@ -2,33 +2,29 @@
 
 namespace QuanLyCongVan.Areas.Admin
 {
-    public class AdminAreaRegistration : AreaRegistration 
+    public class AdminAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Admin";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
-
-
             context.MapRoute(
                 "ListOfDocument",
                 "admin/list-of-document",
                 new { controller = "Document", action = "ListOfDocument", id = UrlParameter.Optional }
             );
 
-
             context.MapRoute(
                 "DeleteDocument",
                 "admin/list-of-document/delete-document",
                 new { controller = "Document", action = "DeleteDocument", id = UrlParameter.Optional }
             );
-
 
             context.MapRoute(
                 "CreateDocument",
@@ -46,6 +42,18 @@ namespace QuanLyCongVan.Areas.Admin
                 "SaveDocument",
                 "admin/document-master/save-document",
                 new { controller = "Document", action = "SaveDocument", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+                "CreateDispatch",
+                "admin/create-dispatch",
+                new { controller = "DispatchManagement", action = "DispatchMaster", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+                "EditDispatch",
+                "admin/edit-dispatch/{id}",
+                new { controller = "DispatchManagement", action = "DispatchMaster", id = UrlParameter.Optional }
             );
 
             context.MapRoute(
