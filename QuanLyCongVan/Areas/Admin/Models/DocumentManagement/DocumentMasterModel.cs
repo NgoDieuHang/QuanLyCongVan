@@ -44,7 +44,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
                     idDocument = Convert.ToInt32(id);
                 }
                 catch { }
-                tblLoaiVanBan document = context.LoaiVanBans.Where(x => x.Id == idDocument).FirstOrDefault();
+                tblLoaiVanBan document = context.LoaiVanBans.FirstOrDefault(x => x.Id == idDocument);
                 if (document != null)
                 {
                     documentMaster.Mode = (int)ModeMaster.Update;
@@ -65,7 +65,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
         /// dùng để lưu thông tin loại văn bản ( dùng cho update hoặc add)
         /// Author       :   HoangNM - 27/12/2018 - create
         /// </summary>
-        /// <param name="photo">một đối tượng của hình ảnh</param>
+        /// <param name="document">một đối tượng của loại văn bản</param>
         public ResponseInfo SaveDocument(Document document)
         {
             try
@@ -84,7 +84,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
 
         /// <summary>
         /// dùng để cập nhật thông tin văn bản
-        /// Author       :   HoàngNM - 27/12/2018 - create
+        /// Author       :   HoangNM - 27/12/2018 - create
         /// </summary>
         /// <param name="document">một đối tượng của loại văn bản</param>
         public ResponseInfo UpdateDocument(Document document)

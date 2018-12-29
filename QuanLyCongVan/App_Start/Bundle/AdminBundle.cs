@@ -46,6 +46,31 @@ namespace QuanLyCongVan.App_Start.Bundle
                 "~/public/assets/switchery/dist/switchery.css",
                "~/public/assets/switchery/dist/switchery.css"
            ));
+
+            bundles.Add(new ScriptBundle("~/public/js/admin/listOfDocument").Include(
+                "~/public/assets/pagination/pagination.js",
+                "~/public/assets/iCheck/icheck.js",
+               "~/public/assets/switchery/dist/switchery.js"
+           ));
+
+            bundles.Add(new ScriptBundle("~/public/js/admin/typeDispatchMaster").Include(
+                "~/public/assets/pagination/pagination.js",
+                "~/public/assets/iCheck/icheck.js",
+               "~/public/assets/switchery/dist/switchery.js",
+               "~/public/js/admin/TypeDispatch/TypeDispatchMaster.js"
+           ));
+
+            bundles.Add(new StyleBundle("~/public/css/admin/typeDispatchMaster").Include(
+                "~/public/assets/switchery/dist/switchery.css",
+               "~/public/assets/switchery/dist/switchery.css"
+           ));
+
+            bundles.Add(new ScriptBundle("~/public/js/admin/listOfTypeDispatch").Include(
+                "~/public/assets/pagination/pagination.js",
+                "~/public/assets/iCheck/icheck.js",
+               "~/public/assets/switchery/dist/switchery.js"
+           ));
+
             return bundles;
         }
     }

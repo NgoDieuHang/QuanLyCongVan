@@ -47,6 +47,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -169,6 +175,16 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TypeDispatchController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DocumentController.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\TypeDispatchMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\ListOfTypeDispatchModel.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatch.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatchMaster.cs" />
+    <Compile Include="Areas\Admin\Models\DocumentManagement\DocumentMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\DocumentManagement\ListOfDocumentModel.cs" />
+    <Compile Include="Areas\Admin\Models\DocumentManagement\Schema\Document.cs" />
+    <Compile Include="Areas\Admin\Models\DocumentManagement\Schema\DocumentMaster.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -4957,6 +4973,9 @@
     <Content Include="public\img\testimonial\img5.png" />
     <Content Include="public\js\admin\adminlogin\index.js" />
     <Content Include="public\js\admin\dashboard\index.js" />
+    <Content Include="public\js\admin\Document\DocumentMaster.js" />
+    <Content Include="public\js\admin\Document\ListOfDocument.js" />
+    <Content Include="public\js\admin\TypeDispatch\TypeDispatchMaster.js" />
     <Content Include="public\js\common\admin.js" />
     <Content Include="public\js\common\base64.js" />
     <Content Include="public\js\common\common.js" />
@@ -4966,6 +4985,12 @@
     <Content Include="public\js\common\jquery.error-style.js" />
     <Content Include="public\js\common\jquery.unobtrusive-ajax.js" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\DocumentMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\ListOfDocument.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\TypeDispatch\ListOfTypeDispatch.cshtml" />
+    <Content Include="Areas\Admin\Views\TypeDispatch\TypeDispatchMaster.cshtml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />
@@ -5995,8 +6020,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\dispatch\" />
     <Folder Include="Areas\Home\Controllers\" />
     <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Views\Shared\" />
