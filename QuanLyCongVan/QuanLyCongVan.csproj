@@ -175,12 +175,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\Admin\Controllers\TypeDispatchController.cs" />
     <Compile Include="Areas\Admin\Controllers\DocumentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TypeDispatchController.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\TypeDispatchMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\ListOfTypeDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatch.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatchMaster.cs" />
+    <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\DispatchMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\DocumentMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\ListOfDocumentModel.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\Schema\Document.cs" />
@@ -4789,7 +4791,6 @@
     <Content Include="public\css\control-panel\things-achieved-management\ListOfThingsAchieved.css" />
     <Content Include="public\css\control-panel\user-management\fSelect.css" />
     <Content Include="public\css\control-panel\user-management\listOfUser.css" />
-    <Content Include="public\css\course\registerCourse\register.css" />
     <Content Include="public\css\home\contact\contact.css" />
     <Content Include="public\css\home\forgotPassword\forgotPassword.css" />
     <Content Include="public\css\home\registerAccount\register.css" />
@@ -4801,7 +4802,6 @@
     <Content Include="public\css\img\common\question.png" />
     <Content Include="public\css\img\common\success.png" />
     <Content Include="public\css\img\common\warning.png" />
-    <Content Include="public\css\Information\Information\Information.css" />
     <Content Include="public\css\layout-admin\Style.css" />
     <Content Include="public\css\layout-user\animate.css" />
     <Content Include="public\css\layout-user\livechatFacebook.css" />
@@ -4976,6 +4976,9 @@
     <Content Include="public\js\admin\Document\DocumentMaster.js" />
     <Content Include="public\js\admin\Document\ListOfDocument.js" />
     <Content Include="public\js\admin\TypeDispatch\TypeDispatchMaster.js" />
+    <Content Include="public\js\admin\dispatch\DispatchMaster.js" />
+    <Content Include="public\js\admin\Document\DocumentMaster.js" />
+    <Content Include="public\js\admin\Document\ListOfDocument.js" />
     <Content Include="public\js\common\admin.js" />
     <Content Include="public\js\common\base64.js" />
     <Content Include="public\js\common\common.js" />
@@ -4991,6 +4994,7 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\TypeDispatch\ListOfTypeDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\TypeDispatch\TypeDispatchMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />
@@ -5023,9 +5027,6 @@
     <Content Include="public\js\control-panel\user-management\fSelect.js" />
     <Content Include="public\js\control-panel\user-management\listOfUser.js" />
     <Content Include="public\js\control-panel\user-management\userMaster.js" />
-    <Content Include="public\js\course\courseDetails\index.js" />
-    <Content Include="public\js\course\khoaHoc\danhSachKhoaHoc.js" />
-    <Content Include="public\js\course\registerCourse\register.js" />
     <Content Include="public\js\home\contact\contact.js" />
     <Content Include="public\js\home\home\home.js" />
     <Content Include="public\js\home\login\forgotPassword.js" />
@@ -5036,8 +5037,6 @@
     <Content Include="public\js\home\registerAccount\registerSuccess.js" />
     <Content Include="public\js\home\tinTuc\danhSachTinTuc.js" />
     <Content Include="public\js\home\tinTuc\tinTuc.js" />
-    <Content Include="public\js\information\information\changePassword.js" />
-    <Content Include="public\js\information\information\information.js" />
     <Content Include="public\js\layout-admin\main.js" />
     <Content Include="public\js\layout-user\jquery.counterup.js" />
     <Content Include="public\js\layout-user\jquery.meanmenu.js" />
@@ -6017,9 +6016,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\PartialAdmin\_LeftMenu.cshtml" />
+    <Content Include="Views\PartialAdmin\_TopMenu.cshtml" />
+    <Content Include="Views\PartialAdmin\_TopPageInfo.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Views\Shared\_Paging.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\DispatchManagement\Schema\" />
     <Folder Include="Areas\Admin\Views\dispatch\" />
     <Folder Include="Areas\Home\Controllers\" />
     <Folder Include="Areas\Home\Models\" />

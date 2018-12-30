@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "DispatchMaster";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    bool isInsert = true;
+}
+@section css{
+    @Styles.Render("~/public/css/admin/dispatchMaster")
+}
+@section scripts{
+    <script>
+    </script>
+    @Scripts.Render("~/public/js/admin/dispatchMaster")
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>@(isInsert ? "Create new dispatch" : "Edit dispatch")</h3>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="@(!isInsert ? "col-md-6" : "") col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Information</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal input_mask" id="form-dispatch-main" enctype="multipart/form-data" action="" accept-charset="UTF-8" method="post">
+                    @if (!isInsert)
+                    {
+                        <input type="hidden" id="IdDispatch" name="Id" value="" />
+                    }
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="SoKyHieu">Số ký hiệu<span class="text-required">*</span></label>
+                                <input type="text" class="form-control required" maxlength="100" tabindex="1" name="SoKyHieu" id="SoKyHieu" placeholder="Số ký hiệu" rows="2" />
+                            </div>
+                        </div>
+                        <div class=" col-md-6 col-sm-6 col-xs-12">
+                            <label for="NgayBanHanh" class="white-label">Ngày ban hành<span class="text-required">*</span></label>
+                            <div class="input-group datetimepicker mb-5">
+                                <input type="tel" class="form-control date required" id="NgayBanHanh" name="NgayBanHanh" maxlength="8" tabindex="4" value="" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="SoCongVanDen">Số công văn đến</label>
+                                <input type="text" class="form-control required" maxlength="100" tabindex="1" name="SoCongVanDen" id="SoCongVanDen" placeholder="Số công văn đến" rows="2" />
+                            </div>
+                        </div>
+                        <div class=" col-md-6 col-sm-6 col-xs-12">
+                            <label for="NgayCongVanDen" class="white-label">Ngày công văn đến</label>
+                            <div class="input-group datetimepicker mb-5">
+                                <input type="tel" class="form-control date required" id="NgayCongVanDen" name="NgayCongVanDen" maxlength="8" tabindex="4" value="" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="IdLoaiVanBan">Loại văn bản<span class="text-required">*</span></label>
+                                <select class="form-control" name="IdLoaiVanBan" id="IdLoaiVanBan" tabindex="9">
+                                    <option value="1">HCK</option>
+                                    <option value="2">HCK</option>
+                                    <option value="3">HCK</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="IdLoaiCongVan">Loại công văn<span class="text-required">*</span></label>
+                                <select class="form-control" name="IdLoaiCongVan" id="IdLoaiCongVan" tabindex="10">
+                                    <option value="1">HCK</option>
+                                    <option value="2">HCK</option>
+                                    <option value="3">HCK</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="IdCoQuanBanHanh">Cơ quan ban hành<span class="text-required">*</span></label>
+                        <select class="form-control" name="IdCoQuanBanHanh" id="IdCoQuanBanHanh" tabindex="10">
+                            <option value="1">HCK</option>
+                            <option value="2">HCK</option>
+                            <option value="3">HCK</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="IdLinhVuc">Lĩnh vực<span class="text-required">*</span></label>
+                        <select class="form-control" name="IdLinhVuc" id="IdLinhVuc" tabindex="10">
+                            <option value="1">Tài chính</option>
+                            <option value="2">Kế toán</option>
+                            <option value="3">Ngoại ngữ</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="TrichYeu">Trích yếu<span class="text-required">*</span></label>
+                        <textarea class="form-control required" maxlength="1000" tabindex="2" name="TrichYeu" id="TrichYeu" placeholder="Trích yếu" rows="1"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="NoiDung">Nội dung<span class="text-required">*</span></label>
+                        <textarea class="form-control required" maxlength="1000" tabindex="2" name="NoiDung" id="NoiDung" placeholder="Nội dung" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="File">File<span class="text-required">*</span></label>
+                        <div>
+                            <img id="imgPreview0" class="img-preview" src="" />
+                            <input type="hidden" id="size0" id-view="imageName" min-of-width="1920" min-rate="2.35" max-rate="2.45">
+                        </div>
+                        <div class="input-group">
+                            <input class="form-control required" name="LinkAnh" id="imageName" placeholder="SlideImage" readonly="readonly" style="background: #fff !important;" value="" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-primary" tabindex="4">
+                                    <i class="fa fa-upload" aria-hidden="true"></i>
+                                </button>
+                                <input type="file" class="file fileImg" name="FileImg" id="FileImg" id-view="imageName" err-idx="0" accept=".jpg,.png" />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="HienThi">Show</label>
+                        <input type="checkbox" class="js-switch" tabindex="5" name="CheckHienThi" id="HienThi" />
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="btn-save" tabindex="6">Save</button>
+                        @if (!isInsert)
+                        {
+                            <button type="button" class="btn btn-danger" id="btn-delete" tabindex="7">Delete</button>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

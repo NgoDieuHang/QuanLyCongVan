@@ -70,10 +70,10 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
         {
             try
             {
-                if (context.LoaiVanBans.FirstOrDefault(x => x.Id == document.Id) != null)
-                {
-                    return UpdateDocument(document);
-                }
+                //if (context.LoaiVanBans.FirstOrDefault(x => x.Id == document.Id) != null)
+                //{
+                //    return UpdateDocument(document);
+                //}
                 return AddDocument(document);
             }
             catch (Exception e)

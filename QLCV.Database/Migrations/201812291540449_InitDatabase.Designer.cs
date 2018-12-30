@@ -7,13 +7,13 @@ namespace QLCV.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AdddDatabase : IMigrationMetadata
+    public sealed partial class InitDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AdddDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812230420383_AdddDatabase"; }
+            get { return "201812291540449_InitDatabase"; }
         }
         
         string IMigrationMetadata.Source
