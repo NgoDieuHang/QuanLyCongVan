@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
+
 namespace QLCV.Database
 {
     [Table("CongVan")]
     public partial class CongVan : Table
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [Column(Order = 0)]
         public long Id { get; set; }
 
         [Required]
@@ -39,6 +41,10 @@ namespace QLCV.Database
         [Required]
         [StringLength(500)]
         public string NoiDung { get; set; }
+
+        [Required]
+        [StringLength(500)]
+        public string FilePath { get; set; }
 
         public virtual LoaiVanBan LoaiVanBan { get; set; }
 
