@@ -43,12 +43,12 @@ namespace QuanLyCongVan.Areas.Admin.Models.OrganizationManagement
                     condition = new OrganizationConditionSearch();
                 }
                 ListOfOrganization listOfOrganization = new ListOfOrganization();
+                int a = context.LoaiVanBans.Count();
                 // Lấy các thông tin dùng để phân trang
                 listOfOrganization.Paging = new Paging(context.CoQuanBanHanhs.Count(x =>
-                    (condition.KeySearch == null ||
+                    ((condition.KeySearch == null ||
                     (condition.KeySearch != null && (x.TenCoQuanBanHanh.Contains(condition.KeySearch))))
-                    && (condition.TrangThai == null || (condition.TrangThai != null && x.DelFlag == condition.TrangThai.Value))
-                    ), condition.CurentPage, condition.PageSize);
+                    && !x.DelFlag)), condition.CurentPage, condition.PageSize);
 
                 // Tìm kiếm và lấy dữ liệu theo trang
                 listOfOrganization.OrganizationList = context.CoQuanBanHanhs.Where(x =>
@@ -139,6 +139,27 @@ namespace QuanLyCongVan.Areas.Admin.Models.OrganizationManagement
             catch (Exception e)
             {
                 transaction.Rollback();
+                throw e;
+            }
+        }
+        /// <summary>
+        /// Tạo hoặc cập nhật lại Organization từ thông tin mà người dùng gửi lên
+        /// Author       :   HangNTD - 17/08/2018 - create
+        /// </summary>
+        /// <param name="course">Các thông tin của Organization muốn tạo hoặc cập nhật</param>
+        /// <returns>Thông tin về việc tạo hoặc cập nhật Organization thành công hay thất bại</returns>
+        public ResponseInfo SaveOrganization(Organization organization)
+        {
+            try
+            {
+                if (context.CoQuanBanHanhs.FirstOrDefault(x => x.Id == organization.Id && !x.DelFlag) != null)
+                {
+                    return UpadateOrganization(organization);
+                }
+                return AddOrganization(organization);
+            }
+            catch (Exception e)
+            {
                 throw e;
             }
         }

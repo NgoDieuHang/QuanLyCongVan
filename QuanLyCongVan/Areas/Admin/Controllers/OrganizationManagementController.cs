@@ -133,12 +133,12 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //response = new OrganizationModel().SaveOrganization(data);
+                    response = new OrganizationModel().SaveOrganization(data);
                 }
                 else
                 {
                     response.Code = (int)CodeResponse.NotValidate;
-                    response.ListError = ModelState.GetModelErrors();
+                    //response.ListError = ModelState.GetModelErrors();
                 }
             }
             catch (Exception e)
