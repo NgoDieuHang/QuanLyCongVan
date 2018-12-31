@@ -1,0 +1,61 @@
+﻿@model QuanLyCongVan.Areas.Admin.Models.OrganizationManagement.Schema.ListOfOrganization
+@{
+    ListOfOrganization listOfOrganization = Model;
+    List<Organization> OrganizationList = listOfOrganization.OrganizationList;
+}
+@using QuanLyCongVan.Areas.Admin.Models.OrganizationManagement.Schema;
+@Html.Partial("~/Views/PartialAdmin/_TopPageInfo.cshtml", listOfOrganization.Paging)
+<div class="table-result" id="table-result" link-del="@Url.RouteUrl("DeleteOrganizations")" link-update-show="@Url.RouteUrl("UpdateShowOrganization")" link-update-state="">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered jambo_table">
+            <thead>
+                <tr>
+                    <th class="text-center col-checkbox">
+                        <input type="checkbox" id="check-all" class="flat">
+                    </th>
+                    <th class="text-center">Chỉnh sửa</th>
+                    <th class="text-center">Cơ quan ban hành</th>
+                    <th class="text-center">Kí hiệu</th>
+                    <th class="text-center">AdminLang.Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Organization Organization in OrganizationList)
+                {
+                    <tr>
+                            <td class="text-center middle col-checkbox">
+                                <input type="checkbox" class="flat check-item" name="check-remove" id-del="@Organization.Id">
+                            </td>
+                            <td class="text-center middle">
+                                <a href="@Url.RouteUrl("EditOrganization", new { id = Organization.Id })">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        <td class="">
+                            @Html.Raw(Organization.TenCoQuanBanHanh.Replace("\n", "<br/>"))
+                        </td>
+                        <td class="">
+                            @Html.Raw(Organization.KiHieu.Replace("\n", "<br/>"))
+                        </td>
+                            <td class="text-center middle">
+                                <button type="button" class="btn btn-xs btn-danger btn-delete" id-del="@Organization.Id">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+        <div class="col-xs-3 pl-0">
+            <button type="button" class="btn btn-danger btn-delete-selected">Xóa</button>
+        </div>
+    <div class="col-xs-9 pr-0">
+        <div class="div-pagination">
+            <ul class="pagination"></ul>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="TotalPages" name="TotalPages" value="@listOfOrganization.Paging.TotalPages" />
+<input type="hidden" id="NumberOfRecord" name="NumberOfRecord" value="@listOfOrganization.Paging.NumberOfRecord" />
+
