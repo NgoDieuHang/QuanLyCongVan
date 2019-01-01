@@ -22,7 +22,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.TypeDispatchManagement
             try
             {
                 List<TypeDispatch> listOfDispatch = new List<TypeDispatch>();
-                listOfDispatch = context.LoaiCongVans
+                listOfDispatch = context.LoaiCongVans.Where(x=>!x.DelFlag)
                     .Select(x => new TypeDispatch
                     {
                         Id = x.Id,

@@ -64,7 +64,6 @@ function SaveFeildDispatch() {
     try {
         var err1 = validate("#form-feild-dispatch-main");
         if (!err1) {
-            alert('vào');
             $('#form-feild-dispatch-main').ajaxSubmit({
                 beforeSubmit: function (a, f, o) {
                     o.dataType = 'json';
@@ -73,8 +72,8 @@ function SaveFeildDispatch() {
                     var res = XMLHttpRequest.responseJSON;
                     if (res.Code === 200) {
                         jMessage(15, function () {
-                            console.log(url.editPhotos + (isInsert === 'I' ? ('/' + res.ThongTinBoSung1) : ''));
-                            window.location = url.editPhotos + (isInsert === 'I' ? ('/' + res.ThongTinBoSung1) : '');
+                            console.log(url.listOfFeildDispatch);
+                            window.location = url.listOfFeildDispatch;
                         });
                     }
                     else {
@@ -107,14 +106,14 @@ function DeleteFeildDispatch() {
             if (ok) {
                 $.ajax({
                     type: 'POST',
-                    url: url.deletePhotos,
+                    url: url.deleteFeildDispatch,
                     dataType: 'json',
                     data: {
                         ids: [$('#IdFeildDispatch').val()]
                     },
                     success: function (res) {
                         if (res.Code === 200) {
-                            window.location = url.createPhotos;
+                            window.location = url.listOfFeildDispatch;
                         } else {
                             jMessage(res.MsgNo, function (ok) { });
                         }

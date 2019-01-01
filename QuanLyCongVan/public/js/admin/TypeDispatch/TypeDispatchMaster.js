@@ -64,7 +64,6 @@ function SaveTypeDispatch() {
     try {
         var err1 = validate("#form-type-dispatch-main");
         if (!err1) {
-            alert('vào');
             $('#form-type-dispatch-main').ajaxSubmit({
                 beforeSubmit: function (a, f, o) {
                     o.dataType = 'json';
@@ -73,8 +72,8 @@ function SaveTypeDispatch() {
                     var res = XMLHttpRequest.responseJSON;
                     if (res.Code === 200) {
                         jMessage(15, function () {
-                            console.log(url.editPhotos + (isInsert === 'I' ? ('/' + res.ThongTinBoSung1) : ''));
-                            window.location = url.editPhotos + (isInsert === 'I' ? ('/' + res.ThongTinBoSung1) : '');
+                            console.log(url.listOfTypeDispatch);
+                            window.location = url.listOfTypeDispatch;
                         });
                     }
                     else {
@@ -107,14 +106,14 @@ function DeleteTypeDispatch() {
             if (ok) {
                 $.ajax({
                     type: 'POST',
-                    url: url.deletePhotos,
+                    url: url.deleteTypeDispath,
                     dataType: 'json',
                     data: {
                         ids: [$('#IdTypeDispatch').val()]
                     },
                     success: function (res) {
                         if (res.Code === 200) {
-                            window.location = url.createPhotos;
+                            window.location = url.listOfTypeDispatch;
                         } else {
                             jMessage(res.MsgNo, function (ok) { });
                         }

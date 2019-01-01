@@ -27,7 +27,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
                 List<Document> listOfDocument = new List<Document>();
 
                 //.Where(x => !x.DelFlag)
-                listOfDocument = context.LoaiVanBans
+                listOfDocument = context.LoaiVanBans.Where(x=>!x.DelFlag)
                     .Select(x => new Document
                     {
                         Id = x.Id,

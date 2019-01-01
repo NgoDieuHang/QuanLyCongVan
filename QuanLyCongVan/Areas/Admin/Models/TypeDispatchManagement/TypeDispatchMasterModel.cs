@@ -47,7 +47,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.TypeDispatchManagement
                     idTypeDispatch = Convert.ToInt32(id);
                 }
                 catch { }
-                tblLoaiCongVan typeDispatch = context.LoaiCongVans.FirstOrDefault(x => x.Id == idTypeDispatch);
+                tblLoaiCongVan typeDispatch = context.LoaiCongVans.FirstOrDefault(x => x.Id == idTypeDispatch && !x.DelFlag);
                 if (typeDispatch != null)
                 {
                     typeDispatchMaster.Mode = (int)ModeMaster.Update;
@@ -72,7 +72,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.TypeDispatchManagement
         {
             try
             {
-                if (context.LoaiCongVans.FirstOrDefault(x => x.Id == typeDispatch.Id) != null)
+                if (context.LoaiCongVans.FirstOrDefault(x => x.Id == typeDispatch.Id && !x.DelFlag) != null)
                 {
                     return UpdateTypeDisPatch(typeDispatch);
                 }
@@ -95,7 +95,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.TypeDispatchManagement
             try
             {
                 ResponseInfo response = new ResponseInfo();
-                context.LoaiCongVans.Where(x => x.Id == typeDispatch.Id)
+                context.LoaiCongVans.Where(x => x.Id == typeDispatch.Id && !x.DelFlag)
                     .Update(x => new QLCV.Database.LoaiCongVan
                     {
                         TenLoaiCongVan = typeDispatch.tenLoaiCongVan

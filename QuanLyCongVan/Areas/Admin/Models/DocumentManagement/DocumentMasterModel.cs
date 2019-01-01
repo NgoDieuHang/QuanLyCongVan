@@ -44,7 +44,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
                     idDocument = Convert.ToInt32(id);
                 }
                 catch { }
-                tblLoaiVanBan document = context.LoaiVanBans.FirstOrDefault(x => x.Id == idDocument);
+                tblLoaiVanBan document = context.LoaiVanBans.FirstOrDefault(x => x.Id == idDocument && !x.DelFlag);
                 if (document != null)
                 {
                     documentMaster.Mode = (int)ModeMaster.Update;
@@ -70,10 +70,10 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
         {
             try
             {
-                //if (context.LoaiVanBans.FirstOrDefault(x => x.Id == document.Id) != null)
-                //{
-                //    return UpdateDocument(document);
-                //}
+                if (context.LoaiVanBans.FirstOrDefault(x => x.Id == document.Id && !x.DelFlag) != null)
+                {
+                    return UpdateDocument(document);
+                }
                 return AddDocument(document);
             }
             catch (Exception e)
@@ -93,7 +93,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
             try
             {
                 ResponseInfo response = new ResponseInfo();
-                context.LoaiVanBans.Where(x => x.Id == document.Id)
+                context.LoaiVanBans.Where(x => x.Id == document.Id && !x.DelFlag)
                     .Update(x => new QLCV.Database.LoaiVanBan
                     {
                         TenLoaiVanBan = document.tenLoaiVanBan,

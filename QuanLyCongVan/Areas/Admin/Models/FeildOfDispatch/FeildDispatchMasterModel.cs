@@ -48,7 +48,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch
                     idFeildDispatch = Convert.ToInt32(id);
                 }
                 catch { }
-                tblLinhVuc feildDispatch = context.LinhVucs.FirstOrDefault(x => x.Id == idFeildDispatch);
+                tblLinhVuc feildDispatch = context.LinhVucs.FirstOrDefault(x => x.Id == idFeildDispatch && !x.DelFlag);
                 if (feildDispatch != null)
                 {
                     feildDispatchMaster.Mode = (int)ModeMaster.Update;
@@ -73,7 +73,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch
         {
             try
             {
-                if (context.LinhVucs.FirstOrDefault(x => x.Id == feilDispatch.Id) != null)
+                if (context.LinhVucs.FirstOrDefault(x => x.Id == feilDispatch.Id && !x.DelFlag) != null)
                 {
                     return UpdateFeildDispatch(feilDispatch);
                 }
@@ -96,7 +96,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch
             try
             {
                 ResponseInfo response = new ResponseInfo();
-                context.LinhVucs.Where(x => x.Id == feilDispatch.Id)
+                context.LinhVucs.Where(x => x.Id == feilDispatch.Id && !x.DelFlag)
                     .Update(x => new QLCV.Database.LinhVuc
                     {
                         TenLinhVuc = feilDispatch.tenLinhVuc

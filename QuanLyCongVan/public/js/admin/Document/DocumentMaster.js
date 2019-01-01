@@ -63,9 +63,7 @@ function InitEvents() {
 function SaveDocument() {
     try {
         var err1 = validate("#form-document-main");
-        //var err2 = ValidateFile(0);
         if (!err1 ) {
-            alert('vào');
             $('#form-document-main').ajaxSubmit({
                 beforeSubmit: function (a, f, o) {
                     o.dataType = 'json';
@@ -74,8 +72,8 @@ function SaveDocument() {
                     var res = XMLHttpRequest.responseJSON;
                     if (res.Code === 200) {
                         jMessage(15, function () {
-                            console.log(url.editPhotos + (isInsert === 'I' ? ('/' + res.ThongTinBoSung1) : ''));
-                            window.location = url.editPhotos + (isInsert === 'I' ? ('/' + res.ThongTinBoSung1) : '');
+                            console.log(url.listOfDocument);
+                            window.location = url.listOfDocument;
                         });
                     }
                     else {
@@ -108,14 +106,14 @@ function DeleteDocument() {
             if (ok) {
                 $.ajax({
                     type: 'POST',
-                    url: url.deletePhotos,
+                    url: url.deleteDocument,
                     dataType: 'json',
                     data: {
                         ids: [$('#IdDocument').val()]
                     },
                     success: function (res) {
                         if (res.Code === 200) {
-                            window.location = url.createPhotos;
+                            window.location = url.listOfDocument;
                         } else {
                             jMessage(res.MsgNo, function (ok) { });
                         }

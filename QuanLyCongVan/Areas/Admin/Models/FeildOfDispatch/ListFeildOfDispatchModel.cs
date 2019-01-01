@@ -22,7 +22,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch
             try
             {
                 List<FeildDispatch> listOfFeildDispatch = new List<FeildDispatch>();
-                listOfFeildDispatch = context.LinhVucs
+                listOfFeildDispatch = context.LinhVucs.Where(x=>!x.DelFlag)
                     .Select(x => new FeildDispatch
                     {
                         Id = x.Id,

@@ -9,36 +9,27 @@
 @using QuanLyCongVan.Areas.Admin.Models.TypeDispatchManagement.Schema;
 @using QLCV.Common;
 @section css{
-        @Styles.Render("~/public/css/admin/typeDispatchMaster")
-    }
+    @Styles.Render("~/public/css/admin/typeDispatchMaster")
+}
 @section scripts{
     <script>
         var url = {
-            editDocument: '@Url.RouteUrl("EditTypeDispatch")',
-            createDocument: '@Url.RouteUrl("CreateTypeDispatch")',
-            deleteDocument: '@Url.RouteUrl("DeleteTypeDispatch")'
+            listOfTypeDispatch: '@Url.RouteUrl("ListOfTypeDispatch")',
+            deleteTypeDispath: '@Url.RouteUrl("DeleteTypeDispatch")'
         }
-        var isInsert = '@(isInsert ? "I" : "U")';
     </script>
     @Scripts.Render("~/public/js/admin/typeDispatchMaster")
 }
 <div class="page-title">
     <div class="title_left">
-        <h3>@(isInsert ? "Create Type Dispatch" : "Edit Type Dispatch")</h3>
+        <h3>@(isInsert ? "Thêm loại công văn" : "Sửa loại công văn")</h3>
     </div>
 </div>
 <div class="clearfix"></div>
 <div class="row">
     <div class="col-xs-12">
         <div class="x_panel">
-            <div class="x_title">
-                @if (isInsert)
-                {
-                    <h2>Thêm loại Công văn</h2>
-                }
 
-                <div class="clearfix"></div>
-            </div>
             <div class="x_content">
                 <form class="form-horizontal input_mask" id="form-type-dispatch-main" action="@Url.RouteUrl("SaveTypeDispatch")" accept-charset="UTF-8" method="post">
                     @if (!isInsert)
@@ -53,7 +44,10 @@
                     <div class="form-group">
 
                         <button type="button" class="btn btn-primary" id="btn-save" tabindex="3">Lưu</button>
-                        <button type="button" class="btn btn-danger" id="btn-delete" tabindex="4">Xóa</button>
+                        @if (!isInsert)
+                        {
+                            <button type="button" class="btn btn-danger" id="btn-delete" tabindex="4">Xóa</button>
+                        }
 
                     </div>
                 </form>
