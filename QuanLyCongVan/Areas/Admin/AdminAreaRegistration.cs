@@ -90,6 +90,38 @@ namespace QuanLyCongVan.Areas.Admin
             );
 
             context.MapRoute(
+                "ListOfFeildDispatch",
+                "admin/list-of-feildDispatch",
+                new { controller = "FeildDispatch", action = "ListOfFeildDispatch", id = UrlParameter.Optional }
+            );
+
+
+            context.MapRoute(
+                "DeleteFeildDispatch",
+                "admin/list-of-feild-dispatch/delete-feild-dispatch",
+                new { controller = "FeildDispatch", action = "DeleteFeildDispatch", id = UrlParameter.Optional }
+            );
+
+
+            context.MapRoute(
+                "CreateFeildDispatch",
+                "admin/create-feild-dispatch",
+                new { controller = "FeildDispatch", action = "ViewCreateFeildDispatch", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+                "EditFeildDispatch",
+                "admin/edit-feild-dispatch/{id}",
+                new { controller = "FeildDispatch", action = "ViewEditFeildDispatch", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+                "SaveFeildDispatch",
+                "admin/feild-dispatch-master/save-feild-dispatch",
+                new { controller = "FeildDispatch", action = "SaveFeildDispatch", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }

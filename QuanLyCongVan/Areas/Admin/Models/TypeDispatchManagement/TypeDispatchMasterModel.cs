@@ -14,7 +14,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.TypeDispatchManagement
 {
     /// <summary>
     /// Class dùng để xử lý các hoạt động liên quan đến thêm và sửa danh sách loại công văn.
-    /// Author       :   HoangNM - 11/08/2018 - create
+    /// Author       :   HoangNM - 29/12/2018 - create
     /// </summary>
     /// <remarks>
     /// Package      :   Admin.Models

@@ -176,7 +176,12 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\DocumentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FeildDispatchController.cs" />
     <Compile Include="Areas\Admin\Controllers\TypeDispatchController.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\FeildDispatchMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\ListFeildOfDispatchModel.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\Schema\FeildDispatch.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\Schema\FeildDispatchMaster.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\TypeDispatchMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\ListOfTypeDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatch.cs" />
@@ -4975,6 +4980,7 @@
     <Content Include="public\js\admin\dashboard\index.js" />
     <Content Include="public\js\admin\Document\DocumentMaster.js" />
     <Content Include="public\js\admin\Document\ListOfDocument.js" />
+    <Content Include="public\js\admin\FeildDispatch\FeildDispatchMaster.js" />
     <Content Include="public\js\admin\TypeDispatch\TypeDispatchMaster.js" />
     <Content Include="public\js\admin\dispatch\DispatchMaster.js" />
     <Content Include="public\js\admin\Document\DocumentMaster.js" />
@@ -4995,6 +5001,8 @@
     <Content Include="Areas\Admin\Views\TypeDispatch\ListOfTypeDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\TypeDispatch\TypeDispatchMaster.cshtml" />
     <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\FeildDispatch\ListOfFeildDispatch.cshtml" />
+    <Content Include="Areas\Admin\Views\FeildDispatch\FeildDispatchMaster.cshtml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />

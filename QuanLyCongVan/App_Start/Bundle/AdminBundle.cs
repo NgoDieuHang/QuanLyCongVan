@@ -83,6 +83,24 @@ namespace QuanLyCongVan.App_Start.Bundle
                 "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
             ));
 
+            bundles.Add(new ScriptBundle("~/public/js/admin/feildDispatchMaster").Include(
+                "~/public/assets/pagination/pagination.js",
+                "~/public/assets/iCheck/icheck.js",
+               "~/public/assets/switchery/dist/switchery.js",
+               "~/public/js/admin/FeildDispatch/FeildDispatchMaster.js"
+           ));
+
+            bundles.Add(new StyleBundle("~/public/css/admin/feildDispatchMaster").Include(
+                "~/public/assets/switchery/dist/switchery.css",
+               "~/public/assets/switchery/dist/switchery.css"
+           ));
+
+            bundles.Add(new ScriptBundle("~/public/js/admin/listOfFeildDispatch").Include(
+                "~/public/assets/pagination/pagination.js",
+                "~/public/assets/iCheck/icheck.js",
+               "~/public/assets/switchery/dist/switchery.js"
+           ));
+
             return bundles;
         }
     }

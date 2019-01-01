@@ -1,6 +1,6 @@
 ﻿using QLCV.Common;
-using QuanLyCongVan.Areas.Admin.Models.TypeDispatchManagement;
-using QuanLyCongVan.Areas.Admin.Models.TypeDispatchManagement.Schema;
+using QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch;
+using QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch.Schema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,33 +12,33 @@ using static QLCV.Common.Enum.MessageEnum;
 namespace QuanLyCongVan.Areas.Admin.Controllers
 {
     /// <summary>
-    /// Class chứa các điều hướng liên quan đến quản lý danh sách loại công văn
-    /// Author       :   HoangNM - 29/12/2018 - create
+    /// Class chứa các điều hướng liên quan đến quản lý danh sách lĩnh vực
+    /// Author       :   HoangNM - 30/12/2018 - create
     /// </summary>
     /// <remarks>
     /// Package      :   ControlPanel
     /// Copyright    :   Team An_Hang_Hoang
     /// Version      :   1.0.0
     /// </remarks>
-    public class TypeDispatchController : Controller
+    public class FeildDispatchController : Controller
     {
         /// <summary>
-        /// Điều hướng đến trang hiển thị danh sách văn bản nếu là request thông thường.
+        /// Điều hướng đến trang hiển thị danh sách lĩnh vực nếu là request thông thường.
         /// Điều hướng về trang lỗi nếu có lỗi sảy ra.
-        /// Author       :   HoangNM - 29/12/2018 - create
+        /// Author       :   HoangNM - 30/12/2018 - create
         /// </summary>
         /// <returns>
-        /// Trang danh sách công văn.
+        /// Trang danh sách lĩnh vực.
         /// </returns>
         /// <remarks>
         /// Method: GET
-        /// RouterName: ListOfDispatch
+        /// RouterName: ListOfFeildDispatch
         /// </remarks>
-        public ActionResult ListOfTypeDispatch()
+        public ActionResult ListOfFeildDispatch()
         {
             try
             {
-                return View(new ListOfTypeDispatchModel().GetListOfTypeDispatch());
+                return View(new ListFeildOfDispatchModel().GetListOfFeildDispatch());
             }
             catch (Exception e)
             {
@@ -47,21 +47,21 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Xóa các loại công văn id loại công văn được gửi lên.
-        /// Author       :   HoangNM - 29/12/2018 - create
+        /// Xóa các lĩnh vực được gửi lên.
+        /// Author       :   HoangNM - 30/12/2018 - create
         /// </summary>
-        /// <param name="ids">Danh sách id các loại công văn sẽ xóa</param>
-        /// <returns>Đối tượng chứa thông tin về quá trình xóa loại công văn</returns>
+        /// <param name="ids">Danh sách id các lĩnh vực sẽ xóa</param>
+        /// <returns>Đối tượng chứa thông tin về quá trình xóa lĩnh vực</returns>
         /// <remarks>
         /// Method: POST
-        /// RouterName: DeleteTypeDispatch
+        /// RouterName: DeleteFeildDispatch
         /// </remarks>
-        public JsonResult DeleteTypeDispatch(List<int> ids)
+        public JsonResult DeleteFeildDispatch(List<int> ids)
         {
             ResponseInfo response = new ResponseInfo();
             try
             {
-                new ListOfTypeDispatchModel().DeleteTypeDispatch(ids);
+                new ListFeildOfDispatchModel().DeleteFeildDispatch(ids);
 
             }
             catch (Exception e)
@@ -74,15 +74,15 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Thêm loại công văn
-        /// Author       :   HoangNM - 29/12/2018 - create
+        /// Thêm loại lĩnh vực
+        /// Author       :   HoangNM - 30/12/2018 - create
         /// </summary>
 
-        public ActionResult ViewCreateTypeDispatch()
+        public ActionResult ViewCreateFeildDispatch()
         {
             try
             {
-                return View("TypeDispatchMaster");
+                return View("FeildDispatchMaster");
             }
             catch (Exception e)
             {
@@ -91,22 +91,22 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// thay đổi thông tin của loại công văn
-        /// Author       :   HoangNM - 29/12/2018 - create
+        /// thay đổi thông tin của lĩnh vực
+        /// Author       :   HoangNM - 30/12/2018 - create
         /// </summary>
-        /// <param name="id">id của loại công văn muốn update</param>
+        /// <param name="id">id của lĩnh vực muốn update</param>
 
-        public ActionResult ViewEditTypeDispatch(string id)
+        public ActionResult ViewEditFeildDispatch(string id)
 
         {
             try
             {
-                TypeDispatchMaster typeDispatchMaster = new TypeDispatchMasterModel().LoadTypeDispatch(id);
-                if (typeDispatchMaster.Mode == (int)ModeMaster.Insert)
+                FeildDispatchMaster feildDispatchMaster = new FeildDispatchMasterModel().LoadFeildDispatch(id);
+                if (feildDispatchMaster.Mode == (int)ModeMaster.Insert)
                 {
-                    return RedirectToAction("ViewCreateTypeDispatch");
+                    return RedirectToAction("ViewCreateFeildDispatch");
                 }
-                return View("TypeDispatchMaster", typeDispatchMaster);
+                return View("FeildDispatchMaster", feildDispatchMaster);
             }
             catch (Exception e)
             {
@@ -115,19 +115,19 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// lưu thay đổi hoặc add thông tin của loại công văn
-        /// Author       :   HoangNM - 29/12/2018 - create
+        /// lưu thay đổi hoặc add thông tin của lĩnh vực
+        /// Author       :   HoangNM - 30/12/2018 - create
         /// </summary>
         /// <param name="data">data chứa thông tin của loại công văn</param>
         [HttpPost]
-        public JsonResult SaveTypeDispatch(TypeDispatch data)
+        public JsonResult SaveFeildDispatch(FeildDispatch data)
         {
             ResponseInfo response = new ResponseInfo();
             try
             {
                 if (ModelState.IsValid)
                 {
-                    response = new TypeDispatchMasterModel().SaveTypeDispatch(data);
+                    response = new FeildDispatchMasterModel().SaveFeildDispatch(data);
                 }
                 else
                 {
