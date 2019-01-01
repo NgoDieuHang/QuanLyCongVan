@@ -13,7 +13,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.OrganizationManagement.Schema
         public OrganizationMaster()
         {
             Mode = (int)ModeMaster.Insert;
-            Organization = null;
+            Organization = new Organization();
         }
     }
 }

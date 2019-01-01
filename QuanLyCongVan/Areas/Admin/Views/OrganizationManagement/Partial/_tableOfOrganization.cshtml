@@ -5,7 +5,7 @@
 }
 @using QuanLyCongVan.Areas.Admin.Models.OrganizationManagement.Schema;
 @Html.Partial("~/Views/PartialAdmin/_TopPageInfo.cshtml", listOfOrganization.Paging)
-<div class="table-result" id="table-result" link-del="@Url.RouteUrl("DeleteOrganizations")" link-update-show="@Url.RouteUrl("UpdateShowOrganization")" link-update-state="">
+<div class="table-result" id="table-result" link-del="@Url.RouteUrl("DeleteOrganizations")" link-update-state="">
     <div class="table-responsive">
         <table class="table table-striped table-bordered jambo_table">
             <thead>
@@ -13,10 +13,10 @@
                     <th class="text-center col-checkbox">
                         <input type="checkbox" id="check-all" class="flat">
                     </th>
-                    <th class="text-center">Chỉnh sửa</th>
+                    <th class="text-center">Sửa</th>
                     <th class="text-center">Cơ quan ban hành</th>
                     <th class="text-center">Kí hiệu</th>
-                    <th class="text-center">AdminLang.Delete</th>
+                    <th class="text-center">Xóa</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +48,7 @@
         </table>
     </div>
         <div class="col-xs-3 pl-0">
-            <button type="button" class="btn btn-danger btn-delete-selected">Xóa</button>
+            <button type="button" class="btn btn-danger btn-delete-selected">Xóa mục đã chọn</button>
         </div>
     <div class="col-xs-9 pr-0">
         <div class="div-pagination">

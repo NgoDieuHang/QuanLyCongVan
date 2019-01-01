@@ -103,12 +103,12 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         {
             try
             {
-                OrganizationMaster OrganizationMaster = new OrganizationModel().GetOrganization(id);
-                if (OrganizationMaster.Mode == (int)ModeMaster.Insert)
+                OrganizationMaster organizationMaster = new OrganizationModel().GetOrganization(id);
+                if (organizationMaster.Mode == (int)ModeMaster.Insert)
                 {
                     return RedirectToAction("ViewCreateOrganization");
                 }
-                return View("OrganizationMaster", OrganizationMaster);
+                return View("OrganizationMaster", organizationMaster);
             }
             catch (Exception e)
             {
@@ -134,6 +134,7 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
                 if (ModelState.IsValid)
                 {
                     response = new OrganizationModel().SaveOrganization(data);
+
                 }
                 else
                 {

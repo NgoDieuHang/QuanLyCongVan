@@ -59,6 +59,39 @@ namespace QuanLyCongVan.App_Start.Bundle
                 "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
             ));
 
+            bundles.Add(new ScriptBundle("~/public/js/admin/listOfDispatch").Include(
+              "~/public/assets/pagination/pagination.js",
+                "~/public/assets/iCheck/icheck.js",
+               "~/public/assets/switchery/dist/switchery.js",
+               "~/public/js/admin/dispatch/listOfOrganization.js"
+           ));
+
+            bundles.Add(new StyleBundle("~/public/css/admin/listOfDispatch").Include(
+                "~/public/assets/switchery/dist/switchery.css"
+            ));
+
+            bundles.Add(new ScriptBundle("~/public/js/admin/listOfOrganization").Include(
+               "~/public/assets/pagination/pagination.js",
+                "~/public/assets/iCheck/icheck.js",
+               "~/public/assets/switchery/dist/switchery.js",
+                "~/public/js/admin/organization/listOfOrganization.js"
+            ));
+
+            bundles.Add(new StyleBundle("~/public/css/admin/listOfOrganization").Include(
+                "~/public/assets/switchery/dist/switchery.css"
+            ));
+
+            bundles.Add(new ScriptBundle("~/public/js/admin/organizationMaster").Include(
+              "~/public/assets/pagination/pagination.js",
+                "~/public/assets/iCheck/icheck.js",
+               "~/public/assets/switchery/dist/switchery.js",
+               "~/public/js/admin/organization/organizationMaster.js"
+           ));
+
+            bundles.Add(new StyleBundle("~/public/css/admin/organizationMaster").Include(
+                "~/public/assets/switchery/dist/switchery.css",
+                "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
+            ));
             return bundles;
         }
     }

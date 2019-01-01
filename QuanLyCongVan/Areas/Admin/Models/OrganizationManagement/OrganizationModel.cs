@@ -43,7 +43,6 @@ namespace QuanLyCongVan.Areas.Admin.Models.OrganizationManagement
                     condition = new OrganizationConditionSearch();
                 }
                 ListOfOrganization listOfOrganization = new ListOfOrganization();
-                int a = context.LoaiVanBans.Count();
                 // Lấy các thông tin dùng để phân trang
                 listOfOrganization.Paging = new Paging(context.CoQuanBanHanhs.Count(x =>
                     ((condition.KeySearch == null ||
@@ -54,8 +53,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.OrganizationManagement
                 listOfOrganization.OrganizationList = context.CoQuanBanHanhs.Where(x =>
                     (condition.KeySearch == null ||
                     (condition.KeySearch != null && (x.TenCoQuanBanHanh.Contains(condition.KeySearch))))
-                    && (condition.TrangThai == null || (condition.TrangThai != null &&
-                                                       x.DelFlag == condition.TrangThai.Value))).OrderBy(x => x.Id)
+                    && !x.DelFlag).OrderBy(x => x.Id)
                     .Skip((listOfOrganization.Paging.CurrentPage - 1) * listOfOrganization.Paging.NumberOfRecord)
                     .Take(listOfOrganization.Paging.NumberOfRecord).Select(x => new Organization
                     {
@@ -121,18 +119,11 @@ namespace QuanLyCongVan.Areas.Admin.Models.OrganizationManagement
             try
             {
                 bool result = true;
-                if (context.CoQuanBanHanhs.Count(x => !ids.Contains(x.Id) && !x.DelFlag) > 1)
+                context.CoQuanBanHanhs.Where(x => ids.Contains(x.Id) && !x.DelFlag).Update(x => new TblOrganization
                 {
-                    context.CoQuanBanHanhs.Where(x => ids.Contains(x.Id) && !x.DelFlag).Update(x => new TblOrganization
-                    {
-                        DelFlag = true
-                    });
-                    context.SaveChanges();
-                }
-                else
-                {
-                    result = false;
-                }
+                    DelFlag = true
+                });
+                context.SaveChanges();
                 transaction.Commit();
                 return result;
             }
@@ -201,11 +192,6 @@ namespace QuanLyCongVan.Areas.Admin.Models.OrganizationManagement
             {
                 ResponseInfo response = new ResponseInfo();
                 organization.Id = context.CoQuanBanHanhs.Count() == 0 ? 1 : context.CoQuanBanHanhs.Max(x => x.Id) + 1;
-                context.CoQuanBanHanhs.Add(new TblOrganization
-                {
-                    Id = organization.Id,
-
-                });
                 context.CoQuanBanHanhs.Add(new TblOrganization
                 {
                     Id = organization.Id,

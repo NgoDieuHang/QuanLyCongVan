@@ -9,7 +9,7 @@
 @using QuanLyCongVan.Areas.Admin.Models.OrganizationManagement.Schema;
 @using QLCV.Common;
 @section css{
-    @Styles.Render("~/public/css/admin/OrganizationMaster")
+    @Styles.Render("~/public/css/admin/organizationMaster")
 }
 @section scripts{
     <script>
@@ -20,7 +20,7 @@
         }
         var isInsert = '@(isInsert ? "I" : "U")'
     </script>
-    @Scripts.Render("~/public/js/admin/OrganizationMaster")
+    @Scripts.Render("~/public/js/admin/organizationMaster")
 }
 <div class="page-title">
     <div class="title_left">
@@ -29,27 +29,27 @@
 </div>
 <div class="clearfix"></div>
 <div class="row">
-    <div class="@(!isInsert ? " col-md-6" : "" ) col-xs-12">
+    <div class="@(!isInsert ? " col-md-12" : "" ) col-xs-12">
         <div class="x_panel">
             <div class="x_title">
                 <h2>Thông tin cơ quan ban hành</h2>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <form class="form-horizontal input_mask" id="form-Organization-main" enctype="multipart/form-data" action="@Url.RouteUrl("SaveOrganization")" accept-charset="UTF-8" method="post">
+                <form class="form-horizontal input_mask" id="form-organization" enctype="multipart/form-data" action="@Url.RouteUrl("SaveOrganization")" accept-charset="UTF-8" method="post">
                     @if (!isInsert)
                     {
                         <input type="hidden" id="IdOrganization" name="Id" value="@OrganizationMaster.Organization.Id" />
                     }
-                    <div class="form-Organization">
-                        C                        <label for="OrganizationName">Cơ quan ban hành<span class="text-required">*</span></label>
-                        <input class="form-control required" maxlength="100" tabindex="1" name="OrganizationName" id="OrganizationName" placeholder="Cơ quan ban hành" rows="2" value="@(isInsert ? " " : OrganizationMaster.Organization.TenCoQuanBanHanh)" />
+                    <div class="form-organization">
+                        <label for="TenCoQuanBanHanh">Cơ quan ban hành<span class="text-required">*</span></label>
+                        <input class="form-control required" maxlength="100" tabindex="1" name="TenCoQuanBanHanh" id="TenCoQuanBanHanh" placeholder="Cơ quan ban hành" rows="2" value="@(isInsert ? " " : OrganizationMaster.Organization.TenCoQuanBanHanh)" />
                     </div>
-                    <div class="form-Organization">
-                        <label for="MoTa">Kí hiệu<span class="text-required">*</span></label>
-                        <input class="form-control required" maxlength="1000" tabindex="2" name="MoTa" id="MoTa" placeholder="Kí hiệu" rows="4">@(isInsert ? "" : OrganizationMaster.Organization.KiHieu)</input>
+                    <div class="form-organization">
+                        <label for="KiHieu">Kí hiệu<span class="text-required">*</span></label>
+                        <input class="form-control required" maxlength="100" tabindex="1" name="KiHieu" id="KiHieu" placeholder="Kí hiệu" rows="2" value="@(isInsert ? " " : OrganizationMaster.Organization.KiHieu)" />
                     </div>
-                    <div class="form-Organization">
+                    <div class="form-organization">
                         <button type="button" class="btn btn-primary" id="btn-save" tabindex="6">@(isInsert ? "Thêm mới" : "Cập nhập")</button>
                         @if (!isInsert)
                         {
