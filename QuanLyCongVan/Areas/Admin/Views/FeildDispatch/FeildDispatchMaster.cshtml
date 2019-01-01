@@ -1,0 +1,59 @@
+﻿@model QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch.Schema.FeildDispatchMaster
+@{
+    FeildDispatchMaster feildDispatchMaster = Model == null ? new FeildDispatchMaster() : Model;
+    bool isInsert = feildDispatchMaster.Mode == (int)QLCV.Common.Enum.ConstantsEnum.ModeMaster.Insert;
+
+    ViewBag.Title = isInsert ? "Create feild Dispatch" : "Edit feild Dispatch";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch.Schema;
+@using QLCV.Common;
+@section css{
+    @Styles.Render("~/public/css/admin/feildDispatchMaster")
+}
+@section scripts{
+    <script>
+        var url = {
+            listOfFeildDispatch: '@Url.RouteUrl("ListOfFeildDispatch")',
+            deleteFeildDispatch: '@Url.RouteUrl("DeleteFeildDispatch")'
+        }
+    </script>
+    @Scripts.Render("~/public/js/admin/feildDispatchMaster")
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>@(isInsert ? "Thêm lĩnh vực" : "Sửa lĩnh vực")</h3>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="x_panel">
+
+            <div class="x_content">
+                <form class="form-horizontal input_mask" id="form-feild-dispatch-main" action="@Url.RouteUrl("SaveFeildDispatch")" accept-charset="UTF-8" method="post">
+                    @if (!isInsert)
+                    {
+                        <input type="hidden" id="IdFeildDispatch" name="Id" value="@feildDispatchMaster.feildOfDispatch.Id" />
+                    }
+                    <div class="form-group">
+                        <label for="tenLinhVuc">Tên lĩnh vực <span class="text-required">*</span></label>
+                        <input class="form-control required " maxlength="100" tabindex="1" name="tenLinhVuc" id="tenLinhVuc" placeholder="Tên lĩnh vực " value="@(isInsert ? "" : feildDispatchMaster.feildOfDispatch.tenLinhVuc)">
+                    </div>
+
+                    <div class="form-group">
+
+                        <button type="button" class="btn btn-primary" id="btn-save" tabindex="3">Lưu</button>
+                        @if (!isInsert)
+                        {
+                            <button type="button" class="btn btn-danger" id="btn-delete" tabindex="4">Xóa</button>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
