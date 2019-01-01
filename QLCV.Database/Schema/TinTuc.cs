@@ -9,7 +9,8 @@ namespace QLCV.Database
     [Table("TinTuc")]
     public partial class TinTuc : Table
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [Column(Order = 0)]
         public long Id { get; set; }
 
         [Required]

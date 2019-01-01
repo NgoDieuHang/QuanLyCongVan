@@ -11,7 +11,7 @@ namespace QLCV.Database.Migrations
                 "dbo.CongVan",
                 c => new
                     {
-                        Id = c.Long(nullable: false),
+                        Id = c.Long(nullable: false, identity: true),
                         SoKyHieu = c.String(nullable: false, maxLength: 50),
                         IdLoaiVanBan = c.Int(nullable: false),
                         IdCoQuanBanHanh = c.Int(nullable: false),
@@ -22,6 +22,7 @@ namespace QLCV.Database.Migrations
                         IdLinhVuc = c.Int(nullable: false),
                         TrichYeu = c.String(nullable: false, maxLength: 500),
                         NoiDung = c.String(nullable: false, maxLength: 500),
+                        FilePath = c.String(nullable: false, maxLength: 500),
                         Created_at = c.DateTime(),
                         Created_by = c.Int(nullable: false),
                         Updated_at = c.DateTime(),
@@ -42,7 +43,7 @@ namespace QLCV.Database.Migrations
                 "dbo.CoQuanBanHanh",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         TenCoQuanBanHanh = c.String(nullable: false, maxLength: 100),
                         KiHieu = c.String(nullable: false, maxLength: 10),
                         Created_at = c.DateTime(),
@@ -57,7 +58,7 @@ namespace QLCV.Database.Migrations
                 "dbo.LinhVuc",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         TenLinhVuc = c.String(nullable: false, maxLength: 100),
                         Created_at = c.DateTime(),
                         Created_by = c.Int(nullable: false),
@@ -71,7 +72,7 @@ namespace QLCV.Database.Migrations
                 "dbo.LoaiCongVan",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         TenLoaiCongVan = c.String(nullable: false, maxLength: 100),
                         Created_at = c.DateTime(),
                         Created_by = c.Int(nullable: false),
@@ -85,7 +86,7 @@ namespace QLCV.Database.Migrations
                 "dbo.LoaiVanBan",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         TenLoaiVanBan = c.String(nullable: false, maxLength: 100),
                         KiHieu = c.String(nullable: false, maxLength: 10),
                         Created_at = c.DateTime(),
@@ -100,7 +101,7 @@ namespace QLCV.Database.Migrations
                 "dbo.TinTuc",
                 c => new
                     {
-                        Id = c.Long(nullable: false),
+                        Id = c.Long(nullable: false, identity: true),
                         TieuDe = c.String(nullable: false, maxLength: 100),
                         TomTat = c.String(nullable: false),
                         NoiDung = c.String(nullable: false),

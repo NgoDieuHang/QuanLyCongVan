@@ -13,7 +13,7 @@ namespace QLCV.Database.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201812291540449_InitDatabase"; }
+            get { return "201812311850437_InitDatabase"; }
         }
         
         string IMigrationMetadata.Source

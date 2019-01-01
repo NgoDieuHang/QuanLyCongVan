@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
+
 namespace QLCV.Database
 {
     [Table("LinhVuc")]
@@ -14,7 +15,8 @@ namespace QLCV.Database
             CongVans = new HashSet<CongVan>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [Column(Order = 0)]
         public int Id { get; set; }
 
         [Required]
