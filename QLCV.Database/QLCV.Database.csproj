@@ -88,9 +88,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201812230420383_AdddDatabase.cs" />
-    <Compile Include="Migrations\201812230420383_AdddDatabase.Designer.cs">
-      <DependentUpon>201812230420383_AdddDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201812311850437_InitDatabase.cs" />
+    <Compile Include="Migrations\201812311850437_InitDatabase.Designer.cs">
+      <DependentUpon>201812311850437_InitDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Schema\CongVan.cs" />
@@ -113,8 +113,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812230420383_AdddDatabase.resx">
-      <DependentUpon>201812230420383_AdddDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812311850437_InitDatabase.resx">
+      <DependentUpon>201812311850437_InitDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

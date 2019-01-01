@@ -34,6 +34,31 @@ namespace QuanLyCongVan.App_Start.Bundle
                 "~/public/css/admin/custom.css",
                 "~/public/css/common/error-notify.css"
             ));
+
+            bundles.Add(new ScriptBundle("~/public/js/admin/documentMaster").Include(
+                "~/public/assets/pagination/pagination.js",
+                "~/public/assets/iCheck/icheck.js",
+               "~/public/assets/switchery/dist/switchery.js",
+               "~/public/js/admin/Document/DocumentMaster.js"
+           ));
+
+            bundles.Add(new StyleBundle("~/public/css/admin/documentMaster").Include(
+                "~/public/assets/switchery/dist/switchery.css",
+               "~/public/assets/switchery/dist/switchery.css"
+           ));
+
+            bundles.Add(new ScriptBundle("~/public/js/admin/dispatchMaster").Include(
+                "~/public/assets/moment/moment.js",
+                "~/public/assets/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js",
+                "~/public/assets/switchery/dist/switchery.js",
+                "~/public/js/admin/dispatch/DispatchMaster.js"
+            ));
+
+            bundles.Add(new StyleBundle("~/public/css/admin/dispatchMaster").Include(
+                "~/public/assets/switchery/dist/switchery.css",
+                "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
+            ));
+
             return bundles;
         }
     }
