@@ -188,6 +188,8 @@
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatchMaster.cs" />
     <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\DispatchMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\DispatchData.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\NewDispatch.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\DocumentMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\ListOfDocumentModel.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\Schema\Document.cs" />
@@ -6035,6 +6037,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\DispatchManagement\Schema\" />
     <Folder Include="Areas\Admin\Views\dispatch\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Home\Controllers\" />
     <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Views\Shared\" />
@@ -6082,6 +6085,7 @@
     <Folder Include="public\assets\ckfinder\bin\Debug\" />
     <Folder Include="public\assets\ckfinder\bin\Release\" />
     <Folder Include="public\assets\google-code-prettify\bin\" />
+    <Folder Include="public\dispatch-file\" />
     <Folder Include="public\img\UpLoad\" />
     <Folder Include="public\js\control-panel\tinTuc-manahement\" />
   </ItemGroup>
