@@ -1,6 +1,6 @@
 ﻿using QLCV.Common;
-using QuanLyCongVan.Areas.Admin.Models.DocumentManagement;
-using QuanLyCongVan.Areas.Admin.Models.DocumentManagement.Schema;
+using QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch;
+using QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch.Schema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,34 +12,33 @@ using static QLCV.Common.Enum.MessageEnum;
 namespace QuanLyCongVan.Areas.Admin.Controllers
 {
     /// <summary>
-    /// Class chứa các điều hướng liên quan đến quản lý danh sách loại văn bản
-    /// Author       :   HoàngNM - 27/12/2018 - create
+    /// Class chứa các điều hướng liên quan đến quản lý danh sách lĩnh vực
+    /// Author       :   HoangNM - 30/12/2018 - create
     /// </summary>
     /// <remarks>
     /// Package      :   ControlPanel
-    /// Copyright    :   Team AHH
+    /// Copyright    :   Team An_Hang_Hoang
     /// Version      :   1.0.0
     /// </remarks>
-    public class DocumentController : Controller
+    public class FeildDispatchController : Controller
     {
-
-
         /// <summary>
+        /// Điều hướng đến trang hiển thị danh sách lĩnh vực nếu là request thông thường.
         /// Điều hướng về trang lỗi nếu có lỗi sảy ra.
-        /// Author       :   HoangNM - 27/12/2018 - create
+        /// Author       :   HoangNM - 30/12/2018 - create
         /// </summary>
         /// <returns>
-        /// Trang danh sách văn bản.
+        /// Trang danh sách lĩnh vực.
         /// </returns>
         /// <remarks>
         /// Method: GET
-        /// RouterName: ListOfDocument
+        /// RouterName: ListOfFeildDispatch
         /// </remarks>
-        public ActionResult ListOfDocument()
+        public ActionResult ListOfFeildDispatch()
         {
             try
             {
-                return View(new ListOfDocumentModel().GetListOfDocument());
+                return View(new ListFeildOfDispatchModel().GetListOfFeildDispatch());
             }
             catch (Exception e)
             {
@@ -48,21 +47,21 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Xóa các loại văn bản id loại văn bản được gửi lên.
-        /// Author       :   HoangNM - 27/12/2018 - create
+        /// Xóa các lĩnh vực được gửi lên.
+        /// Author       :   HoangNM - 30/12/2018 - create
         /// </summary>
-        /// <param name="ids">Danh sách id các loại văn bản sẽ xóa</param>
-        /// <returns>Đối tượng chứa thông tin về quá trình xóa loại văn bản</returns>
+        /// <param name="ids">Danh sách id các lĩnh vực sẽ xóa</param>
+        /// <returns>Đối tượng chứa thông tin về quá trình xóa lĩnh vực</returns>
         /// <remarks>
         /// Method: POST
-        /// RouterName: DeleteDocument
+        /// RouterName: DeleteFeildDispatch
         /// </remarks>
-        public JsonResult DeleteDocument(List<int> ids)
+        public JsonResult DeleteFeildDispatch(List<int> ids)
         {
             ResponseInfo response = new ResponseInfo();
             try
             {
-                new ListOfDocumentModel().DeleteDocument(ids);
+                new ListFeildOfDispatchModel().DeleteFeildDispatch(ids);
 
             }
             catch (Exception e)
@@ -75,15 +74,15 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Thêm loại văn bản 
-        /// Author       :   HoangNM - 27/12/2018 - create
+        /// Thêm loại lĩnh vực
+        /// Author       :   HoangNM - 30/12/2018 - create
         /// </summary>
 
-        public ActionResult ViewCreateDocument()
+        public ActionResult ViewCreateFeildDispatch()
         {
             try
             {
-                return View("DocumentMaster");
+                return View("FeildDispatchMaster");
             }
             catch (Exception e)
             {
@@ -92,22 +91,22 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// thay đổi thông tin của loại văn bản
-        /// Author       :   HoangNM - 27/12/2018 - create
+        /// thay đổi thông tin của lĩnh vực
+        /// Author       :   HoangNM - 30/12/2018 - create
         /// </summary>
-        /// <param name="id">id của loại văn bản muốn update</param>
+        /// <param name="id">id của lĩnh vực muốn update</param>
 
-        public ActionResult ViewEditDocument(string id)
+        public ActionResult ViewEditFeildDispatch(string id)
 
         {
             try
             {
-                DocumentMaster documentMaster = new DocumentMasterModel().LoadDocument(id);
-                if (documentMaster.Mode == (int)ModeMaster.Insert)
+                FeildDispatchMaster feildDispatchMaster = new FeildDispatchMasterModel().LoadFeildDispatch(id);
+                if (feildDispatchMaster.Mode == (int)ModeMaster.Insert)
                 {
-                    return RedirectToAction("ViewCreateDocument");
+                    return RedirectToAction("ViewCreateFeildDispatch");
                 }
-                return View("DocumentMaster", documentMaster);
+                return View("FeildDispatchMaster", feildDispatchMaster);
             }
             catch (Exception e)
             {
@@ -116,24 +115,24 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// lưu thay đổi hoặc add thông tin của loại văn bản
-        /// Author       :   HoangNM - 27/12/2018 - create
+        /// lưu thay đổi hoặc add thông tin của lĩnh vực
+        /// Author       :   HoangNM - 30/12/2018 - create
         /// </summary>
-        /// <param name="data">data chứa thông tin của loại văn bản</param>
+        /// <param name="data">data chứa thông tin của loại công văn</param>
         [HttpPost]
-        public JsonResult SaveDocument(Document data)
+        public JsonResult SaveFeildDispatch(FeildDispatch data)
         {
             ResponseInfo response = new ResponseInfo();
             try
             {
                 if (ModelState.IsValid)
                 {
-                    response = new DocumentMasterModel().SaveDocument(data);
+                    response = new FeildDispatchMasterModel().SaveFeildDispatch(data);
                 }
                 else
                 {
                     response.Code = (int)CodeResponse.NotValidate;
-                    
+
                 }
             }
             catch (Exception e)

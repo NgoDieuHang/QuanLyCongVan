@@ -8,39 +8,30 @@
 }
 @using QuanLyCongVan.Areas.Admin.Models.DocumentManagement.Schema;
 @using QLCV.Common;
-@*@section css{
-        @Styles.Render("~/public/css/admin/photoMaster")
-    }*@
+@section css{
+    @Styles.Render("~/public/css/admin/documentMaster")
+}
 @section scripts{
     <script>
-        var url = {
-            editDocument: '@Url.RouteUrl("EditDocument")',
-            createDocument: '@Url.RouteUrl("CreateDocument")',
-            deleteDocument: '@Url.RouteUrl("DeleteDocument")'
-        }
-        var isInsert = '@(isInsert ? "I" : "U")';
+    var url = {
+        deleteDocument: '@Url.RouteUrl("DeleteDocument")',
+        listOfDocument:'@Url.RouteUrl("ListOfDocument")'
+    }
     </script>
     @Scripts.Render("~/public/js/admin/documentMaster")
 }
 <div class="page-title">
     <div class="title_left">
-        <h3>@(isInsert ? "Create Document" : "Edit Document")</h3>
+        <h3>@(isInsert ? "Thêm loại văn bản" : "Sửa loại văn bản")</h3>
     </div>
 </div>
 <div class="clearfix"></div>
 <div class="row">
     <div class="col-xs-12">
         <div class="x_panel">
-            <div class="x_title">
-                @if (isInsert)
-                {
-                    <h2>Thêm loại văn bản</h2>
-                }
 
-                <div class="clearfix"></div>
-            </div>
             <div class="x_content">
-                <form class="form-horizontal input_mask" id="form-document-main"  action="@Url.RouteUrl("SaveDocument")" accept-charset="UTF-8" method="post">
+                <form class="form-horizontal input_mask" id="form-document-main" action="@Url.RouteUrl("SaveDocument")" accept-charset="UTF-8" method="post">
                     @if (!isInsert)
                     {
                         <input type="hidden" id="IdDocument" name="Id" value="@documentMaster.Document.Id" />
@@ -58,14 +49,18 @@
                     <div class="form-group">
 
                         <button type="button" class="btn btn-primary" id="btn-save" tabindex="3">Lưu</button>
-                        <button type="button" class="btn btn-danger" id="btn-delete" tabindex="4">Xóa</button>
+                        @if (!isInsert)
+                        {
+                            <button type="button" class="btn btn-danger" id="btn-delete" tabindex="4">Xóa</button>
+                        }
+                    
 
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    
+
 </div>
 
 

@@ -175,8 +175,18 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\DocumentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FeildDispatchController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TypeDispatchController.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\FeildDispatchMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\ListFeildOfDispatchModel.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\Schema\FeildDispatch.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\Schema\FeildDispatchMaster.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\TypeDispatchMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\ListOfTypeDispatchModel.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatch.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatchMaster.cs" />
+    <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\DispatchMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\DispatchData.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\NewDispatch.cs" />
@@ -4970,6 +4980,10 @@
     <Content Include="public\img\testimonial\img5.png" />
     <Content Include="public\js\admin\adminlogin\index.js" />
     <Content Include="public\js\admin\dashboard\index.js" />
+    <Content Include="public\js\admin\Document\DocumentMaster.js" />
+    <Content Include="public\js\admin\Document\ListOfDocument.js" />
+    <Content Include="public\js\admin\FeildDispatch\FeildDispatchMaster.js" />
+    <Content Include="public\js\admin\TypeDispatch\TypeDispatchMaster.js" />
     <Content Include="public\js\admin\dispatch\DispatchMaster.js" />
     <Content Include="public\js\admin\Document\DocumentMaster.js" />
     <Content Include="public\js\admin\Document\ListOfDocument.js" />
@@ -4984,7 +4998,13 @@
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Document\DocumentMaster.cshtml" />
     <Content Include="Areas\Admin\Views\Document\ListOfDocument.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\TypeDispatch\ListOfTypeDispatch.cshtml" />
+    <Content Include="Areas\Admin\Views\TypeDispatch\TypeDispatchMaster.cshtml" />
     <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\FeildDispatch\ListOfFeildDispatch.cshtml" />
+    <Content Include="Areas\Admin\Views\FeildDispatch\FeildDispatchMaster.cshtml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />
@@ -6015,6 +6035,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\DispatchManagement\Schema\" />
+    <Folder Include="Areas\Admin\Views\dispatch\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Home\Controllers\" />
     <Folder Include="Areas\Home\Models\" />
