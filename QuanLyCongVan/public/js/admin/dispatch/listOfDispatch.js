@@ -45,6 +45,9 @@ function InitEventDispatchs() {
             $('#CurrentPage').val(1);
             Search();
         });
+        $('.btn-dispatch').on('click', function () {
+            loadFileDispatch();
+        });
         $(document).on('change', '#page-size', function () {
             $('#PageSize').val($(this).val());
             Search();
@@ -147,4 +150,10 @@ function Search() {
         jMessage(0, function (ok) {
         }, '<b>Search:</b> ' + e.message, 4);
     }
+}
+
+function loadFileDispatch() {
+    alert("aaa");
+    var patFile = "/public/dispatch-file/aaaaaaa.pdf";
+    window.open('@Url.RouteUrl("LoadFileDispatch", new { id = pathFile })');
 }

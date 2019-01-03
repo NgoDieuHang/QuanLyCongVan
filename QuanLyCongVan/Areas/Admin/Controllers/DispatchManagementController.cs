@@ -74,5 +74,31 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
             }
             return Json(response, JsonRequestBehavior.AllowGet);
         }
+        /// <summary>
+        /// Điều hướng đến trang hiển thị công văn file pdf
+        /// Trả về table chứa danh sách Dispatch nếu là Ajax.
+        /// Điều hướng về trang lỗi nếu có lỗi sảy ra.
+        /// Author       :   HangNTD - 02/08/2018 - create
+        /// </summary>
+        /// <param name="id">teen file pdf caafn load</param>
+        /// <returns>
+        /// File pdf công văn
+        /// </returns>
+        /// <remarks>
+        /// Method: GET
+        /// RouterName: LoadFileDispatch
+        /// </remarks>
+        public ActionResult LoadFileDisPatch(string id)
+        {
+            try
+            {
+                string pathFile = new ListOfDispatchModel().GetPathFileDispatch(id);
+                return File(pathFile, "application/pdf");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Error", "Error", new { area = "error", error = e.Message });
+            }
+        }
     }
 }

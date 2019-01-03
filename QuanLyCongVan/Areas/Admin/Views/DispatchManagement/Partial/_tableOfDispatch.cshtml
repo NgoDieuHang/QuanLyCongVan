@@ -22,6 +22,7 @@
                     <th class="text-center">Ngày ban hành</th>
                     <th class="text-center">Trích yếu</th>
                     <th class="text-center">Nội dung</th>
+                    <th class="text-center">File</th>
                     <th class="text-center">Xóa</th>
                 </tr>
             </thead>
@@ -43,10 +44,10 @@
                     <td class="">
                         @Html.Raw(dispatch.TenCoQuanBanHanh.Replace("\n", "<br/>"))
                     </td>
-                    <td class="">
+                    <td class="text-center">
                         @Html.Raw(String.Format("{0:dd/MM/yyyy}", dispatch.NgayCongVanDen))
                     </td>
-                    <td class="">
+                    <td class="text-center">
                         @Html.Raw(String.Format("{0:dd/MM/yyyy}", dispatch.NgayBanHanh))
                     </td>
                     <td class="">
@@ -54,6 +55,11 @@
                     </td>
                     <td class="">
                         @Html.Raw(dispatch.NoiDung.Replace("\n", "<br/>"))
+                    </td>
+                    <td class="text-center middle">
+                        <a href="@Url.RouteUrl("LoadFileDispatch", new { id = dispatch.Id })">
+                            @dispatch.FilePath.Substring(dispatch.FilePath.LastIndexOf(@"/") + 1)
+                        </a>
                     </td>
                     <td class="text-center middle">
                         <button type="button" class="btn btn-xs btn-danger btn-delete" id-del="@dispatch.Id">

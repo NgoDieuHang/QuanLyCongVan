@@ -19,6 +19,11 @@ namespace QuanLyCongVan.Areas.Admin
                "admin/list-of-dispatch",
                new { controller = "DispatchManagement", action = "ListOfDispatch", id = UrlParameter.Optional }
            );
+            context.MapRoute(
+               "LoadFileDispatch",
+               "admin/load-file-dispatch/{id}",
+               new { controller = "DispatchManagement", action = "LoadFileDisPatch", id = UrlParameter.Optional }
+           );
 
             context.MapRoute(
                 "DeleteDispatchs",

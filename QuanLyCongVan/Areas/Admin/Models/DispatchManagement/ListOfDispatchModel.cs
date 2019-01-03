@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Web.Hosting;
 using Z.EntityFramework.Plus;
 using TblDispatch = QLCV.Database.CongVan;
 
@@ -42,16 +43,6 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                     && !x.DelFlag)), condition.CurentPage, condition.PageSize);
 
                 // Tìm kiếm và lấy dữ liệu theo trang
-                //listOfDispatch.DispatchList = context.CongVans.Count(x =>
-                //    (condition.KeySearch == null ||
-                //    (condition.KeySearch != null && (x.CoQuanBanHanh.TenCoQuanBanHanh.Contains(condition.KeySearch) ||
-                //                                   x.NoiDung.Contains(condition.KeySearch)))
-                //    && !x.DelFlag)).OrderBy(x => x.Id)
-                //    .Skip((listOfDispatch.Paging.CurrentPage - 1) * listOfDispatch.Paging.NumberOfRecord)
-                //    .Take(listOfDispatch.Paging.NumberOfRecord).Select(x => new Dispatch
-                //    {
-                //        Id = x.Id
-                //    }).ToList();
                 listOfDispatch.DispatchList = context.CongVans.Select(x => new Dispatch
                 {
                     Id = x.Id,
@@ -66,7 +57,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                     TrichYeu = x.TrichYeu,
                     NoiDung = x.NoiDung,
                     FilePath = x.FilePath
-                }).ToList();
+            }).ToList();
                 listOfDispatch.Condition = condition;
                 return listOfDispatch;
             }
@@ -75,6 +66,26 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                 throw e;
             }
         }
+
+        public string GetPathFileDispatch(string id)
+        {
+            try
+            {
+                int idDispatch = 0;
+                try
+                {
+                    idDispatch = Convert.ToInt32(id);
+                }
+                catch { }
+                string pathFile = HostingEnvironment.MapPath("~" + context.CongVans.FirstOrDefault(x => x.Id == idDispatch && !x.DelFlag).FilePath);
+                return pathFile;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         /// <summary>
         /// Xóa các Dispatch trong DB.
         /// Author       :   HangNTD - 02/08/2018 - create
@@ -101,5 +112,6 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                 throw e;
             }
         }
+
     }
 }

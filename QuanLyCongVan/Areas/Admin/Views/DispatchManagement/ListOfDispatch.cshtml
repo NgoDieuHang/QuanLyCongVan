@@ -12,58 +12,58 @@
 }
 @section scripts{
     <script>
-        var url = '@Url.RouteUrl("ListOfDispatch")'
+        var url = '@Url.RouteUrl("ListOfDispatch")';
     </script>
     @Scripts.Render("~/public/js/admin/listOfDispatch")
 }
-<div class="row">
-    <!-- start of weather widget -->
-    <div class="col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Điều kiện tìm kiếm</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <a class="collapse-link" tabindex="4"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content" id="condition-search">
-                <form class="form-horizontal input_mask" id="form-search" action="" accept-charset="UTF-8" method="get">
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-xs-12">
-                            <div class="form-group">
-                                <label for="KeySearch">Tiêu đề</label>
-                                <input class="form-control" name="KeySearch" id="KeySearch" tabindex="1" value="@listOfDispatch.Condition.KeySearch" />
+    <div class="row">
+        <!-- start of weather widget -->
+        <div class="col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Điều kiện tìm kiếm</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link" tabindex="4"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" id="condition-search">
+                    <form class="form-horizontal input_mask" id="form-search" action="" accept-charset="UTF-8" method="get">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="form-group">
+                                    <label for="KeySearch">Tiêu đề</label>
+                                    <input class="form-control" name="KeySearch" id="KeySearch" tabindex="1" value="@listOfDispatch.Condition.KeySearch" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <button type="button" class="btn btn-primary" id="btn-search" link-search="@Url.RouteUrl("ListOfDispatch")" tabindex="3">Tìm kiếm</button>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button type="button" class="btn btn-primary" id="btn-search" link-search="@Url.RouteUrl("ListOfDispatch")" tabindex="3">Tìm kiếm</button>
+                            </div>
+                            <input type="hidden" name="CurrentPage" id="CurrentPage" value="@listOfDispatch.Paging.CurrentPage" />
+                            <input type="hidden" name="PageSize" id="PageSize" value="@listOfDispatch.Condition.PageSize" />
                         </div>
-                        <input type="hidden" name="CurrentPage" id="CurrentPage" value="@listOfDispatch.Paging.CurrentPage" />
-                        <input type="hidden" name="PageSize" id="PageSize" value="@listOfDispatch.Condition.PageSize" />
-                    </div>
-                </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Danh sách công văn</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link" tabindex="5"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" id="div-table-dispatch">
+                    @Html.Partial("Partial/_tableOfDispatch", listOfDispatch)
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Danh sách công văn</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <a class="collapse-link" tabindex="5"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content" id="div-table-dispatch">
-                @Html.Partial("Partial/_tableOfDispatch", listOfDispatch)
-            </div>
-        </div>
-    </div>
-</div>
