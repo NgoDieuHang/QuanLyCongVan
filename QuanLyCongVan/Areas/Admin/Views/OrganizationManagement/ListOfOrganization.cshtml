@@ -32,17 +32,21 @@
             <div class="x_content" id="condition-search">
                 <form class="form-horizontal input_mask" id="form-search" action="" accept-charset="UTF-8" method="get">
                     <div class="row">
-                        <div class="col-md-8 col-sm-8 col-xs-12">
-                            <div class="form-Organization">
+                        <div>
+                            <div class="form-group">
                                 <label for="KeySearch">Cơ quan ban hành</label>
-                                <input class="form-control" name="KeySearch" id="KeySearch" tabindex="1" value="@listOfOrganization.Condition.KeySearch" />
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <input class="form-control" name="KeySearch" id="KeySearch" tabindex="1" value="@listOfOrganization.Condition.KeySearch" />
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <button type="button" class="btn btn-primary" id="btn-search" link-search="@Url.RouteUrl("ListOfOrganization")" tabindex="3">Tìm kiếm</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12">
-                            <button type="button" class="btn btn-primary" id="btn-search" link-search="@Url.RouteUrl("ListOfOrganization")" tabindex="3">Tìm kiếm</button>
-                        </div>
                         <input type="hidden" name="CurrentPage" id="CurrentPage" value="@listOfOrganization.Paging.CurrentPage" />
                         <input type="hidden" name="PageSize" id="PageSize" value="@listOfOrganization.Condition.PageSize" />
                     </div>
