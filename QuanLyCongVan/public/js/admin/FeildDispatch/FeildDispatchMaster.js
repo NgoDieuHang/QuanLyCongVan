@@ -1,6 +1,6 @@
 ﻿/*
- * Các xử lý thêm,sửa ,xóa danh sách loại văn bản
- * Author       :   HoangNM - 27/12/2018 - create
+ * Các xử lý thêm,sửa ,xóa danh sách lĩnh vực
+ * Author       :   HoangNM - 30/12/2018 - create
  * Package      :   public/admin
  * Copyright    :   Team An_Hang_Hoang
  * Version      :   1.0.0
@@ -17,7 +17,7 @@ $(document).ready(function () {
 });
 /*
  * Khởi tạo các giá trị ban đầu cho trang
- * Author       :   HoangNM - 27/12/2018 - create
+ * Author       :   HoangNM - 30/12/2018 - create
  * Param        :   
  * Output       :   
  */
@@ -33,18 +33,18 @@ function Init() {
 }
 /*
  * Khởi tạo các sự kiện của cho trang
- * Author       :   HoangNM - 27/12/2018 - create
+ * Author       :   HoangNM - 30/12/2018 - create
  * Param        :   
  * Output       :   
  */
 function InitEvents() {
     try {
         $('#btn-save').on('click', function () {
-            SaveDocument();
+            SaveFeildDispatch();
         });
-        
+
         $('#btn-delete').on('click', function () {
-            DeleteDocument();
+            DeleteFeildDispatch();
         });
     }
     catch (e) {
@@ -56,15 +56,15 @@ function InitEvents() {
 
 /*
  * lưu thông tin thay đổi hoặc thêm mới
- * Author       :   HoangNM - 27/12/2018 - create
+ * Author       :   HoangNM - 30/12/2018 - create
  * Param        :   
  * Output       :   
  */
-function SaveDocument() {
+function SaveFeildDispatch() {
     try {
-        var err1 = validate("#form-document-main");
-        if (!err1 ) {
-            $('#form-document-main').ajaxSubmit({
+        var err1 = validate("#form-feild-dispatch-main");
+        if (!err1) {
+            $('#form-feild-dispatch-main').ajaxSubmit({
                 beforeSubmit: function (a, f, o) {
                     o.dataType = 'json';
                 },
@@ -72,8 +72,8 @@ function SaveDocument() {
                     var res = XMLHttpRequest.responseJSON;
                     if (res.Code === 200) {
                         jMessage(15, function () {
-                            console.log(url.listOfDocument);
-                            window.location = url.listOfDocument;
+                            console.log(url.listOfFeildDispatch);
+                            window.location = url.listOfFeildDispatch;
                         });
                     }
                     else {
@@ -90,30 +90,30 @@ function SaveDocument() {
     }
     catch (e) {
         jMessage(0, function (ok) {
-        }, '<b>SaveDocument:</b> ' + e.message, 4);
+        }, '<b>SaveFeildDispatch:</b> ' + e.message, 4);
     }
 }
 
 /*
- * xóa loại văn bản
- * Author       :   HoangNM - 27/12/2018 - create
+ * xóa loại công văn
+ * Author       :   HoangNM - 29/12/2018 - create
  * Param        :   
  * Output       :   
  */
-function DeleteDocument() {
+function DeleteFeildDispatch() {
     try {
         jMessage(10, function (ok) {
             if (ok) {
                 $.ajax({
                     type: 'POST',
-                    url: url.deleteDocument,
+                    url: url.deleteFeildDispatch,
                     dataType: 'json',
                     data: {
-                        ids: [$('#IdDocument').val()]
+                        ids: [$('#IdFeildDispatch').val()]
                     },
                     success: function (res) {
                         if (res.Code === 200) {
-                            window.location = url.listOfDocument;
+                            window.location = url.listOfFeildDispatch;
                         } else {
                             jMessage(res.MsgNo, function (ok) { });
                         }
@@ -124,6 +124,6 @@ function DeleteDocument() {
     }
     catch (e) {
         jMessage(0, function (ok) {
-        }, '<b>DeleteDocument:</b> ' + e.message, 4);
+        }, '<b>DeleteFeildDispatch:</b> ' + e.message, 4);
     }
 }

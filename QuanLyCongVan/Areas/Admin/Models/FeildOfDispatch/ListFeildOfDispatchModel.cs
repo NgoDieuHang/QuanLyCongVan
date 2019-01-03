@@ -1,6 +1,5 @@
-﻿using QLCV.Common;
-using QLCV.Database;
-using QuanLyCongVan.Areas.Admin.Models.DocumentManagement.Schema;
+﻿using QLCV.Database;
+using QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch.Schema;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,34 +7,29 @@ using System.Linq;
 using System.Web;
 using Z.EntityFramework.Plus;
 
-namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
+namespace QuanLyCongVan.Areas.Admin.Models.FeildOfDispatch
 {
-    public class ListOfDocumentModel
+    public class ListFeildOfDispatchModel
     {
         DataContext context;
-        public ListOfDocumentModel()
+        public ListFeildOfDispatchModel()
         {
             context = new DataContext();
         }
 
-        public List<Document> GetListOfDocument()
+        public List<FeildDispatch> GetListOfFeildDispatch()
         {
             try
             {
-
-
-                List<Document> listOfDocument = new List<Document>();
-
-                //.Where(x => !x.DelFlag)
-                listOfDocument = context.LoaiVanBans.Where(x=>!x.DelFlag)
-                    .Select(x => new Document
+                List<FeildDispatch> listOfFeildDispatch = new List<FeildDispatch>();
+                listOfFeildDispatch = context.LinhVucs.Where(x=>!x.DelFlag)
+                    .Select(x => new FeildDispatch
                     {
                         Id = x.Id,
-                        tenLoaiVanBan = x.TenLoaiVanBan,
-                        kyHieu = x.KiHieu
+                        tenLinhVuc = x.TenLinhVuc
                     }).ToList();
 
-                return listOfDocument;
+                return listOfFeildDispatch;
             }
             catch (Exception e)
             {
@@ -44,17 +38,17 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
         }
 
         /// <summary>
-        /// Xóa các loại văn bản trong DB.
-        /// Author       :   HoangNM - 27/12/2018 - create
+        /// Xóa các lĩnh vực trong DB.
+        /// Author       :   HoangNM - 29/12/2018 - create
         /// </summary>
-        /// <param name="ids">Danh sách id của các loại văn bản sẽ xóa</param>
+        /// <param name="ids">Danh sách id của các lĩnh vực sẽ xóa</param>
         /// <returns>True nếu xóa thành công,  Excetion nếu có lỗi</returns>
-        public bool DeleteDocument(List<int> ids)
+        public bool DeleteFeildDispatch(List<int> ids)
         {
             DbContextTransaction transaction = context.Database.BeginTransaction();
             try
             {
-                context.LoaiVanBans.Where(x => ids.Contains(x.Id)).Delete();
+                context.LinhVucs.Where(x => ids.Contains(x.Id)).Delete();
                 context.SaveChanges();
 
                 transaction.Commit();

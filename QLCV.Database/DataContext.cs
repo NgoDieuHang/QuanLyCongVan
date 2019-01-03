@@ -1,9 +1,11 @@
-namespace QLCV.Database
+﻿namespace QLCV.Database
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Data.Entity.Infrastructure;
+    using Z.EntityFramework.Plus;
 
     public partial class DataContext : DbContext
     {
@@ -11,6 +13,7 @@ namespace QLCV.Database
             //@"Data Source=103.95.197.121;Initial Catalog=TrungTamTinHoc_DEV;User Id=sa;Password=Admin@123;MultipleActiveResultSets=True;"
             //@"Data Source=NGOCQUY\SQLEXPRESS;Initial Catalog=TrungTamTinHoc_DEV;Integrated Security=True;"
             //: base(@"Data Source=103.95.197.121;Initial Catalog=TrungTamTinHoc_DEV;User Id=sa;Password=Admin@123;MultipleActiveResultSets=True;")
+            //: base(@"Data Source=DESKTOP-L6R9D8B;Initial Catalog=QuanLyCongVan;Integrated Security=True;User Id=sa;Password=123456")
             : base(@"Data Source=178.128.114.26;Initial Catalog=QuanLyCongVan;User Id=sa;Password=MinhAn@2003")
 
         {
@@ -22,6 +25,63 @@ namespace QLCV.Database
         public virtual DbSet<LoaiCongVan> LoaiCongVans { get; set; }
         public virtual DbSet<LoaiVanBan> LoaiVanBans { get; set; }
         public virtual DbSet<TinTuc> TinTucs { get; set; }
+
+        public override int SaveChanges()
+        {
+            try
+            {
+                if (ChangeTracker.HasChanges())
+                {
+                    foreach (var entry
+                        in ChangeTracker.Entries())
+                    {
+                        try
+                        {
+                            var root = (Table)entry.Entity;
+                            var now = DateTime.Now;
+                            switch (entry.State)
+                            {
+                                case EntityState.Added:
+                                    {
+                                        root.Created_at = now;
+                                        root.Created_by = 1;
+                                        root.Updated_at = null;
+                                        root.Updated_by = null;
+                                        root.DelFlag = false;
+                                        break;
+                                    }
+                                case EntityState.Modified:
+                                    {
+                                        root.Updated_at = now;
+                                        root.Updated_by = 1;
+                                        break;
+                                    }
+                            }
+                        }
+                        catch { }
+                    }
+                    var audit = new Audit();
+                    audit.PreSaveChanges(this);
+                    var rowAffecteds = base.SaveChanges();
+                    audit.PostSaveChanges();
+
+                    if (audit.Configuration.AutoSavePreAction != null)
+                    {
+                        audit.Configuration.AutoSavePreAction(this, audit);
+                    }
+                    return base.SaveChanges();
+                }
+                return 0;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
