@@ -15,6 +15,22 @@ namespace QuanLyCongVan.Areas.Admin
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
+               "ListOfDispatch",
+               "admin/list-of-dispatch",
+               new { controller = "DispatchManagement", action = "ListOfDispatch", id = UrlParameter.Optional }
+           );
+            context.MapRoute(
+               "LoadFileDispatch",
+               "admin/load-file-dispatch/{id}",
+               new { controller = "DispatchManagement", action = "LoadFileDisPatch", id = UrlParameter.Optional }
+           );
+
+            context.MapRoute(
+                "DeleteDispatchs",
+                "admin/list-of-dispatch/delete-dispatch",
+                new { controller = "DispatchManagement", action = "DeleteDispatchs", id = UrlParameter.Optional }
+            );
+            context.MapRoute(
                 "ListOfDocument",
                 "admin/list-of-document",
                 new { controller = "Document", action = "ListOfDocument", id = UrlParameter.Optional }

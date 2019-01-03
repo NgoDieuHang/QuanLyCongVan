@@ -35,6 +35,17 @@ namespace QuanLyCongVan.App_Start.Bundle
                 "~/public/css/common/error-notify.css"
             ));
 
+            bundles.Add(new ScriptBundle("~/public/js/admin/listOfDispatch").Include(
+              "~/public/assets/pagination/pagination.js",
+                "~/public/assets/iCheck/icheck.js",
+               "~/public/assets/switchery/dist/switchery.js",
+               "~/public/js/admin/dispatch/listOfDispatch.js"
+           ));
+
+            bundles.Add(new StyleBundle("~/public/css/admin/listOfDispatch").Include(
+                "~/public/assets/switchery/dist/switchery.css"
+            ));
+
             bundles.Add(new ScriptBundle("~/public/js/admin/documentMaster").Include(
                 "~/public/assets/pagination/pagination.js",
                 "~/public/assets/iCheck/icheck.js",

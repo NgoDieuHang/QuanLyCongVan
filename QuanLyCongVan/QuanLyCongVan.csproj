@@ -175,6 +175,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\DocumentController.cs" />
     <Compile Include="Areas\Admin\Controllers\FeildDispatchController.cs" />
     <Compile Include="Areas\Admin\Controllers\TypeDispatchController.cs" />
@@ -188,6 +189,9 @@
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatchMaster.cs" />
     <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\DispatchMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\ListOfDispatchModel.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\Dispatch.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\ListOfDispatch.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\DispatchData.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\NewDispatch.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\DocumentMasterModel.cs" />
@@ -205,15 +209,38 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
     <Content Include="bin\QLCV.Common.dll" />
     <Content Include="bin\QLCV.Database.dll" />
     <Content Include="bin\QLCV.Validate.dll" />
     <Content Include="bin\QuanLyCongVan.dll" />
     <Content Include="bin\QuanLyCongVan.pdb" />
+    <Content Include="bin\System.Diagnostics.DiagnosticSource.dll" />
     <Content Include="bin\System.Net.Http.Extensions.dll" />
     <Content Include="bin\System.Net.Http.Formatting.dll" />
     <Content Include="bin\System.Net.Http.Primitives.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
     <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\WebGrease.dll" />
     <Content Include="bin\Z.EntityFramework.Plus.EF6.dll" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -4985,6 +5012,7 @@
     <Content Include="public\js\admin\FeildDispatch\FeildDispatchMaster.js" />
     <Content Include="public\js\admin\TypeDispatch\TypeDispatchMaster.js" />
     <Content Include="public\js\admin\dispatch\DispatchMaster.js" />
+    <Content Include="public\js\admin\dispatch\listOfDispatch.js" />
     <Content Include="public\js\admin\Document\DocumentMaster.js" />
     <Content Include="public\js\admin\Document\ListOfDocument.js" />
     <Content Include="public\js\common\admin.js" />
@@ -5003,6 +5031,10 @@
     <Content Include="Areas\Admin\Views\TypeDispatch\ListOfTypeDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\TypeDispatch\TypeDispatchMaster.cshtml" />
     <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\DispatchManagement\ListOfDispatch.cshtml" />
+    <Content Include="Areas\Admin\Views\DispatchManagement\Partial\_tableOfDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\FeildDispatch\ListOfFeildDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\FeildDispatch\FeildDispatchMaster.cshtml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />

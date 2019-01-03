@@ -1,0 +1,86 @@
+﻿@model QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema.ListOfDispatch
+@{
+    ListOfDispatch listOfDispatch = Model;
+    List<Dispatch> dispatchList = listOfDispatch.DispatchList;
+}
+@using QLCV.Common.Enum
+@using QLCV.Common
+@using QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema;
+@Html.Partial("~/Views/PartialAdmin/_TopPageInfo.cshtml", listOfDispatch.Paging)
+<div class="table-result" id="table-result" link-del="@Url.RouteUrl("DeleteDispatchs")" link-update-state="">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered jambo_table">
+            <thead>
+                <tr>
+                    <th class="text-center col-checkbox">
+                        <input type="checkbox" id="check-all" class="flat">
+                    </th>
+                    <th class="text-center">Sửa</th>
+                    <th class="text-center">Số kí hiệu</th>
+                    <th class="text-center">Tên cơ quan ban hành</th>
+                    <th class="text-center">Ngày công văn đến</th>
+                    <th class="text-center">Ngày ban hành</th>
+                    <th class="text-center">Trích yếu</th>
+                    <th class="text-center">Nội dung</th>
+                    <th class="text-center">File</th>
+                    <th class="text-center">Xóa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Dispatch dispatch in dispatchList)
+                {
+                <tr>
+                    <td class="text-center middle col-checkbox">
+                        <input type="checkbox" class="flat check-item" name="check-remove" id-del="@dispatch.Id">
+                    </td>
+                    <td class="text-center middle">
+                        <a href="@Url.RouteUrl("EditDispatch", new { id = dispatch.Id })">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        @Html.Raw(dispatch.SoKyHieu.Replace("\n", "<br/>"))
+                    </td>
+                    <td class="">
+                        @Html.Raw(dispatch.TenCoQuanBanHanh.Replace("\n", "<br/>"))
+                    </td>
+                    <td class="text-center">
+                        @Html.Raw(String.Format("{0:dd/MM/yyyy}", dispatch.NgayCongVanDen))
+                    </td>
+                    <td class="text-center">
+                        @Html.Raw(String.Format("{0:dd/MM/yyyy}", dispatch.NgayBanHanh))
+                    </td>
+                    <td class="">
+                        @Html.Raw(dispatch.TrichYeu.Replace("\n", "<br/>"))
+                    </td>
+                    <td class="">
+                        @Html.Raw(dispatch.NoiDung.Replace("\n", "<br/>"))
+                    </td>
+                    <td class="text-center middle">
+                        <a class="btn-dispatch">
+                            @dispatch.FilePath.Substring(dispatch.FilePath.LastIndexOf(@"/") + 1)
+                        </a>
+                    </td>
+                    <td class="text-center middle">
+                        <button type="button" class="btn btn-xs btn-danger btn-delete" id-del="@dispatch.Id">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-xs-3 pl-0">
+        <button type="button" class="btn btn-danger btn-delete-selected">Xóa các mục đã chọn</button>
+    </div>
+    <div class="col-xs-9 pr-0">
+        <div class="div-pagination">
+            <ul class="pagination"></ul>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="TotalPages" name="TotalPages" value="@listOfDispatch.Paging.TotalPages" />
+<input type="hidden" id="NumberOfRecord" name="NumberOfRecord" value="@listOfDispatch.Paging.NumberOfRecord" />
+
+
