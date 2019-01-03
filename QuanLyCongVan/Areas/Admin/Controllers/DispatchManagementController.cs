@@ -105,7 +105,7 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
                 return RedirectToAction("Error", "Error", new { area = "error", error = e.Message });
             }
         }
-            public ActionResult DispatchMaster()
+        public ActionResult DispatchMaster()
         {
             ViewBag.DispatchData = new DispatchMasterModel().GetDispatchData();
             return View();
