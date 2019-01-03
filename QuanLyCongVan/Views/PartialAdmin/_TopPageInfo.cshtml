@@ -6,26 +6,26 @@
 @using QLCV.Common;
 <div class="page-info">
     <div class="div-page-size">
-        <span>Shows</span>
+        <span>Hiển thị</span>
         <select class="page-size" id="page-size">
             <option value="10" @(paging.NumberOfRecord == 10 ? "selected=selected" : "")>10</option>
             <option value="25" @(paging.NumberOfRecord == 25 ? "selected=selected" : "")>25</option>
             <option value="50" @(paging.NumberOfRecord == 50 ? "selected=selected" : "")>50</option>
             <option value="100" @(paging.NumberOfRecord == 100 ? "selected=selected" : "")>100</option>
         </select>
-        <span>Line</span>
+        <span>dòng</span>
     </div>
     <div class="showing-row">
         @if (paging.TotalRecord == 0)
         {
-            <span>NoResult</span>
+            <span>Không có kết quả</span>
         }
         else
         {
             int showFrom = (paging.CurrentPage - 1) * paging.NumberOfRecord + 1;
             int showTo = showFrom + paging.NumberOfRecord - 1;
             showTo = showTo > paging.TotalRecord ? paging.TotalRecord : showTo;
-            <span>ShowFrom @showFrom To @showTo Of @paging.TotalRecord Line</span>
+            <span>Hiển thị từ @showFrom đến @showTo của @paging.TotalRecord dòng</span>
         }
     </div>
 </div>

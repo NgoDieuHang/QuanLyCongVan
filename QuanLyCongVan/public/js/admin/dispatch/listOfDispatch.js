@@ -46,7 +46,7 @@ function InitEventDispatchs() {
             Search();
         });
         $('.btn-dispatch').on('click', function () {
-            loadFileDispatch();
+            LoadFileDispatch();
         });
         $(document).on('change', '#page-size', function () {
             $('#PageSize').val($(this).val());
@@ -130,7 +130,7 @@ function Search() {
             KeySearch: $('#KeySearch').val(),
             CurentPage: $('#CurrentPage').val(),
             PageSize: $('#PageSize').val()
-        }
+        };
         $.ajax({
             type: 'GET',
             url: $('#btn-search').attr('link-search'),
@@ -152,8 +152,34 @@ function Search() {
     }
 }
 
-function loadFileDispatch() {
-    alert("aaa");
-    var patFile = "/public/dispatch-file/aaaaaaa.pdf";
-    window.open('@Url.RouteUrl("LoadFileDispatch", new { id = pathFile })');
+function LoadFileDispatch() {
+    try {
+        // Lấy dữ liệu tìm kiếm
+        //alert("aaa");
+        //var id = @"/public/dispatch-file/aaaaaaa.pdf";
+        var data = {
+            id : "/public/dispatch-file/aaaaaaa.pdf"
+        };
+        $.ajax({
+            type: 'GET',
+            url: urlFile,
+            data: data,
+            success: function (res) {
+                alert("1");
+                //$('#div-table-dispatch').html(res);
+                //// Tạo lại số trang
+                //InitPage();
+                //// Tạo lại các checkbox và switch
+                //InitCheckBox();
+                //// Thay đổi url mak không load lại trang
+                //ChangeUrl('list-of-dispatch', getLastOfUrl(url) + '?' + serialize(data));
+            }
+        });
+        //var patFile = "/public/dispatch-file/aaaaaaa.pdf";
+        //window.open('@Url.RouteUrl("LoadFileDispatch", new { id = pathFile })');
+    }
+    catch (e) {
+        jMessage(0, function (ok) {
+        }, '<b>Search:</b> ' + e.message, 4);
+    }
 }

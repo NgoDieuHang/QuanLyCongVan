@@ -57,7 +57,7 @@
                         @Html.Raw(dispatch.NoiDung.Replace("\n", "<br/>"))
                     </td>
                     <td class="text-center middle">
-                        <a class="btn-dispatch">
+                        <a href="@Url.RouteUrl("LoadFileDispatch", new { id = dispatch.Id})" target="_blank">
                             @dispatch.FilePath.Substring(dispatch.FilePath.LastIndexOf(@"/") + 1)
                         </a>
                     </td>
