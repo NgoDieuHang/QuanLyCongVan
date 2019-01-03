@@ -44,7 +44,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
                     idDocument = Convert.ToInt32(id);
                 }
                 catch { }
-                tblLoaiVanBan document = context.LoaiVanBans.Where(x => x.Id == idDocument).FirstOrDefault();
+                tblLoaiVanBan document = context.LoaiVanBans.FirstOrDefault(x => x.Id == idDocument && !x.DelFlag);
                 if (document != null)
                 {
                     documentMaster.Mode = (int)ModeMaster.Update;
@@ -65,12 +65,12 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
         /// dùng để lưu thông tin loại văn bản ( dùng cho update hoặc add)
         /// Author       :   HoangNM - 27/12/2018 - create
         /// </summary>
-        /// <param name="photo">một đối tượng của hình ảnh</param>
+        /// <param name="document">một đối tượng của loại văn bản</param>
         public ResponseInfo SaveDocument(Document document)
         {
             try
             {
-                if (context.LoaiVanBans.FirstOrDefault(x => x.Id == document.Id) != null)
+                if (context.LoaiVanBans.FirstOrDefault(x => x.Id == document.Id && !x.DelFlag) != null)
                 {
                     return UpdateDocument(document);
                 }
@@ -84,7 +84,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
 
         /// <summary>
         /// dùng để cập nhật thông tin văn bản
-        /// Author       :   HoàngNM - 27/12/2018 - create
+        /// Author       :   HoangNM - 27/12/2018 - create
         /// </summary>
         /// <param name="document">một đối tượng của loại văn bản</param>
         public ResponseInfo UpdateDocument(Document document)
@@ -93,7 +93,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
             try
             {
                 ResponseInfo response = new ResponseInfo();
-                context.LoaiVanBans.Where(x => x.Id == document.Id)
+                context.LoaiVanBans.Where(x => x.Id == document.Id && !x.DelFlag)
                     .Update(x => new QLCV.Database.LoaiVanBan
                     {
                         TenLoaiVanBan = document.tenLoaiVanBan,

@@ -25,19 +25,15 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
 
 
         /// <summary>
-        /// Điều hướng đến trang hiển thị danh sách văn bản nếu là request thông thường.
-        /// Trả về table chứa danh sách văn bản nếu là Ajax.
         /// Điều hướng về trang lỗi nếu có lỗi sảy ra.
         /// Author       :   HoangNM - 27/12/2018 - create
         /// </summary>
-        /// <param name="condition">Đối tượng chứa điều kiện tìm kiếm, tạo thành từ query string</param>
         /// <returns>
         /// Trang danh sách văn bản.
-        /// Partial view chứa table danh sách văn bản.
         /// </returns>
         /// <remarks>
         /// Method: GET
-        /// RouterName: ListOfContact
+        /// RouterName: ListOfDocument
         /// </remarks>
         public ActionResult ListOfDocument()
         {
@@ -96,10 +92,10 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// thay đổi thông tin của album ảnh (photo)
-        /// Author       :   HoàngNM - 09/08/2018 - create
+        /// thay đổi thông tin của loại văn bản
+        /// Author       :   HoangNM - 27/12/2018 - create
         /// </summary>
-        /// <param name="id">id của hình ảnh muốn update</param>
+        /// <param name="id">id của loại văn bản muốn update</param>
 
         public ActionResult ViewEditDocument(string id)
 
@@ -109,7 +105,7 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
                 DocumentMaster documentMaster = new DocumentMasterModel().LoadDocument(id);
                 if (documentMaster.Mode == (int)ModeMaster.Insert)
                 {
-                    return RedirectToAction("ViewCreatePhotos");
+                    return RedirectToAction("ViewCreateDocument");
                 }
                 return View("DocumentMaster", documentMaster);
             }
@@ -123,7 +119,7 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         /// lưu thay đổi hoặc add thông tin của loại văn bản
         /// Author       :   HoangNM - 27/12/2018 - create
         /// </summary>
-        /// <param name="data">data chứa thông tin của album ảnh</param>
+        /// <param name="data">data chứa thông tin của loại văn bản</param>
         [HttpPost]
         public JsonResult SaveDocument(Document data)
         {

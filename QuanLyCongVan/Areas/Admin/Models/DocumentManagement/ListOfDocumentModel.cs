@@ -27,7 +27,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
                 List<Document> listOfDocument = new List<Document>();
 
                 //.Where(x => !x.DelFlag)
-                listOfDocument = context.LoaiVanBans
+                listOfDocument = context.LoaiVanBans.Where(x=>!x.DelFlag)
                     .Select(x => new Document
                     {
                         Id = x.Id,
@@ -48,7 +48,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DocumentManagement
         /// Author       :   HoangNM - 27/12/2018 - create
         /// </summary>
         /// <param name="ids">Danh sách id của các loại văn bản sẽ xóa</param>
-        /// <returns>True nếu xóa thành công, False nếu không còn hình ảnh được hiển thị trên trang chủ, Excetion nếu có lỗi</returns>
+        /// <returns>True nếu xóa thành công,  Excetion nếu có lỗi</returns>
         public bool DeleteDocument(List<int> ids)
         {
             DbContextTransaction transaction = context.Database.BeginTransaction();

@@ -1,7 +1,9 @@
-﻿@{
+﻿@using QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema
+@{
     ViewBag.Title = "DispatchMaster";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     bool isInsert = true;
+    DispatchData data = ViewBag.DispatchData;
 }
 @section css{
     @Styles.Render("~/public/css/admin/dispatchMaster")
@@ -25,7 +27,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <form class="form-horizontal input_mask" id="form-dispatch-main" enctype="multipart/form-data" action="" accept-charset="UTF-8" method="post">
+                <form class="form-horizontal input_mask" id="form-dispatch-main" enctype="multipart/form-data" action="@Url.RouteUrl("SaveDispatch")" accept-charset="UTF-8" method="post">
                     @if (!isInsert)
                     {
                         <input type="hidden" id="IdDispatch" name="Id" value="" />
@@ -69,9 +71,13 @@
                             <div class="form-group">
                                 <label for="IdLoaiVanBan">Loại văn bản<span class="text-required">*</span></label>
                                 <select class="form-control" name="IdLoaiVanBan" id="IdLoaiVanBan" tabindex="9">
-                                    <option value="1">HCK</option>
-                                    <option value="2">HCK</option>
-                                    <option value="3">HCK</option>
+                                    @if (data.LoaiVanBans.Count > 0)
+                                    {
+                                        foreach (var item in data.LoaiVanBans)
+                                        {
+                                            <option value="@item.Id">@item.TenLoaiVanBan</option>
+                                        }
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -79,9 +85,13 @@
                             <div class="form-group">
                                 <label for="IdLoaiCongVan">Loại công văn<span class="text-required">*</span></label>
                                 <select class="form-control" name="IdLoaiCongVan" id="IdLoaiCongVan" tabindex="10">
-                                    <option value="1">HCK</option>
-                                    <option value="2">HCK</option>
-                                    <option value="3">HCK</option>
+                                    @if (data.LoaiCongVans.Count > 0)
+                                    {
+                                        foreach (var item in data.LoaiCongVans)
+                                        {
+                                            <option value="@item.Id">@item.TenLoaiCongVan</option>
+                                        }
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -89,17 +99,25 @@
                     <div class="form-group">
                         <label for="IdCoQuanBanHanh">Cơ quan ban hành<span class="text-required">*</span></label>
                         <select class="form-control" name="IdCoQuanBanHanh" id="IdCoQuanBanHanh" tabindex="10">
-                            <option value="1">HCK</option>
-                            <option value="2">HCK</option>
-                            <option value="3">HCK</option>
+                            @if (data.CoQuanBanHanhs.Count > 0)
+                            {
+                                foreach (var item in data.CoQuanBanHanhs)
+                                {
+                                    <option value="@item.Id">@item.TenCoQuanBanHanh</option>
+                                }
+                            }
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="IdLinhVuc">Lĩnh vực<span class="text-required">*</span></label>
                         <select class="form-control" name="IdLinhVuc" id="IdLinhVuc" tabindex="10">
-                            <option value="1">Tài chính</option>
-                            <option value="2">Kế toán</option>
-                            <option value="3">Ngoại ngữ</option>
+                            @if (data.LinhVucs.Count > 0)
+                            {
+                                foreach (var item in data.LinhVucs)
+                                {
+                                    <option value="@item.Id">@item.TenLinhVuc</option>
+                                }
+                            }
                         </select>
                     </div>
 
@@ -113,18 +131,18 @@
                         <textarea class="form-control required" maxlength="1000" tabindex="2" name="NoiDung" id="NoiDung" placeholder="Nội dung" rows="10"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="File">File<span class="text-required">*</span></label>
+                        <label for="FilePath">File đính kèm<span class="text-required">*</span></label>
                         <div>
                             <img id="imgPreview0" class="img-preview" src="" />
                             <input type="hidden" id="size0" id-view="imageName" min-of-width="1920" min-rate="2.35" max-rate="2.45">
                         </div>
                         <div class="input-group">
-                            <input class="form-control required" name="LinkAnh" id="imageName" placeholder="SlideImage" readonly="readonly" style="background: #fff !important;" value="" />
+                            <input class="form-control required" name="LinkAnh" id="imageName" placeholder="File đính kèm" readonly="readonly" style="background: #fff !important;" value="" />
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-primary" tabindex="4">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
                                 </button>
-                                <input type="file" class="file fileImg" name="FileImg" id="FileImg" id-view="imageName" err-idx="0" accept=".jpg,.png" />
+                                <input type="file" class="file fileImg" name="FileAttach" id="FileAttach" id-view="imageName" err-idx="0" accept=".doc,.pdf" />
                             </span>
                         </div>
                     </div>
