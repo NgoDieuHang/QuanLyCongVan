@@ -187,6 +187,7 @@
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\ListOfTypeDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatch.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatchMaster.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrganizationManagementController.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\DispatchMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\ListOfDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\Dispatch.cs" />
@@ -197,6 +198,10 @@
     <Compile Include="Areas\Admin\Models\DocumentManagement\ListOfDocumentModel.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\Schema\Document.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\Schema\DocumentMaster.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\OrganizationModel.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\ListOfOrganization.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\Organization.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\OrganizationMaster.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -5014,6 +5019,8 @@
     <Content Include="public\js\admin\dispatch\listOfDispatch.js" />
     <Content Include="public\js\admin\Document\DocumentMaster.js" />
     <Content Include="public\js\admin\Document\ListOfDocument.js" />
+    <Content Include="public\js\admin\organization\listOfOrganization.js" />
+    <Content Include="public\js\admin\organization\organizationMaster.js" />
     <Content Include="public\js\common\admin.js" />
     <Content Include="public\js\common\base64.js" />
     <Content Include="public\js\common\common.js" />
@@ -5023,6 +5030,7 @@
     <Content Include="public\js\common\jquery.error-style.js" />
     <Content Include="public\js\common\jquery.unobtrusive-ajax.js" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
     <Content Include="Areas\Admin\Views\Document\DocumentMaster.cshtml" />
     <Content Include="Areas\Admin\Views\Document\ListOfDocument.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
@@ -5036,6 +5044,10 @@
     <Content Include="Areas\Admin\Views\DispatchManagement\Partial\_tableOfDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\FeildDispatch\ListOfFeildDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\FeildDispatch\FeildDispatchMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\OrganizationManagement\ListOfOrganization.cshtml" />
+    <Content Include="Areas\Admin\Views\OrganizationManagement\OrganizationMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\OrganizationManagement\Partial\_tableOfOrganization.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />
