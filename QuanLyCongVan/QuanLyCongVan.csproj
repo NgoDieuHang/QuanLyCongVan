@@ -187,7 +187,6 @@
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\ListOfTypeDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatch.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatchMaster.cs" />
-    <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\DispatchMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\ListOfDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\Dispatch.cs" />
@@ -6067,9 +6066,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\DispatchManagement\Schema\" />
     <Folder Include="Areas\Admin\Views\dispatch\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Home\Controllers\" />
     <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Views\Shared\" />

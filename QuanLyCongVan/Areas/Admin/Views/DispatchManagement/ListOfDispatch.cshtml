@@ -13,6 +13,7 @@
 @section scripts{
     <script>
         var url = '@Url.RouteUrl("ListOfDispatch")';
+        var urlFile='@Url.RouteUrl("LoadFileDispatch")';
     </script>
     @Scripts.Render("~/public/js/admin/listOfDispatch")
 }
@@ -32,16 +33,22 @@
                 <div class="x_content" id="condition-search">
                     <form class="form-horizontal input_mask" id="form-search" action="" accept-charset="UTF-8" method="get">
                         <div class="row">
-                            <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div>
                                 <div class="form-group">
                                     <label for="KeySearch">Tiêu đề</label>
-                                    <input class="form-control" name="KeySearch" id="KeySearch" tabindex="1" value="@listOfDispatch.Condition.KeySearch" />
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <input class="form-control " name="KeySearch" id="KeySearch" tabindex="1" value="@listOfDispatch.Condition.KeySearch" />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button type="button" class="btn btn-primary col-sm-4" id="btn-search" link-search="@Url.RouteUrl("ListOfDispatch")" tabindex="3">Tìm kiếm</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <button type="button" class="btn btn-primary" id="btn-search" link-search="@Url.RouteUrl("ListOfDispatch")" tabindex="3">Tìm kiếm</button>
                             </div>
                             <input type="hidden" name="CurrentPage" id="CurrentPage" value="@listOfDispatch.Paging.CurrentPage" />
                             <input type="hidden" name="PageSize" id="PageSize" value="@listOfDispatch.Condition.PageSize" />

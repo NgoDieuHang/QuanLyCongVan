@@ -43,7 +43,11 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                     && !x.DelFlag)), condition.CurentPage, condition.PageSize);
 
                 // Tìm kiếm và lấy dữ liệu theo trang
-                listOfDispatch.DispatchList = context.CongVans.Select(x => new Dispatch
+                listOfDispatch.DispatchList = context.CongVans.Where(x =>
+                    (condition.KeySearch == null ||
+                    (condition.KeySearch != null && (x.CoQuanBanHanh.TenCoQuanBanHanh.Contains(condition.KeySearch) ||
+                                                   x.NoiDung.Contains(condition.KeySearch)))
+                    && !x.DelFlag)).Select(x => new Dispatch
                 {
                     Id = x.Id,
                     SoKyHieu = x.SoKyHieu,
