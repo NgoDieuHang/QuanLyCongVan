@@ -34,6 +34,29 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
             return data;
         }
 
+        public NewDispatch GetDispatchById(int id)
+        {
+            NewDispatch data = new NewDispatch();
+            CongVan cv = context.CongVans.FirstOrDefault(x => x.Id == id && !x.DelFlag);
+            if (cv != null)
+            {
+                data.Id = cv.Id;
+                data.NgayBanHanh = cv.NgayBanHanh;
+                data.NgayCongVanDen = cv.NgayCongVanDen;
+                data.NoiDung = cv.NoiDung;
+                data.SoCongVanDen = cv.SoCongVanDen;
+                data.SoKyHieu = cv.SoKyHieu;
+                data.IdCoQuanBanHanh = cv.IdCoQuanBanHanh;
+                data.IdLinhVuc = cv.IdLinhVuc;
+                data.IdLoaiCongVan = cv.IdLoaiCongVan;
+                data.IdLoaiVanBan = cv.IdLoaiVanBan;
+                data.TrichYeu = cv.TrichYeu;
+                var nameFile = cv.FilePath.Trim().Split('/');
+                data.FilePath = nameFile[nameFile.Length - 1];
+            }
+            return data;
+        }
+        
         public List<LoaiCongVan> GetLoaiCongVan()
         {
             return context.LoaiCongVans.ToList();
@@ -105,7 +128,6 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                     context.CongVans.Where(x => x.Id == dispatch.Id && !x.DelFlag)
                         .Update(x => new CongVan()
                         {
-                            FilePath = dispatch.FilePath,
                             IdCoQuanBanHanh = dispatch.IdCoQuanBanHanh,
                             IdLinhVuc = dispatch.IdLinhVuc,
                             IdLoaiCongVan = dispatch.IdLoaiCongVan,

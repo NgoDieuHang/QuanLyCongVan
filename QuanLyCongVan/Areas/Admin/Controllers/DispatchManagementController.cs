@@ -105,7 +105,7 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
                 return RedirectToAction("Error", "Error", new { area = "error", error = e.Message });
             }
         }
-            public ActionResult DispatchMaster()
+        public ActionResult DispatchMaster()
         {
             ViewBag.DispatchData = new DispatchMasterModel().GetDispatchData();
             return View();
@@ -113,7 +113,13 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
 
         public ActionResult ToViewEdit(string id)
         {
-            //ViewBag.DispatchData = new DispatchMasterModel().GetDispatchData();
+            ViewBag.DispatchData = new DispatchMasterModel().GetDispatchData();
+            var dispatch = new DispatchMasterModel().GetDispatchById(Convert.ToInt32(id));
+            if (dispatch == null)
+            {
+                return RedirectToAction("DispatchMaster");
+            }
+            ViewBag.Dispatch = dispatch;
             return View("DispatchMaster");
         }
 

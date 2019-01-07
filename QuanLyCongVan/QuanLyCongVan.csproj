@@ -5048,6 +5048,9 @@
     <Content Include="Areas\Admin\Views\OrganizationManagement\OrganizationMaster.cshtml" />
     <Content Include="Areas\Admin\Views\OrganizationManagement\Partial\_tableOfOrganization.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="public\dispatch-file\20190102204727_test.pdf" />
+    <Content Include="public\dispatch-file\20190102213333_test.pdf" />
+    <Content Include="public\dispatch-file\aaaaaaa.pdf" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />
@@ -6126,7 +6129,6 @@
     <Folder Include="public\assets\ckfinder\bin\Debug\" />
     <Folder Include="public\assets\ckfinder\bin\Release\" />
     <Folder Include="public\assets\google-code-prettify\bin\" />
-    <Folder Include="public\dispatch-file\" />
     <Folder Include="public\img\UpLoad\" />
     <Folder Include="public\js\control-panel\tinTuc-manahement\" />
   </ItemGroup>
