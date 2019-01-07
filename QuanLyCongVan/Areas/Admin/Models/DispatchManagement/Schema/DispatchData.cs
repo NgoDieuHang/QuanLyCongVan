@@ -8,6 +8,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema
 {
     public class DispatchData
     {
+        public Dispatch Dispatch { get; set; }
         public List<LoaiCongVan> LoaiCongVans { get; set; }
         public List<LoaiVanBan> LoaiVanBans { get; set; }
         public List<LinhVuc> LinhVucs { get; set; }

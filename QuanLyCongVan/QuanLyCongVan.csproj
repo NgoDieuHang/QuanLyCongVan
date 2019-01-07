@@ -187,7 +187,6 @@
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\ListOfTypeDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatch.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatchMaster.cs" />
-    <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\DispatchMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\ListOfDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\Dispatch.cs" />
@@ -5037,6 +5036,9 @@
     <Content Include="Areas\Admin\Views\DispatchManagement\Partial\_tableOfDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\FeildDispatch\ListOfFeildDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\FeildDispatch\FeildDispatchMaster.cshtml" />
+    <Content Include="public\dispatch-file\20190102204727_test.pdf" />
+    <Content Include="public\dispatch-file\20190102213333_test.pdf" />
+    <Content Include="public\dispatch-file\aaaaaaa.pdf" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />
@@ -6067,9 +6069,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\DispatchManagement\Schema\" />
     <Folder Include="Areas\Admin\Views\dispatch\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Home\Controllers\" />
     <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Views\Shared\" />
@@ -6117,7 +6117,6 @@
     <Folder Include="public\assets\ckfinder\bin\Debug\" />
     <Folder Include="public\assets\ckfinder\bin\Release\" />
     <Folder Include="public\assets\google-code-prettify\bin\" />
-    <Folder Include="public\dispatch-file\" />
     <Folder Include="public\img\UpLoad\" />
     <Folder Include="public\js\control-panel\tinTuc-manahement\" />
   </ItemGroup>

@@ -102,7 +102,7 @@ namespace QuanLyCongVan.Areas.Admin
             context.MapRoute(
                 "EditDispatch",
                 "admin/edit-dispatch/{id}",
-                new { controller = "DispatchManagement", action = "DispatchMaster", id = UrlParameter.Optional }
+                new { controller = "DispatchManagement", action = "ToViewEdit", id = UrlParameter.Optional }
             );
             context.MapRoute(
                 "SaveDispatch",
