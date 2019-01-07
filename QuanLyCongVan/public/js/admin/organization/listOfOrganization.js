@@ -1,5 +1,5 @@
 ﻿/*
- * Các xử lý cho hiển thị danh sách Dispatch
+ * Các xử lý cho hiển thị danh sách Organization
  * Author       :   HangNTD - 25/07/2018 - create
  * Package      :   public/control-panel
  * Copyright    :   Team Noname
@@ -7,12 +7,12 @@
  */
 $(document).ready(function () {
     try {
-        InitalizeDispatchs();
-        InitEventDispatchs();
+        InitalizeOrganizations();
+        InitEventOrganizations();
     }
     catch (e) {
         jMessage(0, function (ok) {
-        }, '<b>InitalizeDispatchs:</b> ' + e.message, 4);
+        }, '<b>InitalizeOrganizations:</b> ' + e.message, 4);
     }
 });
 /*
@@ -21,16 +21,16 @@ $(document).ready(function () {
  * Param        :   
  * Output       :   
  */
-function InitalizeDispatchs() {
+function InitalizeOrganizations() {
     try {
         InitPage();
-        setTabIndexTable('#div-table-Dispatch');
+        setTabIndexTable('#div-table-organization');
         setTabIndexMenu();
         $('[tabindex=1]').focus();
     }
     catch (e) {
         jMessage(0, function (ok) {
-        }, '<b>InitalizeDispatchs:</b> ' + e.message, 4);
+        }, '<b>InitalizeOrganizations:</b> ' + e.message, 4);
     }
 }
 /*
@@ -39,14 +39,11 @@ function InitalizeDispatchs() {
  * Param        :   
  * Output       :   
  */
-function InitEventDispatchs() {
+function InitEventOrganizations() {
     try {
         $('#btn-search').on('click', function () {
             $('#CurrentPage').val(1);
             Search();
-        });
-        $('.btn-dispatch').on('click', function () {
-            LoadFileDispatch();
         });
         $(document).on('change', '#page-size', function () {
             $('#PageSize').val($(this).val());
@@ -55,7 +52,7 @@ function InitEventDispatchs() {
     }
     catch (e) {
         jMessage(0, function (ok) {
-        }, '<b>InitEventDispatchs:</b> ' + e.message, 4);
+        }, '<b>InitEventOrganizations:</b> ' + e.message, 4);
     }
 }
 /*
@@ -78,7 +75,7 @@ function InitPage() {
     }
     catch (e) {
         jMessage(0, function (ok) {
-        }, '<b>InitPageDispatch:</b> ' + e.message, 4);
+        }, '<b>InitPageOrganization:</b> ' + e.message, 4);
     }
 }
 /*
@@ -112,12 +109,6 @@ function InitCheckBox() {
     }
 }
 /*
- * Cập nhật trạng thái hiên thị của Dispatch lên server
- * Author       :   HangNTD - 25/07/2018 - create
- * Param        :   
- * Output       :   
- */
-/*
  * Tìm kiếm dữ liệu theo điều kiện tìm kiếm
  * Author       :   HangNTD - 25/07/2018 - create
  * Param        :   
@@ -128,55 +119,24 @@ function Search() {
         // Lấy dữ liệu tìm kiếm
         var data = {
             KeySearch: $('#KeySearch').val(),
+            TrangThai: $('#TrangThai').val(),
             CurentPage: $('#CurrentPage').val(),
             PageSize: $('#PageSize').val()
-        };
+        }
         $.ajax({
             type: 'GET',
             url: $('#btn-search').attr('link-search'),
             data: data,
             success: function (res) {
-                $('#div-table-dispatch').html(res);
+                $('#div-table-organization').html(res);
                 // Tạo lại số trang
                 InitPage();
                 // Tạo lại các checkbox và switch
                 InitCheckBox();
                 // Thay đổi url mak không load lại trang
-                ChangeUrl('list-of-dispatch', getLastOfUrl(url) + '?' + serialize(data));
+                ChangeUrl('list-of-organization', getLastOfUrl(url) + '?' + serialize(data));
             }
         });
-    }
-    catch (e) {
-        jMessage(0, function (ok) {
-        }, '<b>Search:</b> ' + e.message, 4);
-    }
-}
-
-function LoadFileDispatch() {
-    try {
-        // Lấy dữ liệu tìm kiếm
-        //alert("aaa");
-        //var id = @"/public/dispatch-file/aaaaaaa.pdf";
-        var data = {
-            id : "/public/dispatch-file/aaaaaaa.pdf"
-        };
-        $.ajax({
-            type: 'GET',
-            url: urlFile,
-            data: data,
-            success: function (res) {
-                alert("1");
-                //$('#div-table-dispatch').html(res);
-                //// Tạo lại số trang
-                //InitPage();
-                //// Tạo lại các checkbox và switch
-                //InitCheckBox();
-                //// Thay đổi url mak không load lại trang
-                //ChangeUrl('list-of-dispatch', getLastOfUrl(url) + '?' + serialize(data));
-            }
-        });
-        //var patFile = "/public/dispatch-file/aaaaaaa.pdf";
-        //window.open('@Url.RouteUrl("LoadFileDispatch", new { id = pathFile })');
     }
     catch (e) {
         jMessage(0, function (ok) {
