@@ -24,109 +24,44 @@
             <div class="menu_section active">
                 <ul class="nav side-menu" style="">
                     <li class="">
-                        <a href="#"><i class="fa fa-home"></i>MenuHome</a>
+                        <a href="/admin"><i class="fa fa-home"></i>Dashboard</a>
                     </li>
-                    <li class="">
-                        <a href="#"><i class="fa fa-folder-open"></i>Quản lý công văn</a>
-                    </li>
-                    <li class="">
-                        <a href="@Url.RouteUrl("ListOfDocument")"><i class="fa fa-file"></i>Quản lý loại văn bản</a>
-                    </li>
-                    <li class="">
-                        <a href="@Url.RouteUrl("ListOfTypeDispatch")"><i class="fa fa-newspaper-o"></i>Quản lý loại công văn</a>
-                    </li>
-                    <li class="">
-                        <a href="@Url.RouteUrl("ListOfFeildDispatch")"><i class="fa fa-line-chart"></i>Quản lý lĩnh vực</a>
-                    </li>
-                    <li class="">
-                        <a href="#"><i class="fa fa-university"></i>Cơ quan ban hành</a>
-                    </li>
-                    @*<li class="">
-                        <a><i class="fa fa-dashboard"></i>Controlpanel<span class="fa fa-chevron-down"></span></a>
+                    <li>
+                        <a><i class="fa fa-folder-open"></i>Quản lý công văn<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li>
-                                <a><i class="fa fa-image"></i>Slides<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="#">ListOfSlides</a></li>
-
-                                    <li><a href="#">AddSlide</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a><i class="fa fa-file-image-o"></i>Photos<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="#">ListOfPhotos</a></li>
-                                    <li><a href="#">addPhoto</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a><i class="fa fa-group"></i>Groups<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="#">ListOfGroups</a></li>
-                                    <li><a href="#">AddGroup</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a><i class="fa fa-graduation-cap"></i>Course<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="#">ListOfCourses</a></li>
-                                    <li><a href="#">addCourse</a></li>
-                                    <li><a href="#">ListOfClass</a></li>
-                                    <li><a href="#">AddClass</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a><i class="fa fa-newspaper-o"></i>News<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="#">ListOfNews</a></li>
-                                    <li><a href="#">AddNew</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a><i class="fa fa-exclamation-triangle"></i>ErrorMgs<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="#">ListOfErrorMgs</a></li>
-                                    <li><a href="#">AddEror</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>*@
-
-                    <li class="">
-                        <a><i class="fa fa-user"></i>User<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#">ListOfUser</a></li>
-                            <li><a href="#">AddUser</a></li>
-                        </ul>
-                    </li>
-
-                    @*<li class="">
-                        <a href="#"><i class="fa fa-user-secret"></i>Authentication</a>
-                    </li>
-                    <li class="">
-                        <a><i class="fa fa-wrench"></i>Setting<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li class="">
-                                <a href="#"><i class="fa fa-cog"></i>Configuration</a>
-                            </li>
-                            <li class="">
-                                <a><i class="fa fa-cogs"></i>SettingSystem<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="#">SettingSystem</a></li>
-                                    <li><a href="#">PrivacyPolicy</a></li>
-                                    <li><a href="#">UserManual</a></li>
-                                    <li><a href="#">TermsOfUse</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="@Url.RouteUrl("ListOfDispatch")"><i class="fa fa-folder-open"></i>Danh sách công văn</a></li>
+                            <li><a href="@Url.RouteUrl("CreateDispatch")"><i class="fa fa-folder-open"></i>Thêm mới công văn</a></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-newspaper-o"></i>Lịch Học<span class="fa fa-chevron-down"></span></a>
+                        <a><i class="fa fa-file"></i>Quản lý loại văn bản<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">listOfSchedule</a></li>
-                            <li><a href="#">titleAddSchedule</a></li>
+                            <li><a href="@Url.RouteUrl("ListOfDocument")"><i class="fa fa-file"></i>Danh sách loại văn bản</a></li>
+                            <li><a href="@Url.RouteUrl("CreateDocument")"><i class="fa fa-file"></i>Thêm mới loại văn bản</a></a></li>
                         </ul>
-                    </li>*@
+                    </li>
+                    <li>
+                        <a><i class="fa fa-newspaper-o"></i>Quản lý loại công văn<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="@Url.RouteUrl("ListOfTypeDispatch")"><i class="fa fa-newspaper-o"></i>Danh sách loại công văn</a></li>
+                            <li><a href="@Url.RouteUrl("CreateTypeDispatch")"><i class="fa fa-newspaper-o"></i>Thêm mới loại công văn</a></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-line-chart"></i>Quản lý lĩnh vực<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="@Url.RouteUrl("ListOfFeildDispatch")"><i class="fa fa-line-chart"></i>Danh sách lĩnh vực</a></li>
+                            <li><a href="@Url.RouteUrl("CreateFeildDispatch")"><i class="fa fa-line-chart"></i>Thêm mới lĩnh vực</a></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-university"></i>Quản lý cơ quan ban hành<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="@Url.RouteUrl("ListOfOrganization")"><i class="fa fa-university"></i>Danh sách cơ quan ban hành</a></li>
+                            <li><a href="@Url.RouteUrl("CreateFeildDispatch")"><i class="fa fa-university"></i>Thêm mới cơ quan ban hành</a></a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -134,15 +69,6 @@
         <!-- /sidebar menu -->
         <!-- /menu footer buttons -->
         <div class="sidebar-footer hidden-small">
-            @*<a data-toggle="tooltip" data-placement="top" title="" data-original-title="Vietnamese" id="left-vi">
-                <span class="glyphicon lang" lang="vi" aria-hidden="true">VI</span>
-            </a>
-            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="English" id="left-en">
-                <span class="glyphicon lang" lang="en" aria-hidden="true">EN</span>
-            </a>
-            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Setting">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </a>*@
             <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Logout" id="btn-logout-left" link="#">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
             </a>

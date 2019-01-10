@@ -31,6 +31,35 @@ namespace QuanLyCongVan.Areas.Admin
                 new { controller = "DispatchManagement", action = "DeleteDispatchs", id = UrlParameter.Optional }
             );
             context.MapRoute(
+            "ListOfOrganization",
+                "admin/list-of-organization",
+                new { controller = "OrganizationManagement", action = "ListOfOrganization", id = UrlParameter.Optional }
+            );
+            context.MapRoute(
+                "DeleteOrganizations",
+                "admin/list-of-organization/delete-organization",
+                new { controller = "OrganizationManagement", action = "DeleteOrganizations", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+                "CreateOrganization",
+                "admin/create-organization",
+                new { controller = "OrganizationManagement", action = "ViewCreateOrganization", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+               "EditOrganization",
+               "admin/edit-organization/{id}",
+               new { controller = "OrganizationManagement", action = "ViewEditOrganization", id = UrlParameter.Optional }
+           );
+
+            context.MapRoute(
+                "SaveOrganization",
+                "admin/organization-master/save-organization",
+                new { controller = "OrganizationManagement", action = "SaveOrganization", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
                 "ListOfDocument",
                 "admin/list-of-document",
                 new { controller = "Document", action = "ListOfDocument", id = UrlParameter.Optional }
@@ -102,7 +131,7 @@ namespace QuanLyCongVan.Areas.Admin
             context.MapRoute(
                 "EditDispatch",
                 "admin/edit-dispatch/{id}",
-                new { controller = "DispatchManagement", action = "DispatchMaster", id = UrlParameter.Optional }
+                new { controller = "DispatchManagement", action = "ToViewEdit", id = UrlParameter.Optional }
             );
             context.MapRoute(
                 "SaveDispatch",
@@ -147,6 +176,36 @@ namespace QuanLyCongVan.Areas.Admin
                 "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
+
+            //context.MapRoute(
+            //"ListOfOrganization",
+            //    "admin/list-of-organization",
+            //    new { controller = "OrganizationManagement", action = "ListOfOrganization", id = UrlParameter.Optional }
+            //);
+
+           // context.MapRoute(
+           //     "DeleteOrganizations",
+           //     "admin/list-of-organization/delete-organization",
+           //     new { controller = "OrganizationManagement", action = "DeleteOrganizations", id = UrlParameter.Optional }
+           // );
+
+           // context.MapRoute(
+           //     "CreateOrganization",
+           //     "admin/create-organization",
+           //     new { controller = "OrganizationManagement", action = "ViewCreateOrganization", id = UrlParameter.Optional }
+           // );
+
+           // context.MapRoute(
+           //    "EditOrganization",
+           //    "admin/edit-organization/{id}",
+           //    new { controller = "OrganizationManagement", action = "ViewEditOrganization", id = UrlParameter.Optional }
+           //);
+
+           // context.MapRoute(
+           //     "SaveOrganization",
+           //     "admin/organization-master/save-organization",
+           //     new { controller = "OrganizationManagement", action = "SaveOrganization", id = UrlParameter.Optional }
+           // );
         }
     }
 }

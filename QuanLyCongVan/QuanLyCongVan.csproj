@@ -187,6 +187,7 @@
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\ListOfTypeDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatch.cs" />
     <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatchMaster.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrganizationManagementController.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\DispatchMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\ListOfDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\Dispatch.cs" />
@@ -197,8 +198,11 @@
     <Compile Include="Areas\Admin\Models\DocumentManagement\ListOfDocumentModel.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\Schema\Document.cs" />
     <Compile Include="Areas\Admin\Models\DocumentManagement\Schema\DocumentMaster.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\OrganizationModel.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\ListOfOrganization.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\Organization.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\OrganizationMaster.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5014,6 +5018,8 @@
     <Content Include="public\js\admin\dispatch\listOfDispatch.js" />
     <Content Include="public\js\admin\Document\DocumentMaster.js" />
     <Content Include="public\js\admin\Document\ListOfDocument.js" />
+    <Content Include="public\js\admin\organization\listOfOrganization.js" />
+    <Content Include="public\js\admin\organization\organizationMaster.js" />
     <Content Include="public\js\common\admin.js" />
     <Content Include="public\js\common\base64.js" />
     <Content Include="public\js\common\common.js" />
@@ -5023,19 +5029,24 @@
     <Content Include="public\js\common\jquery.error-style.js" />
     <Content Include="public\js\common\jquery.unobtrusive-ajax.js" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
     <Content Include="Areas\Admin\Views\Document\DocumentMaster.cshtml" />
     <Content Include="Areas\Admin\Views\Document\ListOfDocument.cshtml" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\TypeDispatch\ListOfTypeDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\TypeDispatch\TypeDispatchMaster.cshtml" />
     <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\DispatchManagement\ListOfDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\DispatchManagement\Partial\_tableOfDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\FeildDispatch\ListOfFeildDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\FeildDispatch\FeildDispatchMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\OrganizationManagement\ListOfOrganization.cshtml" />
+    <Content Include="Areas\Admin\Views\OrganizationManagement\OrganizationMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\OrganizationManagement\Partial\_tableOfOrganization.cshtml" />
+    <Content Include="public\dispatch-file\20190102204727_test.pdf" />
+    <Content Include="public\dispatch-file\20190102213333_test.pdf" />
+    <Content Include="public\dispatch-file\aaaaaaa.pdf" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />
@@ -6054,9 +6065,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\PartialAdmin\_LeftMenu.cshtml" />
     <Content Include="Views\PartialAdmin\_TopMenu.cshtml" />
     <Content Include="Views\PartialAdmin\_TopPageInfo.cshtml" />
@@ -6071,6 +6079,7 @@
     <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="bin\roslyn\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="public\assets\bootstrap-tagsinput-master\lib\angular\" />
@@ -6114,7 +6123,6 @@
     <Folder Include="public\assets\ckfinder\bin\Debug\" />
     <Folder Include="public\assets\ckfinder\bin\Release\" />
     <Folder Include="public\assets\google-code-prettify\bin\" />
-    <Folder Include="public\dispatch-file\" />
     <Folder Include="public\img\UpLoad\" />
     <Folder Include="public\js\control-panel\tinTuc-manahement\" />
   </ItemGroup>
