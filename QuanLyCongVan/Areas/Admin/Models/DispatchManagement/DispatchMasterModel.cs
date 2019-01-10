@@ -8,6 +8,9 @@ using QLCV.Common.Enum;
 using QLCV.Database;
 using QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema;
 using Z.EntityFramework.Plus;
+using TblLoaiCongVan = QLCV.Database.LoaiCongVan;
+using TblLinhVuc = QLCV.Database.LinhVuc;
+using TblCoquanBanHanh = QLCV.Database.CoQuanBanHanh;
 
 namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
 {
@@ -57,17 +60,17 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
             return data;
         }
         
-        public List<LoaiCongVan> GetLoaiCongVan()
+        public List<TblLoaiCongVan> GetLoaiCongVan()
         {
             return context.LoaiCongVans.ToList();
         }
 
-        public List<LinhVuc> GetLinhVuc()
+        public List<TblLinhVuc> GetLinhVuc()
         {
             return context.LinhVucs.ToList();
         }
 
-        public List<CoQuanBanHanh> GetCoQuanBanHanh()
+        public List<TblCoquanBanHanh> GetCoQuanBanHanh()
         {
             return context.CoQuanBanHanhs.ToList();
         }

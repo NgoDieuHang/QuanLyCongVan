@@ -31,4 +31,28 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema
 
         public string FilePath { get; set; }
     }
+
+    public class CoQuanBanHanh
+    {
+        public int IdCoQuanBanHanh { set; get; }
+        public string TenCoQuanBanHanh { set; get; }
+    }
+
+    public class LoaiVanBan
+    {
+        public int IdLoaiVanBan { set; get; }
+        public string TenLoaiVanBan { set; get; }
+    }
+
+    public class LoaiCongVan
+    {
+        public int IdLoaiCongVan { set; get; }
+        public string TenLoaiCongVan { set; get; }
+    }
+
+    public class LinhVuc
+    {
+        public int IdLinhVuc { set; get; }
+        public string TenLinhVuc { set; get; }
+    }
 }

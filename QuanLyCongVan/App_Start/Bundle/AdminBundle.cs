@@ -39,11 +39,14 @@ namespace QuanLyCongVan.App_Start.Bundle
               "~/public/assets/pagination/pagination.js",
                 "~/public/assets/iCheck/icheck.js",
                "~/public/assets/switchery/dist/switchery.js",
+               "~/public/assets/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js",
                "~/public/js/admin/dispatch/listOfDispatch.js"
            ));
 
             bundles.Add(new StyleBundle("~/public/css/admin/listOfDispatch").Include(
-                "~/public/assets/switchery/dist/switchery.css"
+                "~/public/assets/switchery/dist/switchery.css",
+                "~/public/assets/moment/moment.js",
+                "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
             ));
 
             bundles.Add(new ScriptBundle("~/public/js/admin/documentMaster").Include(

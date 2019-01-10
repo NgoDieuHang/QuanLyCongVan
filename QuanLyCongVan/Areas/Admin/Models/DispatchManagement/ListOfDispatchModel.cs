@@ -35,33 +35,87 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                 }
 
                 ListOfDispatch listOfDispatch = new ListOfDispatch();
+                listOfDispatch.CoQuanBanHanhs = context.CoQuanBanHanhs.ToList().Select(x => new Schema.CoQuanBanHanh
+                {
+                    IdCoQuanBanHanh = x.Id,
+                    TenCoQuanBanHanh = x.TenCoQuanBanHanh
+                }).ToList();
+                listOfDispatch.LoaiCongVans = context.LoaiCongVans.ToList().Select(x => new Schema.LoaiCongVan
+                {
+                    IdLoaiCongVan = x.Id,
+                    TenLoaiCongVan = x.TenLoaiCongVan
+                }).ToList();
+                listOfDispatch.LoaiVanBans = context.LoaiVanBans.ToList().Select(x => new Schema.LoaiVanBan
+                {
+                    IdLoaiVanBan = x.Id,
+                    TenLoaiVanBan = x.TenLoaiVanBan
+                }).ToList();
+                listOfDispatch.LinhVucs = context.LinhVucs.ToList().Select(x => new Schema.LinhVuc
+                {
+                    IdLinhVuc = x.Id,
+                    TenLinhVuc = x.TenLinhVuc
+                }).ToList();
                 // Lấy các thông tin dùng để phân trang
                 listOfDispatch.Paging = new Paging(context.CongVans.Count(x =>
-                    (condition.KeySearch == null ||
-                    (condition.KeySearch != null && (x.CoQuanBanHanh.TenCoQuanBanHanh.Contains(condition.KeySearch) ||
-                                                   x.NoiDung.Contains(condition.KeySearch)))
-                    && !x.DelFlag)), condition.CurentPage, condition.PageSize);
+                    (condition.SoKiHieu == null ||
+                       (condition.SoKiHieu != null && x.SoKyHieu.Contains(condition.SoKiHieu)))
+                    && (condition.TrichYeu == null ||
+                       (condition.TrichYeu != null && x.TrichYeu.Contains(condition.TrichYeu)))
+                    && (condition.SoCongVanDen == null ||
+                       (condition.SoCongVanDen != null && x.SoCongVanDen == condition.SoCongVanDen))
+                    && (condition.IdCoQuanBanHanh == 0 ||
+                       (condition.IdCoQuanBanHanh != 0 && x.CoQuanBanHanh.Id == condition.IdCoQuanBanHanh))
+                    && (condition.IdLoaiCongVan == 0 ||
+                       (condition.IdLoaiCongVan != 0 && x.LoaiCongVan.Id == condition.IdLoaiCongVan))
+                    && (condition.IdLoaiVanBan == 0 ||
+                       (condition.IdLoaiVanBan != 0 && x.LoaiVanBan.Id == condition.IdLoaiVanBan))
+                    && (condition.IdLinhVuc == 0 ||
+                       (condition.IdLinhVuc != 0 && x.LinhVuc.Id == condition.IdLinhVuc))
+                    && (condition.StartDate == null && condition.EndDate == null ||
+                       (condition.StartDate == null && x.NgayBanHanh <= condition.EndDate) ||
+                       (condition.EndDate == null && x.NgayBanHanh >= condition.StartDate) ||
+                       (condition.StartDate != null && condition.EndDate != null &&
+                        x.NgayBanHanh >= condition.StartDate && x.NgayBanHanh <= condition.EndDate))
+                    && !x.DelFlag), condition.CurentPage, condition.PageSize);
 
                 // Tìm kiếm và lấy dữ liệu theo trang
                 listOfDispatch.DispatchList = context.CongVans.Where(x =>
-                    (condition.KeySearch == null ||
-                    (condition.KeySearch != null && (x.CoQuanBanHanh.TenCoQuanBanHanh.Contains(condition.KeySearch) ||
-                                                   x.NoiDung.Contains(condition.KeySearch)))
-                    && !x.DelFlag)).Select(x => new Dispatch
-                {
-                    Id = x.Id,
-                    SoKyHieu = x.SoKyHieu,
-                    TenLoaiVanBan = x.LoaiVanBan.TenLoaiVanBan,
-                    TenCoQuanBanHanh = x.CoQuanBanHanh.TenCoQuanBanHanh,
-                    TenLoaiCongVan = x.LoaiCongVan.TenLoaiCongVan,
-                    SoCongVanDen = x.SoCongVanDen,
-                    NgayCongVanDen = x.NgayCongVanDen,
-                    NgayBanHanh = x.NgayBanHanh,
-                    TenLinhVuc = x.LinhVuc.TenLinhVuc,
-                    TrichYeu = x.TrichYeu,
-                    NoiDung = x.NoiDung,
-                    FilePath = x.FilePath
-            }).ToList();
+                    (condition.SoKiHieu == null ||
+                       (condition.SoKiHieu != null && x.SoKyHieu.Contains(condition.SoKiHieu)))
+                    && (condition.TrichYeu == null ||
+                       (condition.TrichYeu != null && x.TrichYeu.Contains(condition.TrichYeu)))
+                    && (condition.SoCongVanDen == 0 ||
+                       (condition.SoCongVanDen != 0 && x.SoCongVanDen == condition.SoCongVanDen))
+                    && (condition.IdCoQuanBanHanh == 0 ||
+                       (condition.IdCoQuanBanHanh != 0 && x.CoQuanBanHanh.Id == condition.IdCoQuanBanHanh))
+                    && (condition.IdLoaiCongVan == 0 ||
+                       (condition.IdLoaiCongVan != 0 && x.LoaiCongVan.Id == condition.IdLoaiCongVan))
+                    && (condition.IdLoaiVanBan == 0 ||
+                       (condition.IdLoaiVanBan != 0 && x.LoaiVanBan.Id == condition.IdLoaiVanBan))
+                    && (condition.IdLinhVuc == 0 ||
+                       (condition.IdLinhVuc != 0 && x.LinhVuc.Id == condition.IdLinhVuc))
+                    && (condition.StartDate == null && condition.EndDate == null ||
+                       (condition.StartDate == null && x.NgayBanHanh <= condition.EndDate) ||
+                       (condition.EndDate == null && x.NgayBanHanh >= condition.StartDate) ||
+                       (condition.StartDate != null && condition.EndDate != null &&
+                        x.NgayBanHanh >= condition.StartDate && x.NgayBanHanh <= condition.EndDate))
+                    && !x.DelFlag).OrderBy(x => x.Id)
+                    .Skip((listOfDispatch.Paging.CurrentPage - 1) * listOfDispatch.Paging.NumberOfRecord)
+                    .Take(listOfDispatch.Paging.NumberOfRecord).Select(x => new Schema.Dispatch
+                    {
+                        Id = x.Id,
+                        SoKyHieu=x.SoKyHieu,
+                        TenLoaiVanBan=x.LoaiVanBan.TenLoaiVanBan,
+                        TenCoQuanBanHanh=x.CoQuanBanHanh.TenCoQuanBanHanh,
+                        TenLoaiCongVan=x.LoaiCongVan.TenLoaiCongVan,
+                        SoCongVanDen=x.SoCongVanDen,
+                        NgayCongVanDen=x.NgayCongVanDen,
+                        NgayBanHanh=x.NgayBanHanh,
+                        TenLinhVuc=x.LinhVuc.TenLinhVuc,
+                        TrichYeu=x.TrichYeu,
+                        NoiDung=x.NoiDung,
+                        FilePath=x.FilePath
+                    }).ToList();
                 listOfDispatch.Condition = condition;
                 return listOfDispatch;
             }

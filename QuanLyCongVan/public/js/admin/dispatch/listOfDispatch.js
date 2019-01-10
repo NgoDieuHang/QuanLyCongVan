@@ -48,6 +48,9 @@ function InitEventDispatchs() {
         $('.btn-dispatch').on('click', function () {
             LoadFileDispatch();
         });
+        $(document).on('change', '#IdLoaiCongVan', function () {
+            CheckLoaiCongVan($('#IdLoaiCongVan').val());
+        });
         $(document).on('change', '#page-size', function () {
             $('#PageSize').val($(this).val());
             Search();
@@ -127,7 +130,15 @@ function Search() {
     try {
         // Lấy dữ liệu tìm kiếm
         var data = {
-            KeySearch: $('#KeySearch').val(),
+            SoKiHieu: $('#SoKiHieu').val(),
+            IdCoQuanBanHanh: $('#IdCoQuanBanHanh').val(),
+            TrichYeu: $('#TrichYeu').val(),
+            IdLoaiVanBan: $('#IdLoaiVanBan').val(),
+            IdLoaiCongVan: $('#IdLoaiCongVan').val(),
+            SoCongVanDen: $('#SoCongVanDen').val(),
+            StartDate: $('#StartDate').val(),
+            EndDate: $('#EndDate').val(),
+            IdLinhVuc: $('#IdLinhVuc').val(),
             CurentPage: $('#CurrentPage').val(),
             PageSize: $('#PageSize').val()
         };
@@ -151,7 +162,11 @@ function Search() {
         }, '<b>Search:</b> ' + e.message, 4);
     }
 }
-
+function CheckLoaiCongVan(idLoaiCongVan) {
+    if (idLoaiCongVan == 1) {
+        jQuery('#tdiv-SoCongVanDen').removeClass('hidden');
+    }
+}
 function LoadFileDispatch() {
     try {
         // Lấy dữ liệu tìm kiếm
