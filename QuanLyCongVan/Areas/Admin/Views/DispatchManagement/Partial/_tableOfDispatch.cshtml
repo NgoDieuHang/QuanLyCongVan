@@ -21,7 +21,6 @@
                     <th class="text-center">Ngày công văn đến</th>
                     <th class="text-center">Ngày ban hành</th>
                     <th class="text-center">Trích yếu</th>
-                    <th class="text-center">Nội dung</th>
                     <th class="text-center">File</th>
                     <th class="text-center">Xóa</th>
                 </tr>
@@ -53,12 +52,9 @@
                     <td class="">
                         @Html.Raw(dispatch.TrichYeu.Replace("\n", "<br/>"))
                     </td>
-                    <td class="">
-                        @Html.Raw(dispatch.NoiDung.Replace("\n", "<br/>"))
-                    </td>
                     <td class="text-center middle">
-                        <a href="@Url.RouteUrl("LoadFileDispatch", new { id = dispatch.Id})" target="_blank">
-                            @dispatch.FilePath.Substring(dispatch.FilePath.LastIndexOf(@"/") + 1)
+                        <a href="@dispatch.FilePath" target="_blank">
+                            Tải xuống
                         </a>
                     </td>
                     <td class="text-center middle">

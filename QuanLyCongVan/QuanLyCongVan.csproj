@@ -203,7 +203,6 @@
     <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\Organization.cs" />
     <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\OrganizationMaster.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5033,12 +5032,10 @@
     <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
     <Content Include="Areas\Admin\Views\Document\DocumentMaster.cshtml" />
     <Content Include="Areas\Admin\Views\Document\ListOfDocument.cshtml" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\TypeDispatch\ListOfTypeDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\TypeDispatch\TypeDispatchMaster.cshtml" />
     <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\DispatchManagement\ListOfDispatch.cshtml" />
     <Content Include="Areas\Admin\Views\DispatchManagement\Partial\_tableOfDispatch.cshtml" />
@@ -5047,7 +5044,6 @@
     <Content Include="Areas\Admin\Views\OrganizationManagement\ListOfOrganization.cshtml" />
     <Content Include="Areas\Admin\Views\OrganizationManagement\OrganizationMaster.cshtml" />
     <Content Include="Areas\Admin\Views\OrganizationManagement\Partial\_tableOfOrganization.cshtml" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="public\dispatch-file\20190102204727_test.pdf" />
     <Content Include="public\dispatch-file\20190102213333_test.pdf" />
     <Content Include="public\dispatch-file\aaaaaaa.pdf" />
@@ -6069,9 +6065,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\PartialAdmin\_LeftMenu.cshtml" />
     <Content Include="Views\PartialAdmin\_TopMenu.cshtml" />
     <Content Include="Views\PartialAdmin\_TopPageInfo.cshtml" />
@@ -6086,6 +6079,7 @@
     <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="bin\roslyn\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="public\assets\bootstrap-tagsinput-master\lib\angular\" />
