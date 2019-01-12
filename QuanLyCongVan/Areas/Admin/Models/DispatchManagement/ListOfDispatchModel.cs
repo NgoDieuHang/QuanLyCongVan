@@ -84,8 +84,8 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                        (condition.SoKiHieu != null && x.SoKyHieu.Contains(condition.SoKiHieu)))
                     && (condition.TrichYeu == null ||
                        (condition.TrichYeu != null && x.TrichYeu.Contains(condition.TrichYeu)))
-                    && (condition.SoCongVanDen == 0 ||
-                       (condition.SoCongVanDen != 0 && x.SoCongVanDen == condition.SoCongVanDen))
+                    && (condition.SoCongVanDen == null ||
+                       (condition.SoCongVanDen != null && x.SoCongVanDen == condition.SoCongVanDen))
                     && (condition.IdCoQuanBanHanh == 0 ||
                        (condition.IdCoQuanBanHanh != 0 && x.CoQuanBanHanh.Id == condition.IdCoQuanBanHanh))
                     && (condition.IdLoaiCongVan == 0 ||

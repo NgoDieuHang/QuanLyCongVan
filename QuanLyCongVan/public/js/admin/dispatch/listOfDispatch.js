@@ -164,7 +164,7 @@ function Search() {
 }
 function CheckLoaiCongVan(idLoaiCongVan) {
     if (idLoaiCongVan == 1) {
-        jQuery('#tdiv-SoCongVanDen').removeClass('hidden');
+        jQuery('#div-SoCongVanDen').removeClass('hidden');
     }
 }
 function LoadFileDispatch() {

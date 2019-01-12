@@ -39,13 +39,13 @@ namespace QuanLyCongVan.App_Start.Bundle
               "~/public/assets/pagination/pagination.js",
                 "~/public/assets/iCheck/icheck.js",
                "~/public/assets/switchery/dist/switchery.js",
+                "~/public/assets/moment/moment.js",
                "~/public/assets/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js",
                "~/public/js/admin/dispatch/listOfDispatch.js"
            ));
 
             bundles.Add(new StyleBundle("~/public/css/admin/listOfDispatch").Include(
                 "~/public/assets/switchery/dist/switchery.css",
-                "~/public/assets/moment/moment.js",
                 "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
             ));
 
@@ -114,17 +114,6 @@ namespace QuanLyCongVan.App_Start.Bundle
                 "~/public/assets/iCheck/icheck.js",
                "~/public/assets/switchery/dist/switchery.js"
            ));
-
-            bundles.Add(new ScriptBundle("~/public/js/admin/listOfDispatch").Include(
-              "~/public/assets/pagination/pagination.js",
-                "~/public/assets/iCheck/icheck.js",
-               "~/public/assets/switchery/dist/switchery.js",
-               "~/public/js/admin/dispatch/listOfOrganization.js"
-           ));
-
-            bundles.Add(new StyleBundle("~/public/css/admin/listOfDispatch").Include(
-                "~/public/assets/switchery/dist/switchery.css"
-            ));
 
             bundles.Add(new ScriptBundle("~/public/js/admin/listOfOrganization").Include(
                "~/public/assets/pagination/pagination.js",

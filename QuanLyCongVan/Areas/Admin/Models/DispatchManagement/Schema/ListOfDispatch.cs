@@ -39,9 +39,9 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema
         public int PageSize { set; get; }
         public DispatchConditionSearch()
         {
-            this.SoKiHieu = "";
+            this.SoKiHieu = null;
             this.IdCoQuanBanHanh = 0;
-            this.TrichYeu = "";
+            this.TrichYeu = null;
             this.IdLoaiVanBan = 0;
             this.IdLoaiCongVan = 0;
             this.SoCongVanDen = null;
