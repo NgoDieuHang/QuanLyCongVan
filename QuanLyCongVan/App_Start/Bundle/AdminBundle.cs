@@ -46,7 +46,8 @@ namespace QuanLyCongVan.App_Start.Bundle
 
             bundles.Add(new StyleBundle("~/public/css/admin/listOfDispatch").Include(
                 "~/public/assets/switchery/dist/switchery.css",
-                "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
+                "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css",
+                "~/public/assets/iCheck/skins/all.css"
             ));
 
             bundles.Add(new ScriptBundle("~/public/js/admin/documentMaster").Include(
@@ -123,7 +124,8 @@ namespace QuanLyCongVan.App_Start.Bundle
             ));
 
             bundles.Add(new StyleBundle("~/public/css/admin/listOfOrganization").Include(
-                "~/public/assets/switchery/dist/switchery.css"
+                "~/public/assets/switchery/dist/switchery.css",
+                "~/public/assets/iCheck/skins/all.css"
             ));
 
             bundles.Add(new ScriptBundle("~/public/js/admin/organizationMaster").Include(

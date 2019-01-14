@@ -48,6 +48,16 @@ function InitEventDispatchs() {
         $('.btn-dispatch').on('click', function () {
             LoadFileDispatch();
         });
+        $('#EndDate').blur(function () {
+            if ($('#StartDate').val()&&$('#EndDate').val() < $('#StartDate').val()) {
+                $('#EndDate').val($('#StartDate').val());
+            }
+        });
+        $('#StartDate').blur(function () {
+            if ($('#EndDate').val() &&$('#StartDate').val() > $('#EndDate').val()) {
+                $('#StartDate').val($('#EndDate').val());
+            }
+        });
         $(document).on('change', '#IdLoaiCongVan', function () {
             CheckLoaiCongVan($('#IdLoaiCongVan').val());
         });
@@ -164,37 +174,8 @@ function Search() {
 }
 function CheckLoaiCongVan(idLoaiCongVan) {
     if (idLoaiCongVan == 1) {
-        jQuery('#div-SoCongVanDen').removeClass('hidden');
-    }
-}
-function LoadFileDispatch() {
-    try {
-        // Lấy dữ liệu tìm kiếm
-        //alert("aaa");
-        //var id = @"/public/dispatch-file/aaaaaaa.pdf";
-        var data = {
-            id : "/public/dispatch-file/aaaaaaa.pdf"
-        };
-        $.ajax({
-            type: 'GET',
-            url: urlFile,
-            data: data,
-            success: function (res) {
-                alert("1");
-                //$('#div-table-dispatch').html(res);
-                //// Tạo lại số trang
-                //InitPage();
-                //// Tạo lại các checkbox và switch
-                //InitCheckBox();
-                //// Thay đổi url mak không load lại trang
-                //ChangeUrl('list-of-dispatch', getLastOfUrl(url) + '?' + serialize(data));
-            }
-        });
-        //var patFile = "/public/dispatch-file/aaaaaaa.pdf";
-        //window.open('@Url.RouteUrl("LoadFileDispatch", new { id = pathFile })');
-    }
-    catch (e) {
-        jMessage(0, function (ok) {
-        }, '<b>Search:</b> ' + e.message, 4);
+        $('#div-SoCongVanDen').removeClass('hidden');
+    } else {
+        $('#div-SoCongVanDen').addClass('hidden');
     }
 }
