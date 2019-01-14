@@ -7,70 +7,152 @@
 }
 @using QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema
 @section css{
-    <link rel="stylesheet" type="text/css" href="~/public/assets/iCheck/skins/all.css">
     @Styles.Render("~/public/css/admin/listOfDispatch")
 }
 @section scripts{
     <script>
         var url = '@Url.RouteUrl("ListOfDispatch")';
-        var urlFile='@Url.RouteUrl("LoadFileDispatch")';
+    var urlFile = '@Url.RouteUrl("LoadFileDispatch")';
     </script>
     @Scripts.Render("~/public/js/admin/listOfDispatch")
 }
-    <div class="row">
-        <!-- start of weather widget -->
-        <div class="col-xs-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Điều kiện tìm kiếm</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li>
-                            <a class="collapse-link" tabindex="4"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content" id="condition-search">
-                    <form class="form-horizontal input_mask" id="form-search" action="" accept-charset="UTF-8" method="get">
-                        <div class="row">
-                            <div>
-                                <div class="form-group">
-                                    <label for="KeySearch">Tiêu đề</label>
-                                    <div class="row">
-                                        <div class="col-sm-7">
-                                            <input class="form-control " name="KeySearch" id="KeySearch" tabindex="1" value="@listOfDispatch.Condition.KeySearch" />
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <button type="button" class="btn btn-primary col-sm-4" id="btn-search" link-search="@Url.RouteUrl("ListOfDispatch")" tabindex="3">Tìm kiếm</button>
-                                        </div>
-                                    </div>
+<div class="row">
+    <!-- start of weather widget -->
+    <div class="col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Điều kiện tìm kiếm</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link" tabindex="4"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content" id="condition-search">
+                <form class="form-horizontal input_mask" id="form-search" action="" accept-charset="UTF-8" method="get">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                                <label for="CoQuanBanHanh">Cơ quan ban hành</label>
+                                <select class="form-control" name="CoQuanBanHanh" id="IdCoQuanBanHanh" tabindex="3">
+                                    <option value="0">Tất cả</option>
+                                    @foreach (var coQuanBanHanh in listOfDispatch.CoQuanBanHanhs)
+                                    {
+                                        <option value="@coQuanBanHanh.IdCoQuanBanHanh" @(listOfDispatch.Condition.IdCoQuanBanHanh != 0 && listOfDispatch.Condition.IdCoQuanBanHanh == coQuanBanHanh.IdCoQuanBanHanh ? "selected=selected" : "")>@coQuanBanHanh.TenCoQuanBanHanh</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                                <label for="StartDate">Ngày ban hành từ</label>
+                                <div class="input-group datetimepicker mb-5">
+                                    <input type="tel" class="form-control date required" id="StartDate" name="StartDate" maxlength="8" tabindex="3" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                                <label for="EndDate">Đến ngày</label>
+                                <div class="input-group datetimepicker mb-5">
+                                    <input type="tel" class="form-control date required" id="EndDate" name="EndDate" maxlength="8" tabindex="4" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
                             </div>
-                            <input type="hidden" name="CurrentPage" id="CurrentPage" value="@listOfDispatch.Paging.CurrentPage" />
-                            <input type="hidden" name="PageSize" id="PageSize" value="@listOfDispatch.Condition.PageSize" />
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Danh sách công văn</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li>
-                            <a class="collapse-link" tabindex="5"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content" id="div-table-dispatch">
-                    @Html.Partial("Partial/_tableOfDispatch", listOfDispatch)
-                </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                                <label for="SoKiHieu">Số kí hiệu</label>
+                                <input class="form-control" name="SoKiHieu" id="SoKiHieu" tabindex="1" value="@listOfDispatch.Condition.SoKiHieu" />
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                                <label for="LinhVuc">Lĩnh vực</label>
+                                <select class="form-control" name="LinhVuc" id="IdLinhVuc" tabindex="5">
+                                    <option value="0">Tất cả</option>
+                                    @foreach (var linhVuc in listOfDispatch.LinhVucs)
+                                    {
+                                        <option value="@linhVuc.IdLinhVuc" @(listOfDispatch.Condition.IdLinhVuc != 0 && listOfDispatch.Condition.IdLinhVuc == linhVuc.IdLinhVuc ? "selected=selected" : "")>@linhVuc.TenLinhVuc</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                                <label for="LoaiVanBan">Loại văn bản</label>
+                                <select class="form-control" name="LoaiVanBan" id="IdLoaiVanBan" tabindex="4">
+                                    <option value="0">Tất cả</option>
+                                    @foreach (var loaiVanBan in listOfDispatch.LoaiVanBans)
+                                    {
+                                        <option value="@loaiVanBan.IdLoaiVanBan" @(listOfDispatch.Condition.IdLoaiVanBan != 0 && listOfDispatch.Condition.IdLoaiVanBan == loaiVanBan.IdLoaiVanBan ? "selected=selected" : "")>@loaiVanBan.TenLoaiVanBan</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                                <label for="LoaiCongVan">Loại công văn</label>
+                                <select class="form-control" name="LoaiCongVan" id="IdLoaiCongVan" tabindex="4">
+                                    <option value="0">Tất cả</option>
+                                    @foreach (var loaiCongVan in listOfDispatch.LoaiCongVans)
+                                    {
+                                        <option value="@loaiCongVan.IdLoaiCongVan" @(listOfDispatch.Condition.IdLoaiCongVan != 0 && listOfDispatch.Condition.IdLoaiCongVan == loaiCongVan.IdLoaiCongVan ? "selected=selected" : "")>@loaiCongVan.TenLoaiCongVan</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="form-group">
+                                <label for="TrichYeu">Trích yếu</label>
+                                <input class="form-control" name="TrichYeu" id="TrichYeu" tabindex="1" value="@listOfDispatch.Condition.TrichYeu" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12 hidden" id="div-SoCongVanDen">
+                            <div class="form-group">
+                                <label for="SoCongVanDen">Số công văn đến</label>
+                                <input class="form-control" name="SoCongVanDen" id="SoCongVanDen" tabindex="1" value="@listOfDispatch.Condition.SoCongVanDen" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <button type="button" class="btn btn-primary col-sm-4" id="btn-search" link-search="@Url.RouteUrl("ListOfDispatch")" tabindex="3">Tìm kiếm</button>
+                        </div>
+                        <input type="hidden" name="CurrentPage" id="CurrentPage" value="@listOfDispatch.Paging.CurrentPage" />
+                        <input type="hidden" name="PageSize" id="PageSize" value="@listOfDispatch.Condition.PageSize" />
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <div class="col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Danh sách công văn</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link" tabindex="5"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content" id="div-table-dispatch">
+                @Html.Partial("Partial/_tableOfDispatch", listOfDispatch)
+            </div>
+        </div>
+    </div>
+</div>

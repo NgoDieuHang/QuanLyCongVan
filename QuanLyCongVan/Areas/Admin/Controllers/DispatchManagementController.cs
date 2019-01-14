@@ -1,11 +1,16 @@
 ﻿using QLCV.Common;
-using QLCV.Common.Enum;
-using QLCV.Validate;
 using QuanLyCongVan.Areas.Admin.Models.DispatchManagement;
 using QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using QLCV.Common;
+using QLCV.Common.Enum;
+using QLCV.Validate;
+using QuanLyCongVan.Areas.Admin.Models.DispatchManagement;
+using QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema;
 using static QLCV.Common.Enum.ConstantsEnum;
 using static QLCV.Common.Enum.MessageEnum;
 
@@ -44,7 +49,6 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
                 return RedirectToAction("Error", "Error", new { area = "error", error = e.Message });
             }
         }
-
         /// <summary>
         /// Xóa các Dispatch theo danh sách id Dispatch được gửi lên.
         /// Author       :   HangNTD - 02/08/2018 - create
@@ -75,53 +79,44 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
             }
             return Json(response, JsonRequestBehavior.AllowGet);
         }
-
         /// <summary>
-        /// Điều hướng đến trang thêm mới công văn.
-        /// Author       :   AnTM - 12/30/2018 - create
+        /// Điều hướng đến trang hiển thị công văn file pdf
+        /// Trả về table chứa danh sách Dispatch nếu là Ajax.
+        /// Điều hướng về trang lỗi nếu có lỗi sảy ra.
+        /// Author       :   HangNTD - 02/08/2018 - create
         /// </summary>
-        /// <returns>Điều hướng đến trang thêm mới công văn</returns>
+        /// <param name="id">teen file pdf caafn load</param>
+        /// <returns>
+        /// File pdf công văn
+        /// </returns>
         /// <remarks>
         /// Method: GET
-        /// RouterName: CreateDispatch
+        /// RouterName: LoadFileDispatch
         /// </remarks>
+        public ActionResult LoadFileDisPatch(string id)
+        {
+            try
+            {
+                string pathFile = new ListOfDispatchModel().GetPathFileDispatch(id);
+                return File(pathFile, "application/pdf");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Error", "Error", new { area = "error", error = e.Message });
+            }
+        }
         public ActionResult DispatchMaster()
         {
             ViewBag.DispatchData = new DispatchMasterModel().GetDispatchData();
             return View();
         }
 
-        /// <summary>
-        /// Điều hướng đến trang chỉnh sửa công văn.
-        /// Author       :   AnTM - 12/30/2018 - create
-        /// </summary>
-        /// <returns>Điều hướng đến trang chỉnh sửa công văn.</returns>
-        /// <remarks>
-        /// Method: GET
-        /// RouterName: EditDispatch
-        /// </remarks>
         public ActionResult ToViewEdit(string id)
         {
-            ViewBag.DispatchData = new DispatchMasterModel().GetDispatchData();
-            var dispatch = new DispatchMasterModel().GetDispatchById(Convert.ToInt32(id));
-            if (dispatch == null)
-            {
-                return RedirectToAction("DispatchMaster");
-            }
-            ViewBag.Dispatch = dispatch;
+            //ViewBag.DispatchData = new DispatchMasterModel().GetDispatchData();
             return View("DispatchMaster");
         }
 
-        /// <summary>
-        /// Xử lý thêm mới hoặc chỉnh sửa công văn.
-        /// Author       :   AnTM - 12/30/2018 - create
-        /// </summary>
-        /// <param name="dispatch">Đối tượng dispatch gửi từ client</param>
-        /// <returns>Response.</returns>
-        /// <remarks>
-        /// Method: POST
-        /// RouterName: SaveDispatch
-        /// </remarks>
         [HttpPost]
         public JsonResult SaveDispatch(NewDispatch dispatch)
         {
