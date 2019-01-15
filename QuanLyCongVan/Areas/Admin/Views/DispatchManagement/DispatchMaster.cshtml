@@ -21,7 +21,7 @@
 </div>
 <div class="clearfix"></div>
 <div class="row">
-    <div class="@(!isInsert ? "col-md-6" : "") col-xs-12">
+    <div class="col-xs-12">
         <div class="x_panel">
             <div class="x_title">
                 <h2>Information</h2>
@@ -29,21 +29,21 @@
             </div>
             <div class="x_content">
                 <form class="form-horizontal input_mask" id="form-dispatch-main" enctype="multipart/form-data" action="@Url.RouteUrl("SaveDispatch")" accept-charset="UTF-8" method="post">
-                    @if (!isInsert)
+                    @if (isInsert)
                     {
-                        <input type="hidden" id="IdDispatch" name="Id" value="@(dispatch!=null ? dispatch.Id.ToString() : "")" />
+                        <input type="hidden" id="IdDispatch" name="Id" value="@(dispatch.Id.ToString())" />
                     }
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="form-group">
                                 <label for="SoKyHieu">Số ký hiệu<span class="text-required">*</span></label>
-                                <input type="text" class="form-control required" maxlength="100" tabindex="1" name="SoKyHieu" id="SoKyHieu" placeholder="Số ký hiệu" rows="2" value="@(dispatch!=null ? dispatch.SoKyHieu : "")" />
+                                <input type="text" class="form-control required" maxlength="100" tabindex="1" name="SoKyHieu" id="SoKyHieu" placeholder="Số ký hiệu" rows="2" value="@(isInsert ? dispatch.SoKyHieu : "")" />
                             </div>
                         </div>
                         <div class=" col-md-6 col-sm-6 col-xs-12">
                             <label for="NgayBanHanh" class="white-label">Ngày ban hành<span class="text-required">*</span></label>
                             <div class="input-group datetimepicker mb-5">
-                                <input type="tel" class="form-control date required" id="NgayBanHanh" name="NgayBanHanh" maxlength="8" tabindex="2" value="@(dispatch!=null ? dispatch.NgayBanHanh.ToString("dd/MM/yyyy") : "")" />
+                                <input type="tel" class="form-control date required" id="NgayBanHanh" name="NgayBanHanh" maxlength="8" tabindex="2" value="@(isInsert ? dispatch.NgayBanHanh.ToString("dd/MM/yyyy") : "")" />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
@@ -54,13 +54,13 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="form-group">
                                 <label for="SoCongVanDen">Số công văn đến</label>
-                                <input type="text" class="form-control required" maxlength="100" tabindex="3" name="SoCongVanDen" id="SoCongVanDen" placeholder="Số công văn đến" rows="2" value="@(dispatch.SoCongVanDen != null ? dispatch.SoCongVanDen.ToString() : "")" />
+                                <input type="text" class="form-control required" maxlength="100" tabindex="3" name="SoCongVanDen" id="SoCongVanDen" placeholder="Số công văn đến" rows="2" value="@(isInsert && dispatch.SoCongVanDen != null ? dispatch.SoCongVanDen.ToString() : "")" />
                             </div>
                         </div>
                         <div class=" col-md-6 col-sm-6 col-xs-12">
                             <label for="NgayCongVanDen" class="white-label">Ngày công văn đến</label>
                             <div class="input-group datetimepicker mb-5">
-                                <input type="tel" class="form-control date required" id="NgayCongVanDen" name="NgayCongVanDen" maxlength="8" tabindex="4" value="@(dispatch.NgayCongVanDen!=null ? dispatch.NgayCongVanDen.ToString() : "")" />
+                                <input type="tel" class="form-control date required" id="NgayCongVanDen" name="NgayCongVanDen" maxlength="8" tabindex="4" value="@(isInsert && dispatch.NgayCongVanDen!=null ? dispatch.NgayCongVanDen.ToString() : "")" />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
@@ -76,7 +76,7 @@
                                     {
                                         foreach (var item in data.LoaiVanBans)
                                         {
-                                            <option value="@item.Id" @(dispatch != null ? dispatch.IdLoaiVanBan == item.Id ? "selected='selected'" : "" : "")>@item.TenLoaiVanBan</option>
+                                            <option value="@item.Id" @(isInsert ? dispatch.IdLoaiVanBan == item.Id ? "selected='selected'" : "" : "")>@item.TenLoaiVanBan</option>
                                         }
                                     }
                                 </select>
@@ -90,7 +90,7 @@
                                     {
                                         foreach (var item in data.LoaiCongVans)
                                         {
-                                            <option value="@item.Id" @(dispatch != null ? dispatch.IdLoaiCongVan == item.Id ? "selected='selected'" : "" : "")>@item.TenLoaiCongVan</option>
+                                            <option value="@item.Id" @(isInsert ? dispatch.IdLoaiCongVan == item.Id ? "selected='selected'" : "" : "")>@item.TenLoaiCongVan</option>
                                         }
                                     }
                                 </select>
@@ -104,7 +104,7 @@
                             {
                                 foreach (var item in data.CoQuanBanHanhs)
                                 {
-                                    <option value="@item.Id" @(dispatch != null ? dispatch.IdCoQuanBanHanh == item.Id ? "selected='selected'" : "" : "")>@item.TenCoQuanBanHanh</option>
+                                    <option value="@item.Id" @(isInsert ? dispatch.IdCoQuanBanHanh == item.Id ? "selected='selected'" : "" : "")>@item.TenCoQuanBanHanh</option>
                                 }
                             }
                         </select>
@@ -116,7 +116,7 @@
                             {
                                 foreach (var item in data.LinhVucs)
                                 {
-                                    <option value="@item.Id" @(dispatch != null ? dispatch.IdLinhVuc == item.Id ? "selected='selected'" : "" : "")>@item.TenLinhVuc</option>
+                                    <option value="@item.Id" @(isInsert ? dispatch.IdLinhVuc == item.Id ? "selected='selected'" : "" : "")>@item.TenLinhVuc</option>
                                 }
                             }
                         </select>
@@ -124,21 +124,21 @@
 
                     <div class="form-group">
                         <label for="TrichYeu">Trích yếu<span class="text-required">*</span></label>
-                        <textarea class="form-control required" maxlength="1000" tabindex="9" name="TrichYeu" id="TrichYeu" placeholder="Trích yếu" rows="1">@(dispatch!=null ? dispatch.TrichYeu : "")</textarea>
+                        <textarea class="form-control required" maxlength="1000" tabindex="9" name="TrichYeu" id="TrichYeu" placeholder="Trích yếu" rows="1">@(isInsert ? dispatch.TrichYeu : "")</textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="NoiDung">Nội dung<span class="text-required">*</span></label>
-                        <textarea class="form-control required" maxlength="1000" tabindex="10" name="NoiDung" id="NoiDung" placeholder="Nội dung" rows="10">@(dispatch!=null ? dispatch.NoiDung : "")</textarea>
+                        <textarea class="form-control required" maxlength="1000" tabindex="10" name="NoiDung" id="NoiDung" placeholder="Nội dung" rows="10">@(isInsert ? dispatch.NoiDung : "")</textarea>
                     </div>
                     <div class="form-group">
                         <label for="FilePath">File đính kèm<span class="text-required">*</span></label>
                         @if (isInsert)
                         {
-                            <a target="_blank" href="@(dispatch!=null ? dispatch.FilePath : "")">File đính kèm.</a>
+                            <a target="_blank" href="@(dispatch.FilePath)">File đính kèm.</a>
                         }
                         <div class="input-group">
-                            <input class="form-control required" name="LinkAnh" id="imageName" placeholder="File đính kèm" readonly="readonly" style="background: #fff !important;" value="@(dispatch!=null ? dispatch.FilePath : "")" />
+                            <input class="form-control required" name="LinkAnh" id="imageName" placeholder="File đính kèm" readonly="readonly" style="background: #fff !important;" value="@(isInsert ? dispatch.FilePath : "")" />
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-primary" tabindex="11">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
@@ -146,10 +146,6 @@
                                 <input type="file" class="file fileImg" name="FileAttach" id="FileAttach" id-view="imageName" err-idx="0" accept=".doc,.pdf" />
                             </span>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="HienThi">Show</label>
-                        <input type="checkbox" class="js-switch" tabindex="5" name="CheckHienThi" id="HienThi" />
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-primary" id="btn-save" tabindex="12">Save</button>

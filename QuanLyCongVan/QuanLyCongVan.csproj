@@ -5047,6 +5047,7 @@
     <Content Include="public\dispatch-file\20190102204727_test.pdf" />
     <Content Include="public\dispatch-file\20190102213333_test.pdf" />
     <Content Include="public\dispatch-file\aaaaaaa.pdf" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />
