@@ -253,7 +253,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="obj\Debug\QuanLyCongVan.csproj.FileListAbsolute.txt" />
     <Content Include="public\assets\animate.css\animate.css" />
     <Content Include="public\assets\animate.css\animate.min.css" />
     <Content Include="public\assets\animate.css\gulpfile.js" />
@@ -5048,6 +5047,7 @@
     <Content Include="public\dispatch-file\20190102213333_test.pdf" />
     <Content Include="public\dispatch-file\aaaaaaa.pdf" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />
@@ -5108,7 +5108,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="libman.json" />
-    <Content Include="obj\Debug\build.force" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\QuanLyCongVan.csproj.App.config" />
     <Content Include="obj\Debug\QuanLyCongVan.csproj.CoreCompileInputs.cache" />

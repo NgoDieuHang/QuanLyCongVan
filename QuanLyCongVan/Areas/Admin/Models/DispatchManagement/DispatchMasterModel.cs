@@ -59,7 +59,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
             }
             return data;
         }
-        
+
         public List<TblLoaiCongVan> GetLoaiCongVan()
         {
             return context.LoaiCongVans.ToList();
@@ -141,8 +141,10 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                             SoCongVanDen = dispatch.SoCongVanDen,
                             SoKyHieu = dispatch.SoKyHieu,
                             TrichYeu = dispatch.TrichYeu,
+                            FilePath = dispatch.FilePath
                         });
                     context.SaveChanges();
+                    response.ThongTinBoSung1 = dispatch.Id + "";
                 }
                 transaction.Commit();
                 Common.DeleteFile(imgsDelete);
@@ -200,6 +202,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                             SoKyHieu = dispatch.SoKyHieu,
                             TrichYeu = dispatch.TrichYeu,
                         });
+                        dispatch.Id = context.CongVans.Count() == 0 ? 1 : context.CongVans.Max(x => x.Id) + 1;
                         context.SaveChanges();
                         response.ThongTinBoSung1 = dispatch.Id + "";
                     }
