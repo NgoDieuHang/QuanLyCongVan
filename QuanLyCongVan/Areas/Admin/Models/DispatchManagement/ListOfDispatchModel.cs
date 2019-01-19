@@ -33,7 +33,8 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                 {
                     condition = new DispatchConditionSearch();
                 }
-
+                DateTime startDate = Convert.ToDateTime(condition.StartDate);
+                DateTime endDate = Convert.ToDateTime(condition.EndDate);
                 ListOfDispatch listOfDispatch = new ListOfDispatch();
                 listOfDispatch.CoQuanBanHanhs = context.CoQuanBanHanhs.ToList().Select(x => new Schema.CoQuanBanHanh
                 {
@@ -72,10 +73,10 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                     && (condition.IdLinhVuc == 0 ||
                        (condition.IdLinhVuc != 0 && x.LinhVuc.Id == condition.IdLinhVuc))
                     && (condition.StartDate == null && condition.EndDate == null ||
-                       (condition.StartDate == null && x.NgayBanHanh <= condition.EndDate) ||
-                       (condition.EndDate == null && x.NgayBanHanh >= condition.StartDate) ||
+                       (condition.StartDate == null && x.NgayBanHanh <= endDate) ||
+                       (condition.EndDate == null && x.NgayBanHanh >= startDate) ||
                        (condition.StartDate != null && condition.EndDate != null &&
-                        x.NgayBanHanh >= condition.StartDate && x.NgayBanHanh <= condition.EndDate))
+                        x.NgayBanHanh >= startDate && x.NgayBanHanh <= endDate))
                     && !x.DelFlag), condition.CurentPage, condition.PageSize);
 
                 // Tìm kiếm và lấy dữ liệu theo trang
@@ -95,10 +96,10 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                     && (condition.IdLinhVuc == 0 ||
                        (condition.IdLinhVuc != 0 && x.LinhVuc.Id == condition.IdLinhVuc))
                     && (condition.StartDate == null && condition.EndDate == null ||
-                       (condition.StartDate == null && x.NgayBanHanh <= condition.EndDate) ||
-                       (condition.EndDate == null && x.NgayBanHanh >= condition.StartDate) ||
+                       (condition.StartDate == null && x.NgayBanHanh <= endDate) ||
+                       (condition.EndDate == null && x.NgayBanHanh >= startDate) ||
                        (condition.StartDate != null && condition.EndDate != null &&
-                        x.NgayBanHanh >= condition.StartDate && x.NgayBanHanh <= condition.EndDate))
+                        x.NgayBanHanh >= startDate && x.NgayBanHanh <= endDate))
                     && !x.DelFlag).OrderBy(x => x.Id)
                     .Skip((listOfDispatch.Paging.CurrentPage - 1) * listOfDispatch.Paging.NumberOfRecord)
                     .Take(listOfDispatch.Paging.NumberOfRecord).Select(x => new Schema.Dispatch
