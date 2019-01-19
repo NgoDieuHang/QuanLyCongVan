@@ -16,6 +16,7 @@ function Init() {
         if ($('#imageName').val() != '') {
             msg_err_file[0] = 0;
         }
+        CheckLoaiCongVan($('#IdLoaiCongVan').val());
     }
     catch (e) {
         jMessage(0, function (ok) {
@@ -26,10 +27,10 @@ function Init() {
 function InitEvents() {
     try {
         $('#btn-save').on('click', function () {
-            SaveSlide();
+            SaveDispatch();
         });
-        $('#btn-delete').on('click', function () {
-            //DeleteSlide();
+        $(document).on('change', '#IdLoaiCongVan', function () {
+            CheckLoaiCongVan($('#IdLoaiCongVan').val());
         });
     }
     catch (e) {
@@ -37,7 +38,7 @@ function InitEvents() {
         }, '<b>InitEvents:</b> ' + e.message, 4);
     }
 }
-function SaveSlide() {
+function SaveDispatch() {
     try {
         var err1 = validate("#form-dispatch-main");
         var err2 = ValidateFile(0);
@@ -50,8 +51,7 @@ function SaveSlide() {
                     var res = XMLHttpRequest.responseJSON;
                     if (res.Code == 200) {
                         jMessage(15, function () {
-                            //console.log(url.editSlide + (isInsert == 'I' ? ('/' + res.ThongTinBoSung1) : ''));
-                            window.location = url.editSlide + (isInsert == 'I' ? ('/' + res.ThongTinBoSung1) : '');
+                            window.location = url.editDispatch + (isInsert == "false" ? ('/' + res.ThongTinBoSung1) : '');
                         });
                     }
                     else if (res.Code == 201) {
@@ -71,6 +71,13 @@ function SaveSlide() {
     }
     catch (e) {
         jMessage(0, function (ok) {
-        }, '<b>SaveSlide:</b> ' + e.message, 4);
+        }, '<b>SaveDispatch:</b> ' + e.message, 4);
+    }
+}
+function CheckLoaiCongVan(idLoaiCongVan) {
+    if (idLoaiCongVan == 1) {
+        $('.cvd-area').removeClass('hidden');
+    } else {
+        $('.cvd-area').addClass('hidden');
     }
 }

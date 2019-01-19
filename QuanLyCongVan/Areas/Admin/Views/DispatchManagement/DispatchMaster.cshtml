@@ -1,6 +1,6 @@
 ﻿@using QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema
 @{
-    ViewBag.Title = "DispatchMaster";
+    ViewBag.Title = "Dispatch info";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     bool isInsert = ViewBag.Dispatch != null ? true : false;
     DispatchData data = ViewBag.DispatchData;
@@ -11,12 +11,16 @@
 }
 @section scripts{
     <script>
+        var url = {
+            editDispatch: '@Url.RouteUrl("EditDispatch")'
+        }
+        var isInsert = '@(isInsert ? "true" : "false")';
     </script>
     @Scripts.Render("~/public/js/admin/dispatchMaster")
 }
 <div class="page-title">
     <div class="title_left">
-        <h3>@(isInsert ? "Create new dispatch" : "Edit dispatch")</h3>
+        <h3>@(isInsert ? "Edit new dispatch" : "Create dispatch")</h3>
     </div>
 </div>
 <div class="clearfix"></div>
@@ -53,25 +57,8 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="form-group">
-                                <label for="SoCongVanDen">Số công văn đến</label>
-                                <input type="text" class="form-control required" maxlength="100" tabindex="3" name="SoCongVanDen" id="SoCongVanDen" placeholder="Số công văn đến" rows="2" value="@(isInsert && dispatch.SoCongVanDen != null ? dispatch.SoCongVanDen.ToString() : "")" />
-                            </div>
-                        </div>
-                        <div class=" col-md-6 col-sm-6 col-xs-12">
-                            <label for="NgayCongVanDen" class="white-label">Ngày công văn đến</label>
-                            <div class="input-group datetimepicker mb-5">
-                                <input type="tel" class="form-control date required" id="NgayCongVanDen" name="NgayCongVanDen" maxlength="8" tabindex="4" value="@(isInsert && dispatch.NgayCongVanDen!=null ? dispatch.NgayCongVanDen.ToString() : "")" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group">
                                 <label for="IdLoaiVanBan">Loại văn bản<span class="text-required">*</span></label>
-                                <select class="form-control" name="IdLoaiVanBan" id="IdLoaiVanBan" tabindex="5">
+                                <select class="form-control" name="IdLoaiVanBan" id="IdLoaiVanBan" tabindex="3">
                                     @if (data.LoaiVanBans.Count > 0)
                                     {
                                         foreach (var item in data.LoaiVanBans)
@@ -85,7 +72,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="form-group">
                                 <label for="IdLoaiCongVan">Loại công văn<span class="text-required">*</span></label>
-                                <select class="form-control" name="IdLoaiCongVan" id="IdLoaiCongVan" tabindex="6">
+                                <select class="form-control" name="IdLoaiCongVan" id="IdLoaiCongVan" tabindex="4">
                                     @if (data.LoaiCongVans.Count > 0)
                                     {
                                         foreach (var item in data.LoaiCongVans)
@@ -94,6 +81,23 @@
                                         }
                                     }
                                 </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row cvd-area hidden">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="SoCongVanDen">Số công văn đến</label>
+                                <input type="text" class="form-control" maxlength="100" tabindex="5" name="SoCongVanDen" id="SoCongVanDen" placeholder="Số công văn đến" rows="2" value="@(isInsert && dispatch.SoCongVanDen != null ? dispatch.SoCongVanDen.ToString() : "")" />
+                            </div>
+                        </div>
+                        <div class=" col-md-6 col-sm-6 col-xs-12">
+                            <label for="NgayCongVanDen" class="white-label">Ngày công văn đến</label>
+                            <div class="input-group datetimepicker mb-5">
+                                <input type="tel" class="form-control date" id="NgayCongVanDen" name="NgayCongVanDen" maxlength="8" tabindex="6" value="@(isInsert && dispatch.NgayCongVanDen!=null ? dispatch.NgayCongVanDen.ToString() : "")" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -121,7 +125,6 @@
                             }
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="TrichYeu">Trích yếu<span class="text-required">*</span></label>
                         <textarea class="form-control required" maxlength="1000" tabindex="9" name="TrichYeu" id="TrichYeu" placeholder="Trích yếu" rows="1">@(isInsert ? dispatch.TrichYeu : "")</textarea>
@@ -138,12 +141,12 @@
                             <a target="_blank" href="@(dispatch.FilePath)">File đính kèm.</a>
                         }
                         <div class="input-group">
-                            <input class="form-control required" name="LinkAnh" id="imageName" placeholder="File đính kèm" readonly="readonly" style="background: #fff !important;" value="@(isInsert ? dispatch.FilePath : "")" />
+                            <input class="form-control required" name="FilePath" id="FilePath" placeholder="File đính kèm" readonly="readonly" style="background: #fff !important;" value="@(isInsert ? dispatch.FilePath : "")" />
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-primary" tabindex="11">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
                                 </button>
-                                <input type="file" class="file fileImg" name="FileAttach" id="FileAttach" id-view="imageName" err-idx="0" accept=".doc,.pdf" />
+                                <input type="file" class="file fileImg" name="FileAttach" id="FileAttach" id-view="FilePath" err-idx="0" accept=".doc,.pdf" />
                             </span>
                         </div>
                     </div>
