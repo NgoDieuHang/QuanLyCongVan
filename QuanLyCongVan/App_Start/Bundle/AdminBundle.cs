@@ -46,8 +46,7 @@ namespace QuanLyCongVan.App_Start.Bundle
 
             bundles.Add(new StyleBundle("~/public/css/admin/listOfDispatch").Include(
                 "~/public/assets/switchery/dist/switchery.css",
-                "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css",
-                "~/public/assets/iCheck/skins/all.css"
+                "~/public/assets/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"
             ));
 
             bundles.Add(new ScriptBundle("~/public/js/admin/documentMaster").Include(
@@ -58,10 +57,8 @@ namespace QuanLyCongVan.App_Start.Bundle
            ));
 
             bundles.Add(new StyleBundle("~/public/css/admin/documentMaster").Include(
-                "~/public/assets/switchery/dist/switchery.css",
-               "~/public/assets/switchery/dist/switchery.css"
+                "~/public/assets/switchery/dist/switchery.css"
            ));
-
 
             bundles.Add(new ScriptBundle("~/public/js/admin/listOfDocument").Include(
                 "~/public/assets/pagination/pagination.js",
@@ -77,8 +74,7 @@ namespace QuanLyCongVan.App_Start.Bundle
            ));
 
             bundles.Add(new StyleBundle("~/public/css/admin/typeDispatchMaster").Include(
-                "~/public/assets/switchery/dist/switchery.css",
-               "~/public/assets/switchery/dist/switchery.css"
+                "~/public/assets/switchery/dist/switchery.css"
            ));
 
             bundles.Add(new ScriptBundle("~/public/js/admin/listOfTypeDispatch").Include(
@@ -106,8 +102,7 @@ namespace QuanLyCongVan.App_Start.Bundle
            ));
 
             bundles.Add(new StyleBundle("~/public/css/admin/feildDispatchMaster").Include(
-                "~/public/assets/switchery/dist/switchery.css",
-               "~/public/assets/switchery/dist/switchery.css"
+                "~/public/assets/switchery/dist/switchery.css"
            ));
 
             bundles.Add(new ScriptBundle("~/public/js/admin/listOfFeildDispatch").Include(
@@ -124,8 +119,7 @@ namespace QuanLyCongVan.App_Start.Bundle
             ));
 
             bundles.Add(new StyleBundle("~/public/css/admin/listOfOrganization").Include(
-                "~/public/assets/switchery/dist/switchery.css",
-                "~/public/assets/iCheck/skins/all.css"
+                "~/public/assets/switchery/dist/switchery.css"
             ));
 
             bundles.Add(new ScriptBundle("~/public/js/admin/organizationMaster").Include(
