@@ -18,5 +18,7 @@ namespace QuanLyCongVan.Areas.Home.Models.Home.Schema
 
         public string FilePath { get; set; }
 
+        public string CoQuanToChu { get; set; }
+
     }
 }

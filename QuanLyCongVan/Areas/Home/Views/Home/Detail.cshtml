@@ -1,0 +1,36 @@
+﻿@model HienThiCongVan
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    HienThiCongVan CongVan = new HienThiCongVan();
+
+    if (Model != null)
+    {
+        CongVan = Model;
+    }
+}
+
+@using QuanLyCongVan.Areas.Home.Models.Home.Schema
+@section css{
+    @Styles.Render("~/public/css/dispatch")
+}
+@section scripts{
+
+}
+
+
+<div class="wd-content-detail">
+    <h2>
+        @CongVan.TrichYeu
+    </h2>
+    <div class="wd-date">
+        @CongVan.NgayBanHanh.Date
+    </div>
+    <p style="text-align:justify">
+        @CongVan.NoiDung
+    </p>
+    <p style="text-align:right">
+        @CongVan.CoQuanToChu
+    </p>
+</div>
+

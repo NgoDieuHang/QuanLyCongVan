@@ -22,6 +22,12 @@ namespace QuanLyCongVan.Areas.Home
            );
 
             context.MapRoute(
+              "ChiTiet",
+              "TinTuc/{id}",
+              new { controller = "Home", action = "Detail", id = UrlParameter.Optional }
+          );
+
+            context.MapRoute(
                 "Home_default",
                 "Home/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }

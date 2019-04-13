@@ -9,8 +9,10 @@ namespace QuanLyCongVan
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles = HomeBundle.RegisterBundles(bundles);
             bundles = AdminBundle.RegisterBundles(bundles);
             bundles = LayoutAdminBundle.RegisterBundles(bundles);
+            
         }
     }
 }

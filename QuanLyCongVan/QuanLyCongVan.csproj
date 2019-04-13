@@ -169,6 +169,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\Bundle\AdminBundle.cs" />
+    <Compile Include="App_Start\Bundle\HomeBundle.cs" />
     <Compile Include="App_Start\Bundle\LayoutAdminBundle.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -4832,6 +4833,8 @@
     <Content Include="public\css\control-panel\user-management\listOfUser.css" />
     <Content Include="public\css\home\contact\contact.css" />
     <Content Include="public\css\home\forgotPassword\forgotPassword.css" />
+    <Content Include="public\css\home\home\detail.css" />
+    <Content Include="public\css\home\home\index.css" />
     <Content Include="public\css\home\registerAccount\register.css" />
     <Content Include="public\css\home\tinTuc\danhSachTinTuc.css" />
     <Content Include="public\css\home\tinTuc\tinTuc.css" />
@@ -5051,6 +5054,8 @@
     <Content Include="public\dispatch-file\aaaaaaa.pdf" />
     <Content Include="Areas\Home\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Home\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Home\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Home\Views\Home\Detail.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />

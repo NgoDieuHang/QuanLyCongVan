@@ -62,7 +62,8 @@ namespace QuanLyCongVan.Areas.Home.Models.Home
                         TrichYeu = x.TrichYeu,
                         NoiDung = x.NoiDung,
                         NgayBanHanh = x.NgayBanHanh,
-                        FilePath = x.FilePath
+                        FilePath = x.FilePath,
+                        CoQuanToChu = x.CoQuanBanHanh.TenCoQuanBanHanh
                     }).FirstOrDefault();
 
                 return CongVan;

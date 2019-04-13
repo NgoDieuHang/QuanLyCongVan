@@ -1,0 +1,23 @@
+﻿
+
+.wd-content-detail {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+    .wd-content-detail h2 {
+        border: none;
+        font-size: 19px;
+        color: #0473b3;
+        font-weight: bold;
+        margin-bottom: 9px;
+        line-height: 26px;
+    }
+.wd-date {
+    background: url(../img/front/icon-date.png) left center no-repeat;
+    padding-left: 18px;
+    color: #a9a9a9;
+    margin-bottom: 10px;
+    font-size: 12px;
+}

@@ -22,8 +22,13 @@ namespace QuanLyCongVan.Areas.Home.Controllers
         // GET: Home/Home
         public ActionResult Index()
         {
-            List<HienThiCongVan> data = new HomeModel().GetDispatchList();
             return View("Index", new HomeModel().GetDispatchList());
+        }
+
+        // GET: Home/Home
+        public ActionResult Detail(long id)
+        {
+            return View("Detail", new HomeModel().GetDispatch(id));
         }
     }
 }
