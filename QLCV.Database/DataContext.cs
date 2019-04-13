@@ -14,7 +14,8 @@
             //@"Data Source=NGOCQUY\SQLEXPRESS;Initial Catalog=TrungTamTinHoc_DEV;Integrated Security=True;"
             //: base(@"Data Source=103.95.197.121;Initial Catalog=TrungTamTinHoc_DEV;User Id=sa;Password=Admin@123;MultipleActiveResultSets=True;")
             //: base(@"Data Source=DESKTOP-L6R9D8B;Initial Catalog=QuanLyCongVan;Integrated Security=True;User Id=sa;Password=123456")
-            : base(@"Data Source=178.128.114.26;Initial Catalog=QuanLyCongVan;User Id=sa;Password=MinhAn@2003")
+            : base(@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QuanLyCongVan;Integrated Security=True;User Id=sa;Password=123456")
+            //: base(@"Data Source=178.128.114.26;Initial Catalog=QuanLyCongVan;User Id=sa;Password=MinhAn@2003")
 
         {
         }

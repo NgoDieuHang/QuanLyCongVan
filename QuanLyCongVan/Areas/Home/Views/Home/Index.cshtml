@@ -1,0 +1,24 @@
+﻿@model IEnumerable<HienThiCongVan>
+@{
+    ViewBag.Title = "Home";
+    //Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    List<HienThiCongVan> list =new List<HienThiCongVan>();
+
+    if (Model != null)
+    {
+        list = Model.ToList();
+    }
+}
+
+@using QuanLyCongVan.Areas.Home.Models.Home.Schema
+@using QuanLyCongVan.Areas.Home.Models.Home
+@section css{
+
+}
+@section scripts{
+
+}
+@foreach(HienThiCongVan CongVan in list)
+{
+    <div>@CongVan.TrichYeu</div>
+}
