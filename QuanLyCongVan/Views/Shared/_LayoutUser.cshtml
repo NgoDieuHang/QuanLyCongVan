@@ -1,35 +1,28 @@
 ﻿@{
-    CauHinh cauHinh = Common.LayCauHinh();
-    CaiDatHeThong caiDat = Common.LayCaiDat();
-    ViewBag.caiDat = caiDat;
+    //CauHinh cauHinh = Common.LayCauHinh();
+    //CaiDatHeThong caiDat = Common.LayCaiDat();
+    //ViewBag.caiDat = caiDat;
 }
-@using TTTH.DataBase.Schema;
-@using TTTH.Common;
+@using QLCV.Database;
+@using QLCV.Common;
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="@(ViewBag.description == null ? caiDat.TomTat : ViewBag.description)">
-    <meta name="keywords" content="@caiDat.Keyword">
-    <meta name="author" content="@caiDat.Author">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="@cauHinh.FbAppId" property="fb:app_id">
-    <meta content="@cauHinh.GgClientId" name="google-signin-client_id" />
+   
     <link rel="shortcut icon" type="image/x-icon" href="~/public/img/favicon.png">
-    <title>@ViewBag.Title - IPro</title>
+    <title>@ViewBag.Title - BKDN</title>
     @Styles.Render("~/public/css/userCommon")
     @RenderSection("css", required: false)
 </head>
 <body class="page-user">
-    @Html.Partial("~/Views/PartialUser/_Header.cshtml")
     @RenderBody()
-    @Html.Partial("~/Views/PartialUser/_Footer.cshtml")
     <div id="call-ajax-fade">
     </div>
-    <div id="call-ajax-content">
+    @*<div id="call-ajax-content">
         <img src="~/public/img/common/page-loader.gif" class="img-loading-ajax" alt="loading" />
-    </div>
+    </div>*@
     @Scripts.Render("~/public/js/userCommon")
     @RenderSection("scripts", required: false)
 </body>

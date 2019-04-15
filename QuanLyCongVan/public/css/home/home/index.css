@@ -1,0 +1,113 @@
+﻿a {
+    background: 0 0;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.wd-section {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+}
+
+.wd-block-left-content {
+}
+
+.wd-title {
+    font-size: 18px;
+    color: #222;
+    text-transform: uppercase;
+    padding: 22px 0 20px;
+    font-weight: bold;
+}
+
+.wd-tab-content {
+    overflow: hidden;
+}
+
+.wd-list-notify .wd-notify {
+    overflow: hidden;
+    margin: 12px 0 13px;
+}
+
+.wd-list-notify .wd-notify .wd-notify-left {
+    width: 68px;
+    height: 61px;
+    float: left;
+    display: block;
+    border: 1px solid #b6becb;
+    margin-right: 15px;
+    text-align: center;
+}
+.wd-notify .wd-notify-left {
+    width: 58px;
+    max-height: 56px;
+    float: left;
+    display: block;
+    margin-right: 13px;
+    text-align: center;
+}
+.wd-notify-right {
+    float: left;
+}
+.wd-list-notify .wd-notify .wd-notify-left .name {
+    display: block;
+    width: 100%;
+    height: 31px;
+    background: #075794;
+    line-height: 31px;
+    font-size: 17px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.wd-list-notify .wd-notify .wd-notify-left .number {
+    padding: 6px;
+    height: 29px;
+    line-height: 29px;
+    font-size: 17px;
+    color: #a5a5a5;
+}
+.wd-notify .wd-notify-right .des {
+    color: #656565;
+    overflow: hidden;
+}
+.wd-list-notify .wd-notify .wd-notify-right .des {
+    font-weight: bold;
+    height:17px;
+    margin-top:0px;
+    margin-bottom:0px;
+    
+}
+
+
+li p {
+    line-height: 18px;
+}
+.wd-list-notify .wd-notify .wd-notify-right .time {
+    float: left;
+    background: url(img/front/sprite.png) no-repeat -118px -4px;
+    padding: 4px 0 0px 20px;
+    color: #a9a9a9;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+li{
+    list-style:none;
+}
+p a, p a:visited {
+    line-height: inherit;
+}
+a:link, a:visited {
+    color: #363636;
+    text-decoration: none;
+}

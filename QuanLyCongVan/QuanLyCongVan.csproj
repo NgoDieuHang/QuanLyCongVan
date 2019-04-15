@@ -169,6 +169,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\Bundle\AdminBundle.cs" />
+    <Compile Include="App_Start\Bundle\HomeBundle.cs" />
     <Compile Include="App_Start\Bundle\LayoutAdminBundle.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -202,7 +203,10 @@
     <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\ListOfOrganization.cs" />
     <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\Organization.cs" />
     <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\OrganizationMaster.cs" />
+    <Compile Include="Areas\Home\Controllers\HomeController.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
+    <Compile Include="Areas\Home\Models\Home\HomeModel.cs" />
+    <Compile Include="Areas\Home\Models\Home\Schema\HienThiCongVan.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4829,6 +4833,8 @@
     <Content Include="public\css\control-panel\user-management\listOfUser.css" />
     <Content Include="public\css\home\contact\contact.css" />
     <Content Include="public\css\home\forgotPassword\forgotPassword.css" />
+    <Content Include="public\css\home\home\detail.css" />
+    <Content Include="public\css\home\home\index.css" />
     <Content Include="public\css\home\registerAccount\register.css" />
     <Content Include="public\css\home\tinTuc\danhSachTinTuc.css" />
     <Content Include="public\css\home\tinTuc\tinTuc.css" />
@@ -5046,6 +5052,10 @@
     <Content Include="public\dispatch-file\20190102204727_test.pdf" />
     <Content Include="public\dispatch-file\20190102213333_test.pdf" />
     <Content Include="public\dispatch-file\aaaaaaa.pdf" />
+    <Content Include="Areas\Home\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Home\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Home\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Home\Views\Home\Detail.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
@@ -6075,9 +6085,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\dispatch\" />
-    <Folder Include="Areas\Home\Controllers\" />
-    <Folder Include="Areas\Home\Models\" />
-    <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="bin\roslyn\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
