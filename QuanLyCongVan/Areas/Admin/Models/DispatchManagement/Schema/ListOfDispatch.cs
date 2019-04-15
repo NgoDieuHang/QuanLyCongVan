@@ -32,8 +32,8 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema
         public int IdLoaiVanBan { get; set; }
         public int IdLoaiCongVan { get; set; }
         public int? SoCongVanDen { get; set; }
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
         public int IdLinhVuc { get; set; }
         public int CurentPage { set; get; }
         public int PageSize { set; get; }
