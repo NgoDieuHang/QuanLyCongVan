@@ -78,6 +78,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.8.21.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\QuanLyCongVan\bin\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -88,9 +92,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201812230420383_AdddDatabase.cs" />
-    <Compile Include="Migrations\201812230420383_AdddDatabase.Designer.cs">
-      <DependentUpon>201812230420383_AdddDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201812311850437_InitDatabase.cs" />
+    <Compile Include="Migrations\201812311850437_InitDatabase.Designer.cs">
+      <DependentUpon>201812311850437_InitDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Schema\Account.cs" />
@@ -106,7 +110,9 @@
     <Compile Include="Table.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -115,8 +121,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812230420383_AdddDatabase.resx">
-      <DependentUpon>201812230420383_AdddDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812311850437_InitDatabase.resx">
+      <DependentUpon>201812311850437_InitDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

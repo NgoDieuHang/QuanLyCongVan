@@ -1,0 +1,64 @@
+﻿
+@model QuanLyCongVan.Areas.Admin.Models.OrganizationManagement.Schema.OrganizationMaster
+@{
+    OrganizationMaster OrganizationMaster = Model == null ? new OrganizationMaster() : Model;
+    bool isInsert = OrganizationMaster.Mode == (int)QLCV.Common.Enum.ConstantsEnum.ModeMaster.Insert;
+    ViewBag.Title = isInsert ? "Create Organization" : "Edit Organization";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using QuanLyCongVan.Areas.Admin.Models.OrganizationManagement.Schema;
+@using QLCV.Common;
+@section css{
+    @Styles.Render("~/public/css/admin/organizationMaster")
+}
+@section scripts{
+    <script>
+        var url = {
+            editOrganization: '@Url.RouteUrl("EditOrganization")',
+            createOrganization: '@Url.RouteUrl("CreateOrganization")',
+            deleteOrganization: '@Url.RouteUrl("DeleteOrganizations")'
+        }
+        var isInsert = '@(isInsert ? "I" : "U")'
+    </script>
+    @Scripts.Render("~/public/js/admin/organizationMaster")
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>@(isInsert ? "Thêm mới Cơ quan ban hành" : "Chỉnh sửa Cơ quan ban hành")</h3>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="@(!isInsert ? " col-md-12" : "" ) col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Thông tin cơ quan ban hành</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal input_mask" id="form-organization" enctype="multipart/form-data" action="@Url.RouteUrl("SaveOrganization")" accept-charset="UTF-8" method="post">
+                    @if (!isInsert)
+                    {
+                        <input type="hidden" id="IdOrganization" name="Id" value="@OrganizationMaster.Organization.Id" />
+                    }
+                    <div class="form-organization">
+                        <label for="TenCoQuanBanHanh">Cơ quan ban hành<span class="text-required">*</span></label>
+                        <input class="form-control required" maxlength="100" tabindex="1" name="TenCoQuanBanHanh" id="TenCoQuanBanHanh" placeholder="Cơ quan ban hành" rows="2" value="@(isInsert ? " " : OrganizationMaster.Organization.TenCoQuanBanHanh)" />
+                    </div>
+                    <div class="form-organization">
+                        <label for="KiHieu">Kí hiệu<span class="text-required">*</span></label>
+                        <input class="form-control required" maxlength="100" tabindex="1" name="KiHieu" id="KiHieu" placeholder="Kí hiệu" rows="2" value="@(isInsert ? " " : OrganizationMaster.Organization.KiHieu)" />
+                    </div>
+                    <div class="form-organization">
+                        <button type="button" class="btn btn-primary" id="btn-save" tabindex="6">@(isInsert ? "Thêm mới" : "Cập nhập")</button>
+                        @if (!isInsert)
+                        {
+                            <button type="button" class="btn btn-danger" id="btn-delete" tabindex="7">Xóa</button>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -15,11 +15,4 @@ namespace QLCV.Database
         public int? Updated_by { set; get; }
         public bool DelFlag { set; get; }
     }
-
-    public class TableHaveIdInt : Table
-    {
-        [Key]
-        [Column(Order = 0)]
-        public int Id { set; get; }
-    }
 }

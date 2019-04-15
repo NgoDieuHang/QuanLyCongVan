@@ -176,9 +176,35 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DocumentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FeildDispatchController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TypeDispatchController.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\FeildDispatchMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\ListFeildOfDispatchModel.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\Schema\FeildDispatch.cs" />
+    <Compile Include="Areas\Admin\Models\FeildOfDispatch\Schema\FeildDispatchMaster.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\TypeDispatchMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\ListOfTypeDispatchModel.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatch.cs" />
+    <Compile Include="Areas\Admin\Models\TypeDispatchManagement\Schema\TypeDispatchMaster.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrganizationManagementController.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\DispatchMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\ListOfDispatchModel.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\Dispatch.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\ListOfDispatch.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\DispatchData.cs" />
+    <Compile Include="Areas\Admin\Models\DispatchManagement\Schema\NewDispatch.cs" />
+    <Compile Include="Areas\Admin\Models\DocumentManagement\DocumentMasterModel.cs" />
+    <Compile Include="Areas\Admin\Models\DocumentManagement\ListOfDocumentModel.cs" />
+    <Compile Include="Areas\Admin\Models\DocumentManagement\Schema\Document.cs" />
+    <Compile Include="Areas\Admin\Models\DocumentManagement\Schema\DocumentMaster.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\OrganizationModel.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\ListOfOrganization.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\Organization.cs" />
+    <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\OrganizationMaster.cs" />
     <Compile Include="Areas\Admin\Models\AdminLoginModel.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -188,15 +214,38 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
     <Content Include="bin\QLCV.Common.dll" />
     <Content Include="bin\QLCV.Database.dll" />
     <Content Include="bin\QLCV.Validate.dll" />
     <Content Include="bin\QuanLyCongVan.dll" />
     <Content Include="bin\QuanLyCongVan.pdb" />
+    <Content Include="bin\System.Diagnostics.DiagnosticSource.dll" />
     <Content Include="bin\System.Net.Http.Extensions.dll" />
     <Content Include="bin\System.Net.Http.Formatting.dll" />
     <Content Include="bin\System.Net.Http.Primitives.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
     <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\WebGrease.dll" />
     <Content Include="bin\Z.EntityFramework.Plus.EF6.dll" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -206,7 +255,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="obj\Debug\QuanLyCongVan.csproj.FileListAbsolute.txt" />
     <Content Include="public\assets\animate.css\animate.css" />
     <Content Include="public\assets\animate.css\animate.min.css" />
     <Content Include="public\assets\animate.css\gulpfile.js" />
@@ -4781,7 +4829,6 @@
     <Content Include="public\css\control-panel\things-achieved-management\ListOfThingsAchieved.css" />
     <Content Include="public\css\control-panel\user-management\fSelect.css" />
     <Content Include="public\css\control-panel\user-management\listOfUser.css" />
-    <Content Include="public\css\course\registerCourse\register.css" />
     <Content Include="public\css\home\contact\contact.css" />
     <Content Include="public\css\home\forgotPassword\forgotPassword.css" />
     <Content Include="public\css\home\registerAccount\register.css" />
@@ -4793,7 +4840,6 @@
     <Content Include="public\css\img\common\question.png" />
     <Content Include="public\css\img\common\success.png" />
     <Content Include="public\css\img\common\warning.png" />
-    <Content Include="public\css\Information\Information\Information.css" />
     <Content Include="public\css\layout-admin\Style.css" />
     <Content Include="public\css\layout-user\animate.css" />
     <Content Include="public\css\layout-user\livechatFacebook.css" />
@@ -4965,6 +5011,16 @@
     <Content Include="public\img\testimonial\img5.png" />
     <Content Include="public\js\admin\adminlogin\index.js" />
     <Content Include="public\js\admin\dashboard\index.js" />
+    <Content Include="public\js\admin\Document\DocumentMaster.js" />
+    <Content Include="public\js\admin\Document\ListOfDocument.js" />
+    <Content Include="public\js\admin\FeildDispatch\FeildDispatchMaster.js" />
+    <Content Include="public\js\admin\TypeDispatch\TypeDispatchMaster.js" />
+    <Content Include="public\js\admin\dispatch\DispatchMaster.js" />
+    <Content Include="public\js\admin\dispatch\listOfDispatch.js" />
+    <Content Include="public\js\admin\Document\DocumentMaster.js" />
+    <Content Include="public\js\admin\Document\ListOfDocument.js" />
+    <Content Include="public\js\admin\organization\listOfOrganization.js" />
+    <Content Include="public\js\admin\organization\organizationMaster.js" />
     <Content Include="public\js\common\admin.js" />
     <Content Include="public\js\common\base64.js" />
     <Content Include="public\js\common\common.js" />
@@ -4974,6 +5030,26 @@
     <Content Include="public\js\common\jquery.error-style.js" />
     <Content Include="public\js\common\jquery.unobtrusive-ajax.js" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\DocumentMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\Document\ListOfDocument.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\TypeDispatch\ListOfTypeDispatch.cshtml" />
+    <Content Include="Areas\Admin\Views\TypeDispatch\TypeDispatchMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\DispatchManagement\ListOfDispatch.cshtml" />
+    <Content Include="Areas\Admin\Views\DispatchManagement\Partial\_tableOfDispatch.cshtml" />
+    <Content Include="Areas\Admin\Views\FeildDispatch\ListOfFeildDispatch.cshtml" />
+    <Content Include="Areas\Admin\Views\FeildDispatch\FeildDispatchMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\OrganizationManagement\ListOfOrganization.cshtml" />
+    <Content Include="Areas\Admin\Views\OrganizationManagement\OrganizationMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\OrganizationManagement\Partial\_tableOfOrganization.cshtml" />
+    <Content Include="public\dispatch-file\20190102204727_test.pdf" />
+    <Content Include="public\dispatch-file\20190102213333_test.pdf" />
+    <Content Include="public\dispatch-file\aaaaaaa.pdf" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLogin\Index.cshtml" />
@@ -5009,9 +5085,6 @@
     <Content Include="public\js\control-panel\user-management\fSelect.js" />
     <Content Include="public\js\control-panel\user-management\listOfUser.js" />
     <Content Include="public\js\control-panel\user-management\userMaster.js" />
-    <Content Include="public\js\course\courseDetails\index.js" />
-    <Content Include="public\js\course\khoaHoc\danhSachKhoaHoc.js" />
-    <Content Include="public\js\course\registerCourse\register.js" />
     <Content Include="public\js\home\contact\contact.js" />
     <Content Include="public\js\home\home\home.js" />
     <Content Include="public\js\home\login\forgotPassword.js" />
@@ -5022,8 +5095,6 @@
     <Content Include="public\js\home\registerAccount\registerSuccess.js" />
     <Content Include="public\js\home\tinTuc\danhSachTinTuc.js" />
     <Content Include="public\js\home\tinTuc\tinTuc.js" />
-    <Content Include="public\js\information\information\changePassword.js" />
-    <Content Include="public\js\information\information\information.js" />
     <Content Include="public\js\layout-admin\main.js" />
     <Content Include="public\js\layout-user\jquery.counterup.js" />
     <Content Include="public\js\layout-user\jquery.meanmenu.js" />
@@ -5042,7 +5113,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="libman.json" />
-    <Content Include="obj\Debug\build.force" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\QuanLyCongVan.csproj.App.config" />
     <Content Include="obj\Debug\QuanLyCongVan.csproj.CoreCompileInputs.cache" />
@@ -6000,16 +6070,21 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\PartialAdmin\_LeftMenu.cshtml" />
+    <Content Include="Views\PartialAdmin\_TopMenu.cshtml" />
+    <Content Include="Views\PartialAdmin\_TopPageInfo.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Views\Shared\_Paging.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\dispatch\" />
     <Folder Include="Areas\Home\Controllers\" />
     <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="bin\roslyn\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="public\assets\bootstrap-tagsinput-master\lib\angular\" />
