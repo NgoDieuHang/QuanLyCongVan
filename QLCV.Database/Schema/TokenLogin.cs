@@ -8,9 +8,13 @@ using System.Web;
 namespace QLCV.Database
 {
     [Table("TokenLogin")]
-    public partial class TokenLogin : TableHaveIdInt
+    public partial class TokenLogin : Table
     {
-        public int IdAccount { get; set; }
+        [Key]
+        [Column(Order = 0)]
+        public long Id { get; set; }
+
+        public long IdAccount { get; set; }
 
         [Required]
         [StringLength(100)]

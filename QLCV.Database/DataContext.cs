@@ -13,7 +13,8 @@
             //@"Data Source=103.95.197.121;Initial Catalog=TrungTamTinHoc_DEV;User Id=sa;Password=Admin@123;MultipleActiveResultSets=True;"
             //@"Data Source=NGOCQUY\SQLEXPRESS;Initial Catalog=TrungTamTinHoc_DEV;Integrated Security=True;"
             //: base(@"Data Source=103.95.197.121;Initial Catalog=TrungTamTinHoc_DEV;User Id=sa;Password=Admin@123;MultipleActiveResultSets=True;")
-            : base(@"Data Source=103.95.197.121;Initial Catalog=QuanLyCongVan;Integrated Security=True;User Id=sa;Password=Server2019@)!(")
+            //: base(@"Data Source=103.95.197.121;Initial Catalog=QuanLyCongVan;Integrated Security=True;User Id=sa;Password=Server2019@)!(")
+            : base(@"Data Source=103.95.197.121;Initial Catalog=QuanLyCongVan;User Id=sa;Password=Server2019@)!(;MultipleActiveResultSets=True;")
 
         {
         }

@@ -203,7 +203,7 @@
     <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\ListOfOrganization.cs" />
     <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\Organization.cs" />
     <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\OrganizationMaster.cs" />
-    <Compile Include="Areas\Admin\Models\AdminLoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\AdminLoginManagement\AdminLoginModel.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

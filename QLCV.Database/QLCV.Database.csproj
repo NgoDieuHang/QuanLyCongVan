@@ -96,6 +96,10 @@
     <Compile Include="Migrations\201812311850437_InitDatabase.Designer.cs">
       <DependentUpon>201812311850437_InitDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904151537316_addTableAccount-Tokenlogin.cs" />
+    <Compile Include="Migrations\201904151537316_addTableAccount-Tokenlogin.Designer.cs">
+      <DependentUpon>201904151537316_addTableAccount-Tokenlogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Schema\Account.cs" />
     <Compile Include="Schema\CongVan.cs" />
@@ -123,6 +127,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812311850437_InitDatabase.resx">
       <DependentUpon>201812311850437_InitDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904151537316_addTableAccount-Tokenlogin.resx">
+      <DependentUpon>201904151537316_addTableAccount-Tokenlogin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

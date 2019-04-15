@@ -8,8 +8,12 @@ using System.Web;
 namespace QLCV.Database
 {
     [Table("Account")]
-    public partial class Account
+    public partial class Account : Table
     {
+        [Key]
+        [Column(Order = 0)]
+        public long Id { get; set; }
+
         public Account()
         {
             TokenLogin = new HashSet<TokenLogin>();
