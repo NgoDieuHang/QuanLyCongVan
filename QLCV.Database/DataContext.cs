@@ -11,7 +11,7 @@ namespace QLCV.Database
             //@"Data Source=103.95.197.121;Initial Catalog=TrungTamTinHoc_DEV;User Id=sa;Password=Admin@123;MultipleActiveResultSets=True;"
             //@"Data Source=NGOCQUY\SQLEXPRESS;Initial Catalog=TrungTamTinHoc_DEV;Integrated Security=True;"
             //: base(@"Data Source=103.95.197.121;Initial Catalog=TrungTamTinHoc_DEV;User Id=sa;Password=Admin@123;MultipleActiveResultSets=True;")
-            : base(@"Data Source=178.128.114.26;Initial Catalog=QuanLyCongVan;Integrated Security=True;User Id=sa;Password=MinhAn@2003")
+            : base(@"Data Source=103.95.197.121;Initial Catalog=QuanLyCongVan;Integrated Security=True;User Id=sa;Password=Server2019@)!(")
 
         {
             Database.SetInitializer<DataContext>(new CreateDatabaseIfNotExists<DataContext>());
@@ -23,6 +23,8 @@ namespace QLCV.Database
         public virtual DbSet<LoaiCongVan> LoaiCongVans { get; set; }
         public virtual DbSet<LoaiVanBan> LoaiVanBans { get; set; }
         public virtual DbSet<TinTuc> TinTucs { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<TokenLogin> TokenLogins { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -49,6 +51,12 @@ namespace QLCV.Database
                 .WithRequired(e => e.LoaiVanBan)
                 .HasForeignKey(e => e.IdLoaiVanBan)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Account>()
+               .HasMany(e => e.TokenLogin)
+               .WithRequired(e => e.Account)
+               .HasForeignKey(e => e.IdAccount)
+               .WillCascadeOnDelete(false);
         }
     }
 }

@@ -13,6 +13,7 @@ namespace QLCV.Common.Enum
             SaiMaxlength = 2,
             SaiMinLength = 3,
             SaiFormatNgayThang = 4,
+            SaiQuaSoLanChoPhep = 32,
             TenDangNhapSai = 34,
             EmailKhongTonTai = 38,
             MatKhauSai = 20,
