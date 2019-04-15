@@ -100,8 +100,13 @@
     <Compile Include="Migrations\201904151537316_addTableAccount-Tokenlogin.Designer.cs">
       <DependentUpon>201904151537316_addTableAccount-Tokenlogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904151622270_addTblCauHinh.cs" />
+    <Compile Include="Migrations\201904151622270_addTblCauHinh.Designer.cs">
+      <DependentUpon>201904151622270_addTblCauHinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Schema\Account.cs" />
+    <Compile Include="Schema\CauHinh.cs" />
     <Compile Include="Schema\CongVan.cs" />
     <Compile Include="Schema\CoQuanBanHanh.cs" />
     <Compile Include="DataContext.cs" />
@@ -130,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904151537316_addTableAccount-Tokenlogin.resx">
       <DependentUpon>201904151537316_addTableAccount-Tokenlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904151622270_addTblCauHinh.resx">
+      <DependentUpon>201904151622270_addTblCauHinh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

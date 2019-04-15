@@ -27,6 +27,7 @@
         public virtual DbSet<TinTuc> TinTucs { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<TokenLogin> TokenLogins { get; set; }
+        public virtual DbSet<CauHinh> CauHinhs { get; set; }
 
         public override int SaveChanges()
         {

@@ -180,6 +180,7 @@
     <Compile Include="Areas\Admin\Controllers\DocumentController.cs" />
     <Compile Include="Areas\Admin\Controllers\FeildDispatchController.cs" />
     <Compile Include="Areas\Admin\Controllers\TypeDispatchController.cs" />
+    <Compile Include="Areas\Admin\Models\AdminLoginManagement\Schema\Account.cs" />
     <Compile Include="Areas\Admin\Models\FeildOfDispatch\FeildDispatchMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\FeildOfDispatch\ListFeildOfDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\FeildOfDispatch\Schema\FeildDispatch.cs" />

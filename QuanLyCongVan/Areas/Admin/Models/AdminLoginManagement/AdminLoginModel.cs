@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using Z.EntityFramework.Plus;
 using static QLCV.Common.Enum.MessageEnum;
+using TblAccount = QuanLyCongVan.Areas.Admin.Models.AdminLoginManagement.Schema.Account;
 
 namespace QuanLyCongVan.Areas.Admin.Models
 {
@@ -36,16 +37,11 @@ namespace QuanLyCongVan.Areas.Admin.Models
         public int CheckAccountAdmin()
         {
             int check = 0;
-            //Account account = XacThuc.GetAccount();
-            //if (account == null)
-            //{
-            //    check = 2;
-            //}
-            //else
-            //{
-            //    // if (context.GroupOfAccount.FirstOrDefault(x => x.IdAccount == account.Id && x.IdGroup <= 2) != null)
-            //    check = 1;
-            //}
+            Account account = XacThuc.GetAccount();
+            if (account == null)
+            {
+                check = 2;
+            }
 
             return check;
         }
@@ -55,77 +51,73 @@ namespace QuanLyCongVan.Areas.Admin.Models
         /// </summary>
         /// <param name="account">Đối tượng chưa thông tin tài khoản</param>
         /// <returns>Đối tượng ResponseInfo chứa thông tin của việc kiểm tra</returns>
-        //public ResponseInfo CheckAdminLogin(TblAccount account)
-        //{
-        //    try
-        //    {
-        //        ResponseInfo result = new ResponseInfo();
-        //        Account taiKhoan = context.Accounts.FirstOrDefault(x => x.Username == account.Username && !x.DelFlag);
-        //        if (taiKhoan == null)
-        //        {
-        //            taiKhoan = context.Account.FirstOrDefault(x => x.Email == account.Username && !x.DelFlag);
-        //        }
-        //        if (taiKhoan == null)
-        //        {
-        //            result.MsgNo = (int)MsgNO.KhongCoTaiKhoan;
-        //            result.Code = 202;
-        //        }
-        //        else if (taiKhoan.KhoaTaiKhoanDen > DateTime.Now)
-        //        {
-        //            result.MsgNo = (int)MsgNO.TaiKhoanBiKhoa;
-        //            result.Code = 203;
-        //            result.ThongTinBoSung1 = taiKhoan.KhoaTaiKhoanDen.ToString("HH:mm dd/MM/yyyy");
-        //        }
-        //        else if (!taiKhoan.IsActived)
-        //        {
-        //            result.MsgNo = (int)MsgNO.ChuaKichHoatTaiKhoan;
-        //            result.Code = 204;
-        //            // Thiếu code gửi email
-        //        }
-        //        else if (taiKhoan.Password != BaoMat.GetMD5(account.Password))
-        //        {
-        //            taiKhoan.SoLanDangNhapSai += 1;
-        //            result.MsgNo = (int)MsgNO.MatKhauKhongDung;
-        //            result.ThongTinBoSung1 = taiKhoan.SoLanDangNhapSai + "";
-        //            result.ThongTinBoSung2 = cauHinh.SoLanChoPhepDangNhapSai + "";
-        //            result.ThongTinBoSung3 = cauHinh.ThoiGianKhoa + "";
-        //            if (taiKhoan.SoLanDangNhapSai == cauHinh.SoLanChoPhepDangNhapSai)
-        //            {
-        //                taiKhoan.SoLanDangNhapSai = 0;
-        //                taiKhoan.KhoaTaiKhoanDen = DateTime.Now.AddHours(cauHinh.ThoiGianKhoa);
-        //                result.MsgNo = (int)MsgNO.SaiQuaSoLanChoPhep;
-        //                result.ThongTinBoSung1 = cauHinh.SoLanChoPhepDangNhapSai + "";
-        //                result.ThongTinBoSung2 = taiKhoan.KhoaTaiKhoanDen.ToLongTimeString();
-        //            }
-        //            context.SaveChanges();
-        //            result.Code = 205;
-        //        }
-        //        else if (context.GroupOfAccount.FirstOrDefault(x => x.IdAccount == taiKhoan.Id && x.IdGroup <= 2) == null)
-        //        {
-        //            result.MsgNo = 62;
-        //            result.Code = 403;
-        //        }
-        //        else
-        //        {
-        //            taiKhoan.SoLanDangNhapSai = 0;
-        //            //Chứa thông tin chuỗi token
-        //            string token = Common.GetToken(taiKhoan.Id);
-        //            context.TokenLogin.Add(new TokenLogin
-        //            {
-        //                IdAccount = taiKhoan.Id,
-        //                Token = token,
-        //                ThoiGianTonTai = DateTime.Now.AddHours(cauHinh.ThoiGianTonTaiToken)
-        //            });
-        //            result.ThongTinBoSung1 = BaoMat.Base64Encode(token);
-        //            context.SaveChanges();
-        //        }
-        //        return result;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //}
+        public ResponseInfo CheckAdminLogin(TblAccount account)
+        {
+            try
+            {
+                ResponseInfo result = new ResponseInfo();
+                CauHinh cauHinh = context.CauHinhs.FirstOrDefault(x => x.Id == (int)1);
+                Account taiKhoan = context.Accounts.FirstOrDefault(x => x.Username == account.Username && !x.DelFlag);
+                if (taiKhoan == null)
+                {
+                    taiKhoan = context.Accounts.FirstOrDefault(x => x.Email == account.Username && !x.DelFlag);
+                }
+                if (taiKhoan == null)
+                {
+                    result.MsgNo = (int)MsgNO.KhongCoTaiKhoan;
+                    result.Code = 202;
+                }
+                else if (taiKhoan.KhoaTaiKhoanDen > DateTime.Now)
+                {
+                    result.MsgNo = (int)MsgNO.TaiKhoanBiKhoa;
+                    result.Code = 203;
+                    result.ThongTinBoSung1 = taiKhoan.KhoaTaiKhoanDen.ToString("HH:mm dd/MM/yyyy");
+                }
+                else if (!taiKhoan.IsActived)
+                {
+                    result.MsgNo = (int)MsgNO.ChuaKichHoatTaiKhoan;
+                    result.Code = 204;
+                    // Thiếu code gửi email
+                }
+                else if (taiKhoan.Password != BaoMat.GetMD5(account.Password))
+                {
+                    taiKhoan.SoLanDangNhapSai += 1;
+                    result.MsgNo = (int)MsgNO.MatKhauKhongDung;
+                    result.ThongTinBoSung1 = taiKhoan.SoLanDangNhapSai + "";
+                    result.ThongTinBoSung2 = cauHinh.SoLanChoPhepDangNhapSai + "";
+                    result.ThongTinBoSung3 = cauHinh.ThoiGianKhoa + "";
+                    if (taiKhoan.SoLanDangNhapSai == cauHinh.SoLanChoPhepDangNhapSai)
+                    {
+                        taiKhoan.SoLanDangNhapSai = 0;
+                        taiKhoan.KhoaTaiKhoanDen = DateTime.Now.AddHours(cauHinh.ThoiGianKhoa);
+                        result.MsgNo = (int)MsgNO.SaiQuaSoLanChoPhep;
+                        result.ThongTinBoSung1 = cauHinh.SoLanChoPhepDangNhapSai + "";
+                        result.ThongTinBoSung2 = taiKhoan.KhoaTaiKhoanDen.ToLongTimeString();
+                    }
+                    context.SaveChanges();
+                    result.Code = 205;
+                }
+                else
+                {
+                    taiKhoan.SoLanDangNhapSai = 0;
+                    //Chứa thông tin chuỗi token
+                    string token = Common.GetToken(taiKhoan.Id);
+                    context.TokenLogins.Add(new TokenLogin
+                    {
+                        IdAccount = taiKhoan.Id,
+                        Token = token,
+                        ThoiGianTonTai = DateTime.Now.AddHours(cauHinh.ThoiGianTonTaiToken)
+                    });
+                    result.ThongTinBoSung1 = BaoMat.Base64Encode(token);
+                    context.SaveChanges();
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         /// <summary>
         /// Xóa token login của admin khi admin logout
         /// Author       :   HoangNM - 15/08/2018 - create
