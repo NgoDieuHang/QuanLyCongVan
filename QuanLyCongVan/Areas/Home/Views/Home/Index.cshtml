@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HienThiCongVan>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    List<HienThiCongVan> list = new List<HienThiCongVan>();
+
+    if (Model != null)
+    {
+        list = Model.ToList();
+    }
+}
+
+@using QuanLyCongVan.Areas.Home.Models.Home.Schema
+@section css{
+    @Styles.Render("~/public/css/dispatchList")
+}
+@section scripts{
+
+}
+<div class="wd-section">
+    <div class="wd-block-left-content">
+        <h3 class="wd-title">
+            @*<span class="wd-icon-30 wd-icon-notify"></span>*@
+            "Thông tin - Thông báo"
+        </h3>
+        <div class="wd-tab-content">
+            <ul class="wd-list-notify">
+                @foreach (HienThiCongVan CongVan in list)
+                {
+                    <li>
+                        <div class="wd-notify">
+                            <div class="wd-notify-left">
+                                <span class="name"> @CongVan.NgayBanHanh.Day/@CongVan.NgayBanHanh.Month</span>
+                                <span class="number">@CongVan.NgayBanHanh.Year</span>
+                            </div>
+
+                            <div class="wd-notify-right">
+                                <p class="des">
+                                    <a href="@Url.RouteUrl("ChiTiet", new { id = CongVan.Id })"> @CongVan.TrichYeu</a>
+                                </p>
+                                <p class="time">@CongVan.NgayBanHanh.Date</p>
+                            </div>
+                        </div>
+                    </li>
+
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
