@@ -30,17 +30,16 @@ namespace QuanLyCongVan.Areas.Admin.Models
         /// Kiểm tra xem đã có acc đăng nhập chưa hoặc có quyền admin không
         /// </summary>
         /// <returns>
-        /// 0 nếu đăng nhập và không có quyền admin
-        /// 1 nếu đăng nhập và có quyền admin
-        /// 2 nếu chưa đăng nhập
+        /// 1 nếu đăng nhập
+        /// 0 nếu chưa đăng nhập
         /// </returns>
         public int CheckAccountAdmin()
         {
-            int check = 0;
+            int check = 1;
             Account account = XacThuc.GetAccount();
             if (account == null)
             {
-                check = 2;
+                check = 0;
             }
 
             return check;
