@@ -40,7 +40,7 @@ namespace QLCV.Common
         /// <returns>
         /// Chuỗi token.
         /// </returns>
-        public static string GetToken(int id, int length = 80)
+        public static string GetToken(long id, int length = 80)
         {
             string token = "";
             Random ran = new Random();

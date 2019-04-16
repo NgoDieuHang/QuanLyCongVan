@@ -14,6 +14,29 @@ namespace QuanLyCongVan.Areas.Admin
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
+
+            context.MapRoute(
+                "adminLogin",
+                "admin/login",
+                new { controller = "AdminLogin", action = "CheckAccountAdmin" }
+            );
+            context.MapRoute(
+                "adminCheckLogin",
+                "admin/check-login",
+                new { controller = "AdminLogin", action = "CheckAdminLogin" }
+            );
+
+            context.MapRoute(
+                "adminDashboard",
+                "admin/dashboard",
+                new { controller = "Dashboard", action = "Index" }
+            );
+
+            context.MapRoute(
+                "adminLogout",
+                "admin/logout",
+                new { controller = "AdminLogin", action = "Logout", id = UrlParameter.Optional }
+            );
             context.MapRoute(
                "ListOfDispatch",
                "admin/list-of-dispatch",
@@ -176,36 +199,35 @@ namespace QuanLyCongVan.Areas.Admin
                 "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
-
             //context.MapRoute(
             //"ListOfOrganization",
             //    "admin/list-of-organization",
             //    new { controller = "OrganizationManagement", action = "ListOfOrganization", id = UrlParameter.Optional }
             //);
 
-           // context.MapRoute(
-           //     "DeleteOrganizations",
-           //     "admin/list-of-organization/delete-organization",
-           //     new { controller = "OrganizationManagement", action = "DeleteOrganizations", id = UrlParameter.Optional }
-           // );
+            // context.MapRoute(
+            //     "DeleteOrganizations",
+            //     "admin/list-of-organization/delete-organization",
+            //     new { controller = "OrganizationManagement", action = "DeleteOrganizations", id = UrlParameter.Optional }
+            // );
 
-           // context.MapRoute(
-           //     "CreateOrganization",
-           //     "admin/create-organization",
-           //     new { controller = "OrganizationManagement", action = "ViewCreateOrganization", id = UrlParameter.Optional }
-           // );
+            // context.MapRoute(
+            //     "CreateOrganization",
+            //     "admin/create-organization",
+            //     new { controller = "OrganizationManagement", action = "ViewCreateOrganization", id = UrlParameter.Optional }
+            // );
 
-           // context.MapRoute(
-           //    "EditOrganization",
-           //    "admin/edit-organization/{id}",
-           //    new { controller = "OrganizationManagement", action = "ViewEditOrganization", id = UrlParameter.Optional }
-           //);
+            // context.MapRoute(
+            //    "EditOrganization",
+            //    "admin/edit-organization/{id}",
+            //    new { controller = "OrganizationManagement", action = "ViewEditOrganization", id = UrlParameter.Optional }
+            //);
 
-           // context.MapRoute(
-           //     "SaveOrganization",
-           //     "admin/organization-master/save-organization",
-           //     new { controller = "OrganizationManagement", action = "SaveOrganization", id = UrlParameter.Optional }
-           // );
+            // context.MapRoute(
+            //     "SaveOrganization",
+            //     "admin/organization-master/save-organization",
+            //     new { controller = "OrganizationManagement", action = "SaveOrganization", id = UrlParameter.Optional }
+            // );
         }
     }
 }

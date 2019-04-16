@@ -175,11 +175,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminLoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\DocumentController.cs" />
     <Compile Include="Areas\Admin\Controllers\FeildDispatchController.cs" />
     <Compile Include="Areas\Admin\Controllers\TypeDispatchController.cs" />
+    <Compile Include="Areas\Admin\Models\AdminLoginManagement\Schema\Account.cs" />
     <Compile Include="Areas\Admin\Models\FeildOfDispatch\FeildDispatchMasterModel.cs" />
     <Compile Include="Areas\Admin\Models\FeildOfDispatch\ListFeildOfDispatchModel.cs" />
     <Compile Include="Areas\Admin\Models\FeildOfDispatch\Schema\FeildDispatch.cs" />
@@ -204,6 +206,7 @@
     <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\Organization.cs" />
     <Compile Include="Areas\Admin\Models\OrganizationManagement\Schema\OrganizationMaster.cs" />
     <Compile Include="Areas\Home\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Models\AdminLoginManagement\AdminLoginModel.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
     <Compile Include="Areas\Home\Models\Home\HomeModel.cs" />
     <Compile Include="Areas\Home\Models\Home\Schema\HienThiCongVan.cs" />
@@ -5056,8 +5059,11 @@
     <Content Include="Areas\Home\Views\Home\Index.cshtml" />
     <Content Include="Areas\Home\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Home\Views\Home\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLogin\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />

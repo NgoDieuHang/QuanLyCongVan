@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="~/public/img/favicon.png">
+    <title>Đăng nhập Admin</title>
+    @Styles.Render("~/public/css/admin/login")
+</head>
+
+<body class="login">
+    <div>
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+
+                    <form id="form-admin-login" action="@Url.RouteUrl("adminCheckLogin")" method="post">
+                        <div class="form-container">
+                            <div class="box-select">
+                                <h1>Đăng nhập Admin</h1>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <input type="text" name="Username" id="Username" class="form-control required" maxlength="50" tabindex="1" placeholder="Tên đăng nhập" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <input type="password" name="Password" id="Password" class="form-control required" maxlength="50" tabindex="2" placeholder="Mật Khẩu" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="class=" contact100-form-checkbox"">
+                                        <label class="custom-check">
+                                            <input type="checkbox" id="Remember" value="1" tabindex="3">
+                                            <span class="checkmark"><span class="check"></span></span>
+                                            <span class="text-login">Ghi nhớ đăng nhập</span>
+                                        </label>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button type="button" id="btn-admin-login" tabindex="5">Đăng nhập</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <p>©2018 All Rights Reserved</p>
+                                <a href="" target="_blank">Điều khoản sử dụng</a>
+                                và
+                                <a href="" target="_blank">Chính sách bảo mật</a>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div id="call-ajax-fade">
+    </div>
+    <div id="call-ajax-content">
+        <img src="~/public/img/common/page-loader.gif" class="img-loading-ajax" alt="loading" />
+    </div>
+    @Scripts.Render("~/public/js/admin/login")
+</body>
+</html>
+
+
+
+
