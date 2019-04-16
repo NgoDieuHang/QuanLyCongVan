@@ -1,9 +1,13 @@
-﻿using QuanLyCongVan.Areas.Admin.Models;
+﻿using QLCV.Common;
+using QuanLyCongVan.Areas.Admin.Models;
+using QuanLyCongVan.Areas.Admin.Models.AdminLoginManagement.Schema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static QLCV.Common.Enum.ConstantsEnum;
+using static QLCV.Common.Enum.MessageEnum;
 
 namespace QuanLyCongVan.Areas.Admin.Controllers
 {
@@ -19,6 +23,7 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         /// <remarks>
         /// RouterName: adminLogin
         public ActionResult CheckAccountAdmin()
+
 
         {
             int check = new AdminLoginModel().CheckAccountAdmin();
@@ -41,28 +46,28 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         /// Method: POST
         /// RouterName: homeCheckLogin
         /// </remarks>
-        //public ActionResult CheckAdminLogin(Account account)
-        //{
-        //    ResponseInfo response = new ResponseInfo();
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            response = new AdminLoginModel().CheckAdminLogin(account);
-        //        }
-        //        else
-        //        {
-        //            return View("Index");
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        response.Code = (int)CodeResponse.ServerError;
-        //        response.MsgNo = (int)MsgNO.ServerError;
-        //        response.ThongTinBoSung1 = e.Message;
-        //    }
-        //    return Json(response, JsonRequestBehavior.AllowGet);
-        //}
+        public ActionResult CheckAdminLogin(Account account)
+        {
+            ResponseInfo response = new ResponseInfo();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    response = new AdminLoginModel().CheckAdminLogin(account);
+                }
+                else
+                {
+                    return View("Index");
+                }
+            }
+            catch (Exception e)
+            {
+                response.Code = (int)CodeResponse.ServerError;
+                response.MsgNo = (int)MsgNO.ServerError;
+                response.ThongTinBoSung1 = e.Message;
+            }
+            return Json(response, JsonRequestBehavior.AllowGet);
+        }
 
         /// <summary>
         /// Điều hướng việc logout khỏi hệ thống.

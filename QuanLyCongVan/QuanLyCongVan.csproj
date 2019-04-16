@@ -5049,11 +5049,11 @@
     <Content Include="public\dispatch-file\20190102204727_test.pdf" />
     <Content Include="public\dispatch-file\20190102213333_test.pdf" />
     <Content Include="public\dispatch-file\aaaaaaa.pdf" />
+    <Content Include="Areas\Admin\Views\AdminLogin\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminLogin\Index.cshtml" />
     <None Include="public\js\common\jquery.validate-vsdoc.js" />
     <Content Include="public\js\common\jquery.validate.js" />
     <Content Include="public\js\common\jquery.validate.unobtrusive.js" />
