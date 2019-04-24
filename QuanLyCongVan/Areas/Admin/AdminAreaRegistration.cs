@@ -156,6 +156,13 @@ namespace QuanLyCongVan.Areas.Admin
                 "admin/edit-dispatch/{id}",
                 new { controller = "DispatchManagement", action = "ToViewEdit", id = UrlParameter.Optional }
             );
+
+            context.MapRoute(
+                "DetailDispatch",
+                "admin/detail-dispatch/{id}",
+                new { controller = "DispatchManagement", action = "DetailDispatch", id = UrlParameter.Optional }
+                        );
+
             context.MapRoute(
                 "SaveDispatch",
                 "admin/save-dispatch/{id}",
@@ -194,40 +201,41 @@ namespace QuanLyCongVan.Areas.Admin
                 new { controller = "FeildDispatch", action = "SaveFeildDispatch", id = UrlParameter.Optional }
             );
 
+
+
+            context.MapRoute(
+                "DeleteAccount",
+                "admin/delete-account/{id}",
+                new { controller = "Accounts", action = "DeleteConfirmed", id = UrlParameter.Optional }
+            );
+
+
+            context.MapRoute(
+                "CreateAccount",
+                "admin/create-account",
+                new { controller = "Accounts", action = "Index", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+                "EditAccount",
+                "admin/edit-account/{id}",
+                new { controller = "Accounts", action = "Index", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+                "SaveAccount",
+                "admin/save-account",
+                new { controller = "Accounts", action = "Index", id = UrlParameter.Optional }
+            );
+
+
+
+
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
-            //context.MapRoute(
-            //"ListOfOrganization",
-            //    "admin/list-of-organization",
-            //    new { controller = "OrganizationManagement", action = "ListOfOrganization", id = UrlParameter.Optional }
-            //);
-
-            // context.MapRoute(
-            //     "DeleteOrganizations",
-            //     "admin/list-of-organization/delete-organization",
-            //     new { controller = "OrganizationManagement", action = "DeleteOrganizations", id = UrlParameter.Optional }
-            // );
-
-            // context.MapRoute(
-            //     "CreateOrganization",
-            //     "admin/create-organization",
-            //     new { controller = "OrganizationManagement", action = "ViewCreateOrganization", id = UrlParameter.Optional }
-            // );
-
-            // context.MapRoute(
-            //    "EditOrganization",
-            //    "admin/edit-organization/{id}",
-            //    new { controller = "OrganizationManagement", action = "ViewEditOrganization", id = UrlParameter.Optional }
-            //);
-
-            // context.MapRoute(
-            //     "SaveOrganization",
-            //     "admin/organization-master/save-organization",
-            //     new { controller = "OrganizationManagement", action = "SaveOrganization", id = UrlParameter.Optional }
-            // );
         }
     }
 }

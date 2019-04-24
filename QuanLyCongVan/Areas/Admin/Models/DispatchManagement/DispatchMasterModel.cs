@@ -25,6 +25,10 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
             typeFiles = new List<string>();
             typeFiles.Add(".pdf");
             typeFiles.Add(".doc");
+            typeFiles.Add(".png");
+            typeFiles.Add(".jpg");
+            typeFiles.Add(".xls");
+            typeFiles.Add(".xlsx");
         }
 
         public DispatchData GetDispatchData()
@@ -137,7 +141,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                             IdLoaiVanBan = dispatch.IdLoaiVanBan,
                             NgayBanHanh = dispatch.NgayBanHanh,
                             NgayCongVanDen = dispatch.NgayCongVanDen,
-                            NoiDung = dispatch.NoiDung,
+                            NoiDung = "",
                             SoCongVanDen = dispatch.SoCongVanDen,
                             SoKyHieu = dispatch.SoKyHieu,
                             TrichYeu = dispatch.TrichYeu,
@@ -197,7 +201,7 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                             IdLoaiVanBan = dispatch.IdLoaiVanBan,
                             NgayBanHanh = dispatch.NgayBanHanh,
                             NgayCongVanDen = dispatch.NgayCongVanDen,
-                            NoiDung = dispatch.NoiDung,
+                            NoiDung = "",
                             SoCongVanDen = dispatch.SoCongVanDen,
                             SoKyHieu = dispatch.SoKyHieu,
                             TrichYeu = dispatch.TrichYeu,

@@ -20,7 +20,7 @@
 }
 <div class="page-title">
     <div class="title_left">
-        <h3>@(isInsert ? "Edit new dispatch" : "Create dispatch")</h3>
+        <h3>@(isInsert ? "Cập nhật thông tin công văn" : "Thêm mới công văn")</h3>
     </div>
 </div>
 <div class="clearfix"></div>
@@ -28,7 +28,7 @@
     <div class="col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Information</h2>
+                <h2>Thông tin chi tiết</h2>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
@@ -131,10 +131,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="NoiDung">Nội dung<span class="text-required">*</span></label>
-                        <textarea class="form-control required" maxlength="1000" tabindex="10" name="NoiDung" id="NoiDung" placeholder="Nội dung" rows="10">@(isInsert ? dispatch.NoiDung : "")</textarea>
-                    </div>
-                    <div class="form-group">
                         <label for="FilePath">File đính kèm<span class="text-required">*</span></label>
                         @if (isInsert)
                         {
@@ -146,7 +142,7 @@
                                 <button type="button" class="btn btn-primary" tabindex="11">
                                     <i class="fa fa-upload" aria-hidden="true"></i>
                                 </button>
-                                <input type="file" class="file fileImg" name="FileAttach" id="FileAttach" id-view="FilePath" err-idx="0" accept=".doc,.pdf" />
+                                <input type="file" class="file fileImg" name="FileAttach" id="FileAttach" id-view="FilePath" err-idx="0" accept=".doc,.pdf,.png,.jpg,.xls,.xlsx" />
                             </span>
                         </div>
                     </div>

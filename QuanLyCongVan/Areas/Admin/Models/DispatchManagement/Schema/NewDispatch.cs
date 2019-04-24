@@ -40,7 +40,6 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema
         [StringLength(500)]
         public string TrichYeu { get; set; }
 
-        [Required]
         [StringLength(500)]
         public string NoiDung { get; set; }
 

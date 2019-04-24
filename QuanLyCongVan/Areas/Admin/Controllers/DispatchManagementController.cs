@@ -1,10 +1,12 @@
 ﻿using QLCV.Common;
 using QLCV.Common.Enum;
+using QLCV.Database;
 using QLCV.Validate;
 using QuanLyCongVan.Areas.Admin.Models.DispatchManagement;
 using QuanLyCongVan.Areas.Admin.Models.DispatchManagement.Schema;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using static QLCV.Common.Enum.ConstantsEnum;
 using static QLCV.Common.Enum.MessageEnum;
@@ -110,6 +112,26 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
             }
             ViewBag.Dispatch = dispatch;
             return View("DispatchMaster");
+        }
+
+        /// <summary>
+        /// Điều hướng đến trang chi tiết công văn.
+        /// Author       :   AnTM - 04/20/2019 - create
+        /// </summary>
+        /// <returns>Điều hướng đến trang chi tiết công văn.</returns>
+        /// <remarks>
+        /// Method: GET
+        /// RouterName: DetailDispatch
+        /// </remarks>
+        public ActionResult DetailDispatch(string id)
+        {
+            int idConvert = Convert.ToInt32(id);
+            var dispatch = new DataContext().CongVans.FirstOrDefault(x=>x.Id == idConvert);
+            if (dispatch == null)
+            {
+                return RedirectToAction("ListOfDispatch");
+            }
+            return View(dispatch);
         }
 
         /// <summary>

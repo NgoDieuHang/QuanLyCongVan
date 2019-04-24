@@ -175,6 +175,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\DispatchManagementController.cs" />
@@ -215,7 +216,8 @@
     <Compile Include="Controllers\BaseAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile><!--
+    </Compile>
+    <!--
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -5041,7 +5043,6 @@
     <Content Include="public\js\common\jquery.error-style.js" />
     <Content Include="public\js\common\jquery.unobtrusive-ajax.js" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DispatchManagement\DispatchMaster.cshtml" />
     <Content Include="Areas\Admin\Views\Document\DocumentMaster.cshtml" />
     <Content Include="Areas\Admin\Views\Document\ListOfDocument.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
@@ -5069,6 +5070,8 @@
     <Content Include="Areas\Error\Views\Error\NotFound.cshtml" />
     <Content Include="Areas\Error\Views\Error\ServerError.cshtml" />
     <Content Include="Areas\Error\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Accounts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DispatchManagement\DetailDispatch.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />

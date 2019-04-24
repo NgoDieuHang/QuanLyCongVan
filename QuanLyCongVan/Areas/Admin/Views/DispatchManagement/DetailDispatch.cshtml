@@ -1,0 +1,134 @@
+﻿@model QLCV.Database.CongVan
+
+@{
+    ViewBag.Title = "DetailDispatch";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var dispatch = Model;
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>Chi tiết công văn</h3>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Thông tin chi tiết</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal input_mask" id="form-dispatch-main" enctype="multipart/form-data" action="@Url.RouteUrl("SaveDispatch")" accept-charset="UTF-8" method="post">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="SoKyHieu">Số ký hiệu:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="SoKyHieu">@dispatch.SoKyHieu</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-4 col-sm-4 col-xs-6">
+                            <label for="NgayBanHanh" class="white-label">Ngày ban hành:</label>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="SoKyHieu">@dispatch.NgayBanHanh.ToString("dd/MM/yyyy")</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="IdLoaiVanBan">Loại văn bản:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="IdLoaiVanBan">@dispatch.LoaiVanBan.TenLoaiVanBan</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="IdLoaiCongVan">Loại công văn:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="IdLoaiCongVan">@dispatch.LoaiCongVan.TenLoaiCongVan</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="SoCongVanDen">Số công văn đến:</label>
+                            </div>
+                        </div>
+                        <div class=" col-md-4 col-sm-4 col-xs-6">
+                            <label for="NgayCongVanDen"> @dispatch.SoCongVanDen.ToString()</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="SoCongVanDen">Ngày công văn đến:</label>
+                            </div>
+                        </div>
+                        <div class=" col-md-4 col-sm-4 col-xs-6">
+                            <label for="NgayCongVanDen">@dispatch.NgayCongVanDen.ToString()</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="SoCongVanDen">Cơ quan ban hành:</label>
+                            </div>
+                        </div>
+                        <div class=" col-md-4 col-sm-4 col-xs-6">
+                            <label for="NgayCongVanDen">@dispatch.CoQuanBanHanh.TenCoQuanBanHanh</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="SoCongVanDen">Lĩnh vực:</label>
+                            </div>
+                        </div>
+                        <div class=" col-md-4 col-sm-4 col-xs-6">
+                            <label for="NgayCongVanDen">@dispatch.LinhVuc.TenLinhVuc</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="SoCongVanDen">Trích yếu:</label>
+                            </div>
+                        </div>
+                        <div class=" col-md-4 col-sm-4 col-xs-6">
+                            <label for="NgayCongVanDen">@dispatch.TrichYeu</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label for="SoCongVanDen">File đính kèm:</label>
+                            </div>
+                        </div>
+                        <div class=" col-md-4 col-sm-4 col-xs-6">
+                            <a target="_blank" href="@(dispatch.FilePath)">Tải xuống</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

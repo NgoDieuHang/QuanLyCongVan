@@ -105,18 +105,18 @@ namespace QuanLyCongVan.Areas.Admin.Models.DispatchManagement
                     .Take(listOfDispatch.Paging.NumberOfRecord).Select(x => new Schema.Dispatch
                     {
                         Id = x.Id,
-                        SoKyHieu=x.SoKyHieu,
-                        TenLoaiVanBan=x.LoaiVanBan.TenLoaiVanBan,
-                        TenCoQuanBanHanh=x.CoQuanBanHanh.TenCoQuanBanHanh,
-                        TenLoaiCongVan=x.LoaiCongVan.TenLoaiCongVan,
-                        SoCongVanDen=x.SoCongVanDen,
-                        NgayCongVanDen=x.NgayCongVanDen,
-                        NgayBanHanh=x.NgayBanHanh,
-                        TenLinhVuc=x.LinhVuc.TenLinhVuc,
-                        TrichYeu=x.TrichYeu,
-                        NoiDung=x.NoiDung,
-                        FilePath=x.FilePath
-                    }).ToList();
+                        SoKyHieu = x.SoKyHieu,
+                        TenLoaiVanBan = x.LoaiVanBan.TenLoaiVanBan,
+                        TenCoQuanBanHanh = x.CoQuanBanHanh.TenCoQuanBanHanh,
+                        TenLoaiCongVan = x.LoaiCongVan.TenLoaiCongVan,
+                        SoCongVanDen = x.SoCongVanDen,
+                        NgayCongVanDen = x.NgayCongVanDen,
+                        NgayBanHanh = x.NgayBanHanh,
+                        TenLinhVuc = x.LinhVuc.TenLinhVuc,
+                        TrichYeu = x.TrichYeu,
+                        NoiDung = x.NoiDung,
+                        FilePath = x.FilePath
+                    }).OrderByDescending(x => x.NgayBanHanh).ToList();
                 listOfDispatch.Condition = condition;
                 return listOfDispatch;
             }

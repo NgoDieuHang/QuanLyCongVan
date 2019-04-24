@@ -104,6 +104,10 @@
     <Compile Include="Migrations\201904151622270_addTblCauHinh.Designer.cs">
       <DependentUpon>201904151622270_addTblCauHinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904240904196_removeContentRequired.cs" />
+    <Compile Include="Migrations\201904240904196_removeContentRequired.Designer.cs">
+      <DependentUpon>201904240904196_removeContentRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Schema\Account.cs" />
     <Compile Include="Schema\CauHinh.cs" />
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904151622270_addTblCauHinh.resx">
       <DependentUpon>201904151622270_addTblCauHinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904240904196_removeContentRequired.resx">
+      <DependentUpon>201904240904196_removeContentRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

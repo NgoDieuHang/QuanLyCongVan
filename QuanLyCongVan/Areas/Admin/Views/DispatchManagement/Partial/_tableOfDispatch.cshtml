@@ -17,52 +17,53 @@
                     </th>
                     <th class="text-center">Sửa</th>
                     <th class="text-center">Số kí hiệu</th>
-                    <th class="text-center">Tên cơ quan ban hành</th>
-                    <th class="text-center">Loại công văn</th>
-                    <th class="text-center">Ngày ban hành</th>
                     <th class="text-center">Trích yếu</th>
-                    <th class="text-center">File</th>
+                    <th class="text-center">Ngày ban hành</th>
+                    <th class="text-center">Loại công văn</th>
+                    <th class="text-center">Sô công văn đến</th>
+                    <th class="text-center">Ngày công văn đến</th>
                     <th class="text-center">Xóa</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (Dispatch dispatch in dispatchList)
                 {
-                <tr>
-                    <td class="text-center middle col-checkbox">
-                        <input type="checkbox" class="flat check-item" name="check-remove" id-del="@dispatch.Id">
-                    </td>
-                    <td class="text-center middle">
-                        <a href="@Url.RouteUrl("EditDispatch", new { id = dispatch.Id })">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                    <td class="text-center">
-                        @Html.Raw(dispatch.SoKyHieu.Replace("\n", "<br/>"))
-                    </td>
-                    <td class="">
-                        @Html.Raw(dispatch.TenCoQuanBanHanh.Replace("\n", "<br/>"))
-                    </td>
-                    <td class="text-center">
-                        @Html.Raw(dispatch.TenLoaiCongVan)
-                    </td>
-                    <td class="text-center">
-                        @Html.Raw(String.Format("{0:dd/MM/yyyy}", dispatch.NgayBanHanh))
-                    </td>
-                    <td class="">
-                        @Html.Raw(dispatch.TrichYeu.Replace("\n", "<br/>"))
-                    </td>
-                    <td class="text-center middle">
-                        <a href="@dispatch.FilePath" target="_blank">
-                            Tải xuống
-                        </a>
-                    </td>
-                    <td class="text-center middle">
-                        <button type="button" class="btn btn-xs btn-danger btn-delete" id-del="@dispatch.Id">
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                        </button>
-                    </td>
-                </tr>
+                    <tr>
+                        <td class="text-center middle col-checkbox">
+                            <input type="checkbox" class="flat check-item" name="check-remove" id-del="@dispatch.Id">
+                        </td>
+                        <td class="text-center middle">
+                            <a href="@Url.RouteUrl("EditDispatch", new { id = dispatch.Id })">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            @Html.Raw(dispatch.SoKyHieu.Replace("\n", "<br/>"))
+                        </td>
+                        <td class="">
+                            <a href="@Url.RouteUrl("DetailDispatch", new { id = dispatch.Id })">
+                                @Html.Raw(dispatch.TrichYeu.Replace("\n", "<br/>"))
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            @Html.Raw(String.Format("{0:dd/MM/yyyy}", dispatch.NgayBanHanh))
+                        </td>
+                        <td class="text-center">
+                            @Html.Raw(dispatch.TenLoaiCongVan)
+                        </td>
+                        <td class="text-center">
+                            @Html.Raw(dispatch.SoCongVanDen)
+                        </td>
+                        <td class="text-center">
+                            @Html.Raw(String.Format("{0:dd/MM/yyyy}", dispatch.NgayCongVanDen))
+                        </td>
+
+                        <td class="text-center middle">
+                            <button type="button" class="btn btn-xs btn-danger btn-delete" id-del="@dispatch.Id">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>

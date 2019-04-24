@@ -1,0 +1,100 @@
+﻿@model IEnumerable<QLCV.Database.Account>
+
+
+@{
+    ViewBag.Title = "ListOfDocument";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    List<QLCV.Database.Account> accounts = Model.ToList();
+}
+@using QuanLyCongVan.Areas.Admin.Models.DocumentManagement.Schema;
+@section css{
+    <link rel="stylesheet" type="text/css" href="~/public/assets/iCheck/skins/all.css">
+    @Styles.Render("~/public/css/admin/documentMaster")
+}
+@section scripts{
+    @Scripts.Render("~/public/js/admin/listOfDocument")
+}
+<div class="row">
+    <!-- start of weather widget -->
+    <div class="col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Danh sách người dùng</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link" tabindex="9"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content" id="div-table-slide">
+                <div class="table-responsive table-result" id="table-result" link-del="@Url.RouteUrl("DeleteAccount")" link-update-state="">
+                    <div class="table-responsive ">
+                        <div class="form-group">
+                            <a class="btn btn-success btn-create" href="@Url.RouteUrl("CreateDocument")">Thêm</a>
+                            <button type="button" class="btn btn-danger btn-delete-selected">Xóa tất cả</button>
+                        </div>
+
+                        <table class="table table-striped table-bordered jambo_table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center col-checkbox">
+                                        <input type="checkbox" id="check-all" class="flat">
+                                    </th>
+                                    <th class="text-center">Sửa</th>
+                                    <th class="text-center">Username</th>
+                                    <th class="text-center">Họ</th>
+                                    <th class="text-center">Tên</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Ngày sinh</th>
+                                    <th class="text-center">Xóa</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var account in accounts)
+                                {
+                                    <tr>
+                                        <td class="text-center middle col-checkbox">
+                                            <input type="checkbox" class="flat check-item" name="check-remove" id-del="@account.Id">
+                                        </td>
+                                        <td class="text-center middle">
+                                            <a href="@Url.RouteUrl("EditDocument", new { id = account.Id })">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                        <td class="">
+                                            @account.Username
+                                        </td>
+                                        <td class="">
+                                            @account.Ho
+                                        </td>
+                                        <td class="">
+                                            @account.Ten
+                                        </td>
+                                        <td class="">
+                                            @account.Email
+                                        </td>
+                                        <td class="">
+                                            @Html.Raw(String.Format("{0:dd/MM/yyyy}", account.NgaySinh))
+                                        </td>
+                                        <td class="delete text-center middle">
+                                            <button type="button" class="btn btn-xs btn-danger btn-delete" id-del="@account.Id">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-9 pr-0">
+                        <div class="div-pagination">
+                            <ul class="pagination"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

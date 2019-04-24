@@ -38,7 +38,6 @@ namespace QLCV.Database
         [StringLength(500)]
         public string TrichYeu { get; set; }
 
-        [Required]
         [StringLength(500)]
         public string NoiDung { get; set; }
 
