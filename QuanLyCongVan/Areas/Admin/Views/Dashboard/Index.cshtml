@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var now = DateTime.Now;
 }
 @section css{
 }
@@ -14,7 +15,19 @@
     <div class="col-md-9 col-sm-9 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>TheWeatherToday</h2>
+                @if (now.Hour >= 5 && now.Hour < 12)
+                {
+                    <h2>Good Morning!</h2>
+                }
+                else if (now.Hour >= 12 && now.Hour < 16)
+                {
+                    <h2>Good Afternoon!</h2>
+                }
+                else
+                {
+                    <h2>Good Night!</h2>
+                }
+
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -88,22 +101,16 @@
                 <div class="dashboard-widget-content dashboard_setting_list">
                     <ul class="quick-list dashboard_setting_icon">
                         <li>
-                            <i class="fa fa-image"></i><a href="#">AddSlide</a>
+                            <i class="fa fa-folder-open"></i><a href="@Url.RouteUrl("CreateDispatch")">Thêm mới công văn</a>
                         </li>
                         <li>
-                            <i class="fa fa-user"></i><a href="#">AddUser</a>
+                            <i class="fa fa-file"></i><a href="@Url.RouteUrl("CreateDocument")">Thêm mới loại văn bản</a>
                         </li>
-                        <li><i class="fa fa-file-image-o"></i><a href="#">addPhoto</a></li>
+                        <li><i class="fa fa-newspaper-o"></i><a href="@Url.RouteUrl("CreateTypeDispatch")"">Thêm mới loại công văn</a></li>
                         <li>
-                            <i class="fa fa-group"></i><a href="#">AddGroup</a>
+                            <i class="fa fa-line-chart"></i><a href="@Url.RouteUrl("CreateFeildDispatch")"">Thêm mới lĩnh vực</a>
                         </li>
-                        <li><i class="fa fa-newspaper-o"></i><a href="#">AddNew</a>
-                        <li>
-                            <i class="fa fa-graduation-cap"></i><a href="#">addCourse</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-exclamation-triangle"></i><a href="#">AddEror</a>
-                        </li>
+                        <li><i class="fa fa-university"></i><a href="@Url.RouteUrl("CreateOrganization")"">Thêm mới cơ quan ban hành</a>
                     </ul>
                 </div>
             </div>

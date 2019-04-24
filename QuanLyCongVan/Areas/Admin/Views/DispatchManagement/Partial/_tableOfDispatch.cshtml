@@ -18,7 +18,7 @@
                     <th class="text-center">Sửa</th>
                     <th class="text-center">Số kí hiệu</th>
                     <th class="text-center">Tên cơ quan ban hành</th>
-                    <th class="text-center">Ngày công văn đến</th>
+                    <th class="text-center">Loại công văn</th>
                     <th class="text-center">Ngày ban hành</th>
                     <th class="text-center">Trích yếu</th>
                     <th class="text-center">File</th>
@@ -44,7 +44,7 @@
                         @Html.Raw(dispatch.TenCoQuanBanHanh.Replace("\n", "<br/>"))
                     </td>
                     <td class="text-center">
-                        @Html.Raw(String.Format("{0:dd/MM/yyyy}", dispatch.NgayCongVanDen))
+                        @Html.Raw(dispatch.TenLoaiCongVan)
                     </td>
                     <td class="text-center">
                         @Html.Raw(String.Format("{0:dd/MM/yyyy}", dispatch.NgayBanHanh))

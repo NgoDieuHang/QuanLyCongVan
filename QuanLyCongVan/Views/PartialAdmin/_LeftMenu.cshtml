@@ -1,10 +1,10 @@
 ﻿@{
-
+    var account = QLCV.Common.XacThuc.GetAccount();
 }
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="#" class="user-profile site_title "><img src="~/public/img/favicon.png" alt="..."> <span id="text-logo">IPro-Admin</span></a>
+            <a href="@Url.RouteUrl("Admin")" class="user-profile site_title "><span id="text-logo">Quản lý công văn</span></a>
         </div>
         <div class="clearfix"></div>
         <!-- menu profile quick info -->
@@ -13,8 +13,7 @@
                 <img src="~/public/img/layout-admin/img.jpg" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-                <span>Welcome</span>
-                MINH AN
+                <span>Welcome @account.Username!</span>
             </div>
         </div>
         <!-- /menu profile quick info -->
