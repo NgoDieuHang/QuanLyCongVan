@@ -23,18 +23,12 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
         /// <remarks>
         /// RouterName: adminLogin
         public ActionResult CheckAccountAdmin()
-
-
         {
             int check = new AdminLoginModel().CheckAccountAdmin();
             if (check == 1)
                 return RedirectToRoute("adminDashboard");
             else
-                if (check == 0)
-                return RedirectToRoute("errorNotAccess");
-            return View("Index");
-
-
+                return View("Index");
         }
         /// <summary>
         /// Xác thực thông tin người dùng gửi lên.
@@ -71,7 +65,7 @@ namespace QuanLyCongVan.Areas.Admin.Controllers
 
         /// <summary>
         /// Điều hướng việc logout khỏi hệ thống.
-        /// Author       :   HoangNM - 15/08/2018 - create
+        /// Author       :   HangNTD - 15/08/2018 - create
         /// </summary>
         /// <returns>Trở về lại trang login, trả về trang error nếu có lỗi</returns>
         /// <remarks>
